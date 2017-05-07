@@ -1,10 +1,19 @@
-* {
-	color: blue;
-}
-
+/*   H T M L  T A G S   */
 
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
 }
+
+/*   C L A S S E S   */
+
+.feature {}
+
+.normal {}
+
+/*   I D S   */
+
+/*   C O M P O N E N T S   */
+
+/*   A N I M A T I O N   */

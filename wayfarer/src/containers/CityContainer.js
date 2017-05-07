@@ -6,7 +6,9 @@ class CityContainer extends Component {
 	constructor() {
 		super();
 		this.state = {
-			cities: []
+			cities: [{_id: 1231, name: 'SanFrancisco', imgURL: 'http://whatever', type: 'feature'}]
+			// need to pull in all city objects data from API
+			// e.g. {name: 'SanFrancisco', imgURL: 'http://whatever', type: 'feature'}
 		}
 	}
 
@@ -14,7 +16,9 @@ class CityContainer extends Component {
 
 		return(
 
-			<CityList />	
+			<CityList 
+				cities={this.state.cities}
+			/>	
 
 		)
 	}
