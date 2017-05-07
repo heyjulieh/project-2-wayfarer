@@ -1,16 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Home from './views/Home';
-import CityPostPage from './views/CityPostPage';
-import PostPage from './views/PostPage';
-
-// import bootstrap and styles
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap-theme.css';
-
-
+import {Router, browserHistory} from 'react-router'
+import routes from './config/routes.js'
 
 ReactDOM.render(
-  <Home />,
+  <Router routes={routes} history={browserHistory}/>,
   document.getElementById('root')
 );
