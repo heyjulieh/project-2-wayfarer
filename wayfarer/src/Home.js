@@ -6,7 +6,7 @@ import Footer from './components/Footer'
 
 import {NavBar, Jumbotron, Button} from 'react-bootstrap'
 
-class App extends Component {
+class Home extends Component {
   render() {
     return (
     <div> 
@@ -19,4 +19,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Home;

@@ -6,7 +6,7 @@ class City extends Component {
 
 		return(
 
-			<div className="cityCardImage">
+			<div className="cityCard">
 				<img src={this.props.city.imgURL}></img>
 				<h3>{this.props.city.name}</h3>
 			</div>	
