@@ -1,12 +1,12 @@
 import React from 'react'
 import {Route} from 'react-router'
-import App from '../App'
-import CityContainer from '../containers/CityContainer'
-import PostsContainer from '../containers/PostsContainer'
+import Home from '../Home'
+import CityPostPage from '../views/CityPostPage'
+import PostPage from '../views/PostPage'
 
 module.exports = (
-  <Route path='/' component={App}>
-    <Route path=`/cities/city/${_cityId}` component={CityContainer}/>
-    <Route path=`/cities/city/${_cityId}/${_postId}` component={PostsContainer}/>
+  <Route path='/' component={Home}>
+    <Route path='/cities/:name' component={CityPostPage}/>
+    <Route path='/cities/:name/posts/:_postId' component={PostPage}/>
   </Route>
 )
