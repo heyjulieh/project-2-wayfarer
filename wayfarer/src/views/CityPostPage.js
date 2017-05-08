@@ -6,7 +6,7 @@ import Footer from '../components/Footer'
 import CreatePostForm from '../components/CreatePostForm'
 
 
-document.getElementsByTagName('link')[1].href = '/css/index.css'
+// document.getElementsByTagName('link')[1].href = 'css/index.css'
 
 class CityPostPage extends Component {
 
