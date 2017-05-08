@@ -12,6 +12,6 @@ var PostSchema = new Schema({
 	date: Date
 })
 
-var Posts = mongoose.model('Posts', PostSchema);
+var Posts = mongoose.model('Posts', PostsSchema);
 
 module.exports = Posts;
