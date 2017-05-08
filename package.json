@@ -1,0 +1,21 @@
+{
+  "name": "project-2-wayfarer",
+  "version": "1.0.0",
+  "description": "Wayfarer Travel React App",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heyjulieh/project-2-wayfarer.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/heyjulieh/project-2-wayfarer/issues"
+  },
+  "homepage": "https://github.com/heyjulieh/project-2-wayfarer#readme"
+}
