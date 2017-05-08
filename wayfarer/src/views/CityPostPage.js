@@ -1,5 +1,3 @@
-console.log('made it to CityPostPage')
-
 import React, { Component } from 'react';
 import Nav from '../components/Nav'
 import Hero from '../components/Hero'
@@ -16,7 +14,6 @@ class CityPostPage extends Component {
       <Nav />
       <Hero />
       <PostsContainer />
-      <h1>TESTING POST ROUTE</h1>
       <Footer />
     </div>
     )
