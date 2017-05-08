@@ -12,7 +12,7 @@ class CreatePostForm extends Component {
       date: Date.now()
     };
     this.handleInputChange = this.handleInputChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleNewPostSubmit = this.handleNewPostSubmit.bind(this);
   }
 
   handleInputChange(e) {
@@ -39,31 +39,41 @@ class CreatePostForm extends Component {
 
   }
 
-  // handleTextChange(e) {
-  // 	  	console.log('handleTextChange ', handleTextChange)
 
-  //   this.setState({ text: e.target.value });
-  // }
+  handleNewPostSubmit(e) {
 
-  // handleSubmit(e) {
-  // 	  	console.log('handleSubmit ', handleSubmit)
+    e.preventDefault();
+    //we will be tying this into the POST method in a bit
+    let userImg = this.state.userImg.trim();
+    let user = this.state.user.trim();
+    let cityName = this.state.cityName.trim();
+    let title = this.state.title.trim();
+    let text = this.state.text.trim();
+    if (!userImg || !user || !cityName || !title || !text) {
+      return;
+    }
+    this.props.onCreatePostFormSubmit(
+    {	userImg: userImg, 
+    	user: user,
+    	cityName: cityName,
+    	title: title,
+    	text: text 
+    });
+    this.setState(
+    {	userImg: userImg, 
+    	user: user,
+    	cityName: cityName,
+    	title: title,
+    	text: text 
+    });
 
-  //   e.preventDefault();
-  //   console.log(`${this.state.author} said "${this.state.text}"`)
-  //   //we will be tying this into the POST method in a bit
-  //   let author = this.state.author.trim();
-  //   let text = this.state.text.trim();
-  //   if (!text || !author) {
-  //     return;
-  //   }
-  //   this.props.onCommentSubmit({ author: author, text: text });
-  //   this.setState({ author: '', text: '' });
-  // }
+    console.log(this.state);
+  }
 
   render() {
     return (
 
-	    <form onSubmit={ this.handleSubmit }>
+	    <form onSubmit={ this.handleNewPostSubmit }>
 	        <input
 	          type='text'
 	          name='userImg'

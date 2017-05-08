@@ -16,7 +16,6 @@ class CityPostPage extends Component {
       <Nav />
       <Hero />
       <PostsContainer />
-      <CreatePostForm />
       <Footer />
     </div>
     )
