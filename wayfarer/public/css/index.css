@@ -143,11 +143,12 @@ nav ul li {
 
 .Jumbotron {
   background-image: url('../images/cities/homepage.jpg');
-  z-index: -1;
   top: 0;
   left: 0;
   width: 100%;
+  min-height: 600px;
   height: 80vh;
+  margin-bottom: 80px;
 }
 
 .JumbotronText {
