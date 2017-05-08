@@ -44,7 +44,7 @@ function update(req, res) {
 	});
 };
 
-module.export = {
+module.exports = {
 	index: index,
 	show: show,
 	create: create,

@@ -7,52 +7,47 @@ function index(req,res) {
         endpoint: [
             {
             method: 'GET',
-            path: `/api`,
-            description: 'shows this!'
+            path: '/api',
+            description: 'shows everything!'
             },
             {
             method: 'GET',
-            path: `/api/city`,
+            path: '/api/cities',
             description: 'shows all city as JSON'
             },
             {
             method: 'GET',
-            path: `/api/city/${city_id}`,
+            path: '/api/cities/:cityId',
             description: 'shows req.param.id specific city as JSON'
             },
             {
             method: 'GET',
-            path: `/api/posts`,
-            description: 'shows all posts as JSON'
+            path: '/api/cities/:cityId/posts/:postId',
+            description: 'shows req.param.id specific post as JSON'
             },
             {
             method: 'GET',
-            path: `/api/${posts._id}`,
-            description: 'shows req.param.id specific lyric as JSON'
-            },
-            {
-            method: 'GET',
-            path: `/api/city/${city._id}/${posts._id}`,
+            path: '/api/cities/:cityId/posts/:postId',
             description: 'shows req.param.city and posts as JSON'
             },           
             {
             method: 'POST',
-            path: `/api/city/${city._id}/${posts._id}`,
+            path: '/api/cities/:cityId/posts/:postId',
             description: 'creates posts'
             },
             {
             method: 'PUT',
-            path: `/api/city/${city._id}/${posts._id}`,
+            path: '/api/cities/:cityId/posts/:postId',
             description: 'updates posts'
             },
             {
             method: 'DELETE',
-            path: `/api/city/${city._id}/${posts._id}`,
+            path: '/api/cities/:cityId/posts/:postId',
             description: 'deletes posts'
             }
-          ]
-        });
-      }
+        ]
+    });
+}
 
     module.exports = {
       index: index

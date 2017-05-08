@@ -28,19 +28,20 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get(`/api`, controllers.api.index);
-app.get(`/api/city`, controllers.city.index);
-app.get(`/api/city/${city_id}`, controllers.city.show);
-app.get(`/api/posts`, controllers.posts.index);
-app.get(`/api/${posts._id}`, controllers.posts.show);
-app.get(`/api/city/${city._id}/${posts._id}`, controllers.city.posts.showOne);
-app.post(`/api/city/${city._id}/${posts._id}`, controllers.city.posts.create);
-app.delete(`/api/city/${city._id}/${posts._id}`, controllers.city.posts.destroy);
-app.put(`/api/city/${city._id}/${posts._id}`, controllers.posts.update);
+app.get('/api', controllers.api.index);
+app.get('/api/cities', controllers.city.index);
+app.get('/api/cities/:cityId', controllers.city.show);
+app.get('/api/cities/:cityId/posts', controllers.posts.index);
+app.get('/api/cities/:cityId/posts/:postId', controllers.posts.show);
+app.get('/api/cities/:cityId/posts/:postId', controllers.posts.showOne);
+app.post('/api/cities/:cityId/posts/:postId', controllers.posts.create);
+app.delete('/api/cities/:cityId/posts/:postId', controllers.posts.destroy);
+app.put('/api/cities/:cityId/posts/:postId', controllers.posts.update);
 
 
 //use router config when we call /API
 //start server
+var port = 3000;
 app.listen(port, function() {
     console.log(`api running on ${port}`);
 });
