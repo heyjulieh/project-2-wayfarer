@@ -5,11 +5,14 @@ import Footer from '../components/Footer'
 
 import {NavBar, Jumbotron, Button} from 'react-bootstrap'
 
+document.getElementsByTagName('link')[1].href = '/css/index.css'
+
 class PostPage extends Component {
 
   render() {
     return (
     <div> 
+      <link rel="stylesheet" type="text/css" href="./css/index.css" />
       <Nav />
       <PostDetailContainer />
       <Footer />

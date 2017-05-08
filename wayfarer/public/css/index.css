@@ -73,6 +73,13 @@ li {
 
 .normal {}
 
+.testAuthor {
+  
+  text-transform: uppercase;
+  color: red;
+
+}
+
 /*   I D S   */
 
 #logo {
