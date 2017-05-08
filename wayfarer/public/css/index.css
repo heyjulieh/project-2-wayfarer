@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo+Narrow|News+Cycle|Quattrocento+Sans|Questrial|Quicksand');
+
 /*   H T M L  T A G S   */
 
 body {
@@ -27,23 +29,33 @@ button {
 
 input {
   height: 25px;
+  width: 200px;
   border: none;
   margin-bottom: 20px;
+  padding-left: 5px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
+  font-family: 'Quicksand', sans-serif;
+  text-transform: uppercase;
 }
 
 a {
+  display: inline-block;
+  height: 30px;
   text-decoration: none;
+  text-transform: uppercase;
   color: white;
+  font-family: 'Quatrocentro Sans', sans-serif;
 }
 
 a:hover {
-  display: inline-block;
+  display: block;
   height: 30px;
-  background-color: green;
   color: white;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
 }
+
 
 /*   C L A S S E S   */
 
@@ -53,11 +65,20 @@ a:hover {
 
 /*   I D S   */
 
+#logo {
+  margin-top: 20px;
+  margin-left: 15px;
+  margin-right: 20px;
+  display: inline-block;
+  float: left;
+  clear: both;
+}
+
 #navlist {
   display: inline-block;
   list-style: none;
   margin-right: 20px;
-  margin-top: 20px;
+  margin-top: 15px;
   margin-left: 5px;
   padding: 5px;
   float: left;
@@ -69,7 +90,7 @@ a:hover {
   display: inline-block;
   float: right;
   clear: both;
-  margin-top: -40px;
+  margin-top: -45px;
   height: 30px;
   vertical-align: middle;
 }

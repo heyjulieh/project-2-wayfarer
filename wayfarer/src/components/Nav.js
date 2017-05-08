@@ -12,7 +12,8 @@ class Nav extends Component {
 		return(
 
 			<nav>
-				<div id="logo">
+				<div id="navbar">
+				<img src="http://theinspirationroom.com/daily/design/2015/9/google_travel_logo.png" height="50px" id="logo"/>
 					<ul id="navlist">
 						<li id="navlist"><a href="#">Page One</a></li>
 						<li id="navlist"><a href="#">Page Two</a></li>
