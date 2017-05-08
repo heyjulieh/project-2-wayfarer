@@ -7,23 +7,6 @@ function index(req, res) {
 	});
 };
 
-// POST
-
-function create(req, res) {
-	console.log('body', req.body);
-	var cityName = req.body.cityName;
-	var cityIMG = req.body.img;
-	var type = req.body.type;
-	var post = req.body.post;
-
-	db.Ciy.create(req.body, function(err, city) {
-		if(err) {
-			throw err;
-		}
-		res.json(city);
-	});
-};
-
 // GET
 
 function show(req, res) {
