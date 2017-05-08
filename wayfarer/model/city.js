@@ -3,13 +3,13 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var CitiesSchema = new Schema({
+var CitySchema = new Schema({
 	cityName: String,
 	cityIMG: String,
 	type: String,
 	post: String
 })
 
-var Cities = mongoose.model('Cities', CitiesSchema);
+var City = mongoose.model('City', CitySchema);
 
-module.exports = Restroom;
+module.exports = City;
