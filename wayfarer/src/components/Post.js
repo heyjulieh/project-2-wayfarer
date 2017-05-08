@@ -9,7 +9,7 @@ class Post extends Component {
 
 			<div className="postCard">
 				<img src={this.props.post.profileIMG}></img>
-				<h4>{this.props.post.author}</h4>
+				<h4 className="testAuthor">{this.props.post.author}</h4>
 				<p>{this.props.post.text}</p>
 				<h6>{this.props.post.date}</h6>
 			</div>	

@@ -3,8 +3,10 @@ import Nav from '../components/Nav'
 import Hero from '../components/Hero'
 import PostsContainer from '../containers/PostsContainer'
 import Footer from '../components/Footer'
+import CreatePostForm from '../components/CreatePostForm'
 
-import {NavBar, Jumbotron, Button} from 'react-bootstrap'
+
+document.getElementsByTagName('link')[1].href = '/css/index.css'
 
 class CityPostPage extends Component {
 

@@ -12,14 +12,19 @@ class Nav extends Component {
 		return(
 
 			<nav>
-				<div id="logo">Wayfarer</div>
-				<ul>
-					<li>Page One</li>
-					<li>Page Two</li>
-					<li>Page Three</li>
-				</ul>
-				<div id="searchBar">Search…</div>
-			</nav>		
+				<div id="navbar">
+				<img src="http://theinspirationroom.com/daily/design/2015/9/google_travel_logo.png" height="50px" id="logo"/>
+					<ul>
+						<li><a href="#">Page One</a></li>
+						<li><a href="#">Page Two</a></li>
+						<li><a href="#">Page Three</a></li>
+					</ul>
+				</div>
+				<div id="search">
+					<input id="searchBar" placeholder="Search..."></input>
+						<button id="searchButton searchBar"><span className="glyphicon glyphicon-search"></span></button>
+				</div>
+			</nav>
 
 		)
 	}

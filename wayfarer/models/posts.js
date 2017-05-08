@@ -3,10 +3,13 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var PostsSchema = new Schema({
-	date: String,
+var PostSchema = new Schema({
+	userImg: String,
 	user: String,
-	text: String
+	cityName: String,
+	title: String,
+	text: String,
+	date: Date
 })
 
 var Posts = mongoose.model('Posts', PostsSchema);
