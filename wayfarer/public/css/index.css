@@ -6,6 +6,45 @@ body {
   font-family: sans-serif;
 }
 
+nav {
+  height: 100px;
+  background-color: black;
+  opacity: 0.6;
+  color: white;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+button {
+  background-color: black;
+  height: 25px;
+  margin: 5px;
+  border: 1px;
+  border-color: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+input {
+  height: 25px;
+  border: none;
+  margin-bottom: 20px;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+a:hover {
+  display: inline-block;
+  height: 30px;
+  background-color: green;
+  color: white;
+}
+
 /*   C L A S S E S   */
 
 .feature {}
@@ -13,6 +52,27 @@ body {
 .normal {}
 
 /*   I D S   */
+
+#navlist {
+  display: inline-block;
+  list-style: none;
+  margin-right: 20px;
+  margin-top: 20px;
+  margin-left: 5px;
+  padding: 5px;
+  float: left;
+  height: 30px;
+  vertical-align: middle;
+}
+
+#search {
+  display: inline-block;
+  float: right;
+  clear: both;
+  margin-top: -40px;
+  height: 30px;
+  vertical-align: middle;
+}
 
 /*   C O M P O N E N T S   */
 
