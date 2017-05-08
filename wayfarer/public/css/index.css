@@ -40,7 +40,7 @@ input {
 }
 
 a {
-  display: inline-block;
+  display: block;
   height: 30px;
   text-decoration: none;
   text-transform: uppercase;
@@ -54,6 +54,16 @@ a:hover {
   color: white;
   border-bottom-width: 1px;
   border-bottom-style: solid;
+}
+
+footer {
+  height: 250px;
+  background-color: darkgrey;
+  padding: 5px;
+}
+
+li {
+  font-family: 'Archivo Narrow', sans-serif;
 }
 
 
@@ -93,6 +103,25 @@ a:hover {
   margin-top: -45px;
   height: 30px;
   vertical-align: middle;
+}
+
+#footerlist {
+  display: inline-block;
+  height: 20px;
+  color: black;
+  list-style: none;
+  margin-top: 10px;
+  padding: 10px;
+  vertical-align: middle;
+}
+
+#footerblurb {
+  margin-top: -25px;
+  display: inline-block;
+  font-family: 'News Cycle', sans-serif;
+  width: 500px;
+  text-align: justify;
+  float: right;
 }
 
 /*   C O M P O N E N T S   */
