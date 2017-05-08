@@ -3,13 +3,13 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var PostSchema = new Schema({
+var PostsSchema = new Schema({
 	date: String,
 	user: String,
 	text: String,
 	author: String
 })
 
-var Post = mongoose.model('Post', PostSchema);
+var Posts = mongoose.model('Posts', PostSchema);
 
-module.exports = Post;
+module.exports = Posts;
