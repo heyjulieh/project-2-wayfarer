@@ -8,44 +8,42 @@ function index(req,res) {
             {
             method: 'GET',
             path: `/api`,
-            description: 'shows this!',
-
+            description: 'shows this!'
             },
             {
             method: 'GET',
             path: `/api/city`,
-            description: 'shows all city as JSON',
+            description: 'shows all city as JSON'
             },
             {
             method: 'GET',
             path: `/api/city/${city_id}`,
-            description: 'shows req.param.id specific city as JSON',
+            description: 'shows req.param.id specific city as JSON'
             },
             {
             method: 'GET',
             path: `/api/posts`,
-            description: 'shows all posts as JSON',
+            description: 'shows all posts as JSON'
             },
             {
             method: 'GET',
             path: `/api/${posts._id}`,
-            description: 'shows req.param.id specific lyric as JSON',
+            description: 'shows req.param.id specific lyric as JSON'
             },
             {
             method: 'GET',
-            path: `/api/city/${city._id}/${posts._id}`
-            description: 'shows req.param.city and posts as JSON',
-            },
-           
+            path: `/api/city/${city._id}/${posts._id}`,
+            description: 'shows req.param.city and posts as JSON'
+            },           
             {
             method: 'POST',
             path: `/api/city/${city._id}/${posts._id}`,
-            description: 'creates posts',
+            description: 'creates posts'
             },
             {
             method: 'PUT',
             path: `/api/city/${city._id}/${posts._id}`,
-            description: 'updates posts',
+            description: 'updates posts'
             },
             {
             method: 'DELETE',

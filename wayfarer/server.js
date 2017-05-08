@@ -5,11 +5,12 @@ var express = require('express'),
     controllers = require('./controllers');
 
     bodyParser = require('body-parser'),
-    Post = require('./models/post'),//for the post schema when we build one
+    Posts = require('./models/posts'),//for the post schema when we build one
     City = require('./models/city');//for the city schema whn we build one
 
 //to create instances
 var app = express()
+	// route = express.Router();
 
 //to config API to use body body-parser and look for JSON in req.body
 app.use(bodyParser.urlencoded({extended: true}));
