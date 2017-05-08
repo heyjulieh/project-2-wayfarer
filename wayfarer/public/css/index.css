@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Archivo+Narrow|News+Cycle|Quattrocento+Sans|Questrial|Quicksand');
-
+@import React, {Component} from 'react'
 /*   H T M L  T A G S   */
 
 body {
@@ -66,12 +66,20 @@ li {
   font-family: 'Archivo Narrow', sans-serif;
 }
 
+h3 {
+  font-family: 'News Cycle', sans-serif;
+}
+
 
 /*   C L A S S E S   */
 
 .feature {}
 
 .normal {}
+
+.cityCard {
+  font
+}
 
 /*   I D S   */
 
@@ -127,3 +135,5 @@ li {
 /*   C O M P O N E N T S   */
 
 /*   A N I M A T I O N   */
+
+export default Styles;
