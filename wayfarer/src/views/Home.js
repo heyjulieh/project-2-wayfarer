@@ -4,8 +4,6 @@ import Hero from '../components/Hero'
 import CityContainer from '../containers/CityContainer'
 import Footer from '../components/Footer'
 
-import {NavBar, Jumbotron, Button} from 'react-bootstrap'
-
 class Home extends Component {
   render() {
     return (

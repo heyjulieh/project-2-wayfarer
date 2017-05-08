@@ -3,8 +3,6 @@ import Nav from '../components/Nav'
 import PostDetailContainer from '../containers/PostDetailContainer'
 import Footer from '../components/Footer'
 
-import {NavBar, Jumbotron, Button} from 'react-bootstrap'
-
 document.getElementsByTagName('link')[1].href = '/css/index.css'
 
 class PostPage extends Component {

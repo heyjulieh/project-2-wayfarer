@@ -15,6 +15,8 @@ nav {
   color: white;
   margin-top: 0;
   padding-top: 0;
+  position: fixed;
+  width: 100%
 }
 
 button {
@@ -62,7 +64,21 @@ footer {
   padding: 5px;
 }
 
-li {
+nav ul {
+
+  width: 400px;
+  display: inline-block;
+  list-style: none;
+  transform: translateX(50%);
+  padding: 0 5px;
+  height: 50px;
+  vertical-align: middle;
+
+}
+
+nav ul li {
+  display: inline-block;
+  padding: 0 15px; 
   font-family: 'Archivo Narrow', sans-serif;
 }
 
@@ -92,15 +108,7 @@ li {
 }
 
 #navlist {
-  display: inline-block;
-  list-style: none;
-  margin-right: 20px;
-  margin-top: 15px;
-  margin-left: 5px;
-  padding: 5px;
-  float: left;
-  height: 30px;
-  vertical-align: middle;
+
 }
 
 #search {
@@ -132,5 +140,31 @@ li {
 }
 
 /*   C O M P O N E N T S   */
+
+.Jumbotron {
+
+  background-image: url('../images/cities/homepage.jpg');
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80vh;
+
+}
+
+.JumbotronText {
+
+  width: 500px;
+  height: 300px;
+  padding-top: 280px;
+  margin: 0px 30%;
+  text-align: center;
+
+
+}
+
+
+
+
 
 /*   A N I M A T I O N   */
