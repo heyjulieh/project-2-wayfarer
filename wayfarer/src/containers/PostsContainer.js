@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import $ from 'jquery-ajax'
 import PostList from '../components/PostList'
 import Post from '../components/Post'
 import CreatePostForm from '../components/CreatePostForm'
@@ -11,6 +12,7 @@ class PostsContainer extends Component {
 			posts: []
 		}
 		this.loadPostsFromServer = this.loadPostsFromServer.bind(this);
+		this.handlePostDelete = this.handlePostDelete.bind(this);
 		this.handleNewPostSubmit = this.handleNewPostSubmit.bind(this);
 	}
 
@@ -19,7 +21,19 @@ class PostsContainer extends Component {
 			method: 'GET',
 			url: 'http://localhost:3000/api/cities'
 		})
-		.then( res => this.setState({cities: res}))
+		.then(res => this.setState({posts: res}))
+	}
+
+	handlePostDelete(id) {
+		$.ajax({
+			method: 'DELETE',
+			url: 'http://localhost:3000/api/cities'
+		})
+		.then((res) => {
+			console.log('Post deleted');
+		}, (err) => {
+			console.log(err);
+		});
 	}
 
 	componentDidMount() {
@@ -27,23 +41,33 @@ class PostsContainer extends Component {
 	}
 
 	handleNewPostSubmit(post){
+		console.log('handleNewPostSubmit is activated', post);
+		let posts = this.state.data;
+		post.id = Date.now();
 
-		console.log(post)
-		// send this to the server using AJAX
-
+		$.ajax({
+			method: 'POST',
+			url: 'http://localhost:3000/api/cities',
+			data: posts
+		})
+		.then(res => {
+			console.log(res);
+			let newPosts = posts.concat([res]);
+			this.setState({posts: newPosts});
+		}, err => {
+			console.error(err);
+			this.setState({posts: posts});
+		});
 	}
 
 	render() {
-
 		return(
-
 			<div>
 				<PostList 
 					posts={this.state.posts} />	
 				<CreatePostForm 
        				 onCreatePostFormSubmit={ this.handleNewPostSubmit } />
        		</div>
-
 		)
 	}
 }
