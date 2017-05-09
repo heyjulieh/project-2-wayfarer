@@ -1,4 +1,4 @@
-var db = require('../models');
+var db = require('./models');
 
 var cities_list = [
 	{
@@ -31,8 +31,7 @@ var cities_list = [
 		type: 'Featured',
 		posts: 'A wonderful city by the canals'
 	}
-
-]}
+]
 
 
 db.City.remove({}, function(err,cities) {
