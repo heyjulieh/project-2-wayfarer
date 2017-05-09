@@ -14,14 +14,19 @@ class PostList extends Component {
 					post={post}
 					className="postCard" />
 			)
+			console.log(post._id)
 		})
 
+		console.log(this.props.posts)
+		console.log(postsArray)
+
 		return(
-			<div className="postsList container-fluid">
+
+			<div className="postsList container">
 				<div className="row">
 					{postsArray}
 				</div>
-			</div>	
+			</div>
 		)
 	}
 }
