@@ -3,4 +3,3 @@ module.exports = {
 	city: require('./cityController'),
 	posts: require('./cityPostController')
 }
-

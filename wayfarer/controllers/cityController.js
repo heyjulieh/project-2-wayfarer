@@ -1,6 +1,6 @@
 var db = require('../models');
 
-// GET 
+// GET
 function index(req, res) {
 	db.City.find({}, function(err, allCity){
 		res.json(allCity)
@@ -18,6 +18,3 @@ module.exports = {
 	index: index,
 	show: show
 };
-
-
-

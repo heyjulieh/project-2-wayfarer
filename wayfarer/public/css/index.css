@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Archivo+Narrow|News+Cycle|Quattrocento+Sans|Questrial|Quicksand');
+@import url('https://fonts.googleapis.com/css?family=Archivo+Narrow%7CNews+Cycle%7CQuattrocento+Sans%7CQuestrial%7CQuicksand');
+@import url('https://fonts.googleapis.com/css?family=Eczar:400,500,600,700,800%7CWork+Sans:300,400,500,600,700,800,900');
 
 /*   H T M L  T A G S   */
 
@@ -8,9 +9,46 @@ body {
   font-family: sans-serif;
 }
 
+
+h1 {
+
+    font-family: 'Eczar', sans-serif;
+    font-weight: 800;
+
+}
+
+h2 {
+
+  font-family: 'Quicksand', sans-serif;
+
+}
+
+h3 {
+  font-family: 'Quatrocentro Sans', sans-serif;
+}
+
+h4 {
+
+
+
+}
+
 nav input {
   font-family: 'Quicksand', sans-serif;
   text-transform: uppercase;
+}
+
+nav h4 {
+  display: inline-block;
+  font-size: 30px;
+  width: 100%;
+  margin-top: -8px;
+}
+
+nav img {
+  margin-left: -40px;
+  margin-right: 15px;
+  margin-top: -8px;
 }
 
 footer a {
@@ -22,9 +60,12 @@ footer a {
   font-family: 'Quatrocentro Sans', sans-serif;
 }
 
+
 footer a:hover {
   display: block;
   text-decoration: none;
+  height: 30px;
+  color: white;
 }
 
 footer {
@@ -43,22 +84,7 @@ footer ul {
   vertical-align: middle;
 }
 
-nav h4 {
-  display: inline-block;
-  font-size: 30px;
-  width: 100%;
-  margin-top: -8px;
-}
 
-nav img {
-  margin-left: -40px;
-  margin-right: 15px;
-  margin-top: -8px;
-}
-
-h3 {
-  font-family: 'Quatrocentro Sans', sans-serif;
-}
 
 /*   C L A S S E S   */
 
@@ -131,7 +157,6 @@ h3 {
   width: 100%;
 }
 
-
 .cityCard h3 {
   display: inline-block;
   height: 100%;
@@ -149,8 +174,10 @@ h3 {
 /*   ProfileCards   */
 
 .postsList {
+
   padding-top: 50px;
   background-color: #ccffff;
+
 }
 
 .postCard {
@@ -161,26 +188,34 @@ h3 {
 }
 
 .userSection {
-  background-color: #00cc9944;
+  background-color: #00cc99;
   padding: 0px;
   margin: 0px;
+
 }
 
 .userSection img {
   width: 100%;
+
 }
 
 .postSection {
+
   background-color: white;
+
 }
 
 h3.postTitle a {
+
   color: #000000;
   padding: 20px;
+
 }
 
 h4.postUser {
+
   padding: 20px;
+
 }
 
 img.overlay {
