@@ -8,7 +8,7 @@ var CitySchema = new Schema({
 	cityName: String,
 	imgURL: String,
 	type: String,
-	posts: Posts.schema
+	posts: [Posts.schema]
 })
 
 var City = mongoose.model('City', CitySchema);

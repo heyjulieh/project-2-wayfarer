@@ -72,18 +72,21 @@ var cities_list = [
 			}
 	}
 ]
+db.Post.remove({}, function(err, posts) {
+	console.log('removed all posts')
+	
+});
 
 db.City.remove({}, function(err, cities) {
 	console.log('removed all cities')
 	db.City.create(cities_list, function(err, cities) {
 		if (err){
-			return consle.log('ERROR', err);
+			return consosle.log('ERROR', err);
 		}
 		console.log('all cities:', cities);
 		console.log('created',cities.length, 'cities');
 		process.exit();
 	});
 });
-
 
 		
