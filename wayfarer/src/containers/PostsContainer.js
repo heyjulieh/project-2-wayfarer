@@ -19,7 +19,7 @@ class PostsContainer extends Component {
 	loadPostsFromServer() {
 		$.ajax({
 			method: 'GET',
-			url: 'http://localhost:3000/api/cities'
+			url: 'http://localhost:3000/api/cities/:cityId/posts'
 		})
 		.then(res => this.setState({posts: res}))
 	}
@@ -27,7 +27,7 @@ class PostsContainer extends Component {
 	handlePostDelete(id) {
 		$.ajax({
 			method: 'DELETE',
-			url: 'http://localhost:3000/api/cities'
+			url: 'http://localhost:3000/api/cities/:cityId/posts/:postId'
 		})
 		.then((res) => {
 			console.log('Post deleted');
@@ -47,7 +47,7 @@ class PostsContainer extends Component {
 
 		$.ajax({
 			method: 'POST',
-			url: 'http://localhost:3000/api/cities',
+			url: 'http://localhost:3000/api/cities/:cityId/posts/:postId',
 			data: posts
 		})
 		.then(res => {

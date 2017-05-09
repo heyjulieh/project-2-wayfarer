@@ -28,9 +28,9 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get('/api', controllers.api.index);
-app.get('/api/cities', controllers.city.index);
-app.get('/api/cities/:cityId', controllers.city.show);
+app.get('/api', controllers.api.index); // works
+app.get('/api/cities', controllers.city.index); // works
+app.get('/api/cities/:cityId', controllers.city.show); 
 app.get('/api/cities/:cityId/posts', controllers.posts.index);
 app.get('/api/cities/:cityId/posts/:postId', controllers.posts.show);
 app.get('/api/cities/:cityId/posts/:postId', controllers.posts.showOne);

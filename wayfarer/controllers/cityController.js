@@ -8,7 +8,7 @@ function index(req, res) {
 };
 
 function show(req, res) {
-	var cityId = req.params.id;
+	var cityId = req.params.cityId;
 	db.City.findById(cityId, function(err, foundCity) {
 		res.json(foundCity);
 	});
