@@ -25,10 +25,6 @@ footer a {
 footer a:hover {
   display: block;
   text-decoration: none;
-  height: 30px;
-  color: white;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
 }
 
 footer {
@@ -109,6 +105,8 @@ h3 {
 
 /*   C O M P O N E N T S   */
 
+/*   Jumbotron   */
+
 .Jumbotron {
   background-image: url('../images/cities/homepage.jpg');
   top: 0;
@@ -127,9 +125,12 @@ h3 {
   text-align: center;
 }
 
+/*   CityCards   */
+
 .cityCard img {
   width: 100%;
 }
+
 
 .cityCard h3 {
   display: inline-block;
@@ -143,6 +144,43 @@ h3 {
   text-transform: uppercase;
   padding-top: 5px;
   padding-right: 10px;
+}
+
+/*   ProfileCards   */
+
+.postsList {
+  padding-top: 50px;
+  background-color: #ccffff;
+}
+
+.postCard {
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 40px;
+
+}
+
+.userSection {
+  background-color: #00cc9944;
+  padding: 0px;
+  margin: 0px;
+}
+
+.userSection img {
+  width: 100%;
+}
+
+.postSection {
+  background-color: white;
+}
+
+h3.postTitle a {
+  color: #000000;
+  padding: 20px;
+}
+
+h4.postUser {
+  padding: 20px;
 }
 
 img.overlay {
