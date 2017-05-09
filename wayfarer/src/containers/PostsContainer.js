@@ -73,6 +73,7 @@ class PostsContainer extends Component {
 			<div className="postsList">
 				<PostList
 					posts={this.state.posts} />
+				<CreatePostForm
        				 onCreatePostFormSubmit={ this.handleNewPostSubmit } />
        		</div>
 		)
