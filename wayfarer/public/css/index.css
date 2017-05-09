@@ -142,27 +142,26 @@ nav ul li {
 /*   C O M P O N E N T S   */
 
 .Jumbotron {
-
   background-image: url('../images/cities/homepage.jpg');
-  z-index: -1;
   top: 0;
   left: 0;
   width: 100%;
+  min-height: 600px;
   height: 80vh;
-
+  margin-bottom: 80px;
 }
 
 .JumbotronText {
-
   width: 500px;
   height: 300px;
   padding-top: 280px;
   margin: 0px 30%;
   text-align: center;
-
-
 }
 
+.cityCard img {
+  width: 100%;
+}
 
 
 

@@ -1,5 +1,5 @@
 module.exports = {
-	api: require('./apiController'),
+	api: require('./apiControllers'),
 	city: require('./cityController'),
 	posts: require('./cityPostController')
 }

@@ -3,7 +3,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var PostSchema = new Schema({
+var PostsSchema = new Schema({
 	userImg: String,
 	user: String,
 	cityName: String,
@@ -12,6 +12,6 @@ var PostSchema = new Schema({
 	date: Date
 })
 
-var Posts = mongoose.model('Posts', PostSchema);
+var Posts = mongoose.model('Posts', PostsSchema);
 
 module.exports = Posts;

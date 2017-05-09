@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 mongoose.connect( process.env.MONGODB_URI || "mongodb://localhost/project-2");
 var City = require('./city');
-var Post = require('./post');
+var Posts = require('./posts');
 
 module.exports.City = require('./city');
-module.exports.Post = require('./post');
+module.exports.Posts = require('./posts');
