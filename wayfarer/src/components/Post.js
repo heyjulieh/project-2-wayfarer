@@ -8,6 +8,11 @@ class Post extends Component {
 		return(
 
 			<div className="postCard col-sm-12 col-md-12 col-lg-12">
+				<img src={this.props.post.profileIMG}></img>
+				<h4 className="testAuthor">{this.props.post.author}</h4>
+				<p>{this.props.post.text}</p>
+				<h6>{this.props.post.date}</h6>
+			
 				<div className="userSection col-sm-12 col-md-12 col-lg-3">
 					<img src={this.props.post.userIMG}></img>
 					<h4 className="postUser">{this.props.post.user}</h4>
@@ -17,8 +22,7 @@ class Post extends Component {
 					<p className="postText">{this.props.post.text}</p>
 					<h6 className="postDate">{this.props.post.date}</h6>
 				</div>
-			</div>	
-
+			</div>
 		)
 	}
 }

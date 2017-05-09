@@ -28,17 +28,12 @@ class CityContainer extends Component {
 
 	render() {
 		return(
-			<CityList 
+			<CityList
 				cities={this.state.cities}
-			/>	
+			/>
 
 		)
 	}
 }
 
 export default CityContainer;
-
-
-// {_id: 1, imgURL: "/images/cities/amsterdam.jpg", cityName: 'Amsterdam', type: 'largeCard'},
-// {_id: 2, imgURL: "/images/cities/iceland.jpg", cityName: 'Iceland', type: 'mediumCard'},
-// {_id: 3, imgURL: "/images/cities/dubai.jpg", cityName: 'Dubai', type: 'smallCard'}

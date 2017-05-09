@@ -84,6 +84,3 @@ db.City.remove({}, function(err, cities) {
 		process.exit();
 	});
 });
-
-
-		

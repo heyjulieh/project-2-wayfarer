@@ -53,18 +53,18 @@ class CreatePostForm extends Component {
       return;
     }
     this.props.onCreatePostFormSubmit(
-    {	userImg: userImg, 
+    {	userImg: userImg,
     	user: user,
     	cityName: cityName,
     	title: title,
-    	text: text 
+    	text: text
     });
     this.setState(
-    {	userImg: userImg, 
+    {	userImg: userImg,
     	user: user,
     	cityName: cityName,
     	title: title,
-    	text: text 
+    	text: text
     });
 
     console.log(this.state);

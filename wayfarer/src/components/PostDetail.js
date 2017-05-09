@@ -12,7 +12,7 @@ class PostDetail extends Component {
 				<h4>{this.props.posts[0].cityName}</h4>
 				<p>{this.props.posts[0].text}</p>
 				<h6>{this.props.posts[0].date}</h6>
-			</div>	
+			</div>
 
 		)
 	}
