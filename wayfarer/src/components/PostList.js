@@ -1,4 +1,3 @@
-console.log('This is from PostList.js')
 import React, {Component} from 'react'
 import Post from './Post'
 
@@ -14,11 +13,7 @@ class PostList extends Component {
 					post={post}
 					className="postCard" />
 			)
-			console.log(post._id)
 		})
-
-		console.log(this.props.posts)
-		console.log(postsArray)
 
 		return(
 

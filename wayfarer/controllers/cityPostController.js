@@ -6,11 +6,33 @@ function index(req, res) {
 	});
 };
 
+// finds a post by matching ID and returns it
 function show(req, res) {
-	var postId = req.params.id;
-	db.Posts.findById(postId, function(err, foundPost) {
-		res.json(foundPost);
-	});
+	console.log('req.params for unique post is: ', req.params)
+	// var foundCityId = req.params.cityId;
+	// var foundPostId = req.params.postId;
+
+	// console.log(foundPostId);
+	// console.log(foundCityId);
+
+	// db.City.findById(foundCityId, function(err, foundCity) {
+		
+	// 	var allPosts = foundCity.posts;
+
+	// 	allPosts.findById(foundPostId, function(err, foundPost) {
+
+	// 		res.json(foundPost);
+
+	// 	});
+	// });
+};
+
+// finds matching post content in db.Posts and returns it
+function showOne(req, res) {
+	db.Posts.findOne({post:req.params.post})
+		.exec(function(err, foundPost) {
+			res.json(foundPost);
+		});
 };
 
 function create(req, res) {
@@ -18,13 +40,6 @@ function create(req, res) {
 	db.Posts.create(req.body, function(err, newPost) {
 		res.json(newPost);
 	});
-};
-
-function showOne(req, res) {
-	db.Posts.findOne({post:req.params.post})
-		.exec(function(err, foundPost) {
-			res.json(foundPost);
-		});
 };
 
 function destroy(req, res) {

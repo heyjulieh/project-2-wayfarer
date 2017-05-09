@@ -9,6 +9,6 @@ module.exports = (
 	<div>
   		<Route path='/' component={Home} />
   		<Route path='/cities/:cityId' component={CityPostPage}/>
-  		<Route path='/cities/:cityId/posts/:postId' component={PostPage}/>
+  		<Route path='/cities/city/posts/post' component={PostPage}/>
 	</div>
 )
