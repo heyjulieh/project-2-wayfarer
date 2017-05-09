@@ -4,6 +4,7 @@ import React, {Component} from 'react'
 class City extends Component {
 
 	render() {
+
 	  let cardDivClass;
 	  if (this.props.city.type === 'largeCard') {
 	  	 cardDivClass = `cityCard col-sm-12 col-md-6 col-lg-8 ${this.props.city.type}`
