@@ -42,7 +42,6 @@ input {
 }
 
 a {
-  display: block;
   height: 30px;
   text-decoration: none;
   text-transform: uppercase;
@@ -51,11 +50,8 @@ a {
 }
 
 a:hover {
-  display: block;
   height: 30px;
   color: white;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
 }
 
 footer {
@@ -141,6 +137,8 @@ nav ul li {
 
 /*   C O M P O N E N T S   */
 
+/*   Jumbotron   */
+
 .Jumbotron {
   background-image: url('../images/cities/homepage.jpg');
   top: 0;
@@ -159,11 +157,31 @@ nav ul li {
   text-align: center;
 }
 
+/*   CityCards   */
+
 .cityCard img {
   width: 100%;
 }
 
+/*   ProfileCards   */
 
+.postCard {
+  background-color: #999999;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 40px;
+  color: white;
 
+}
+
+.userSection {
+  padding: 20px;
+
+}
+
+.userSection img {
+  width: 200px;
+
+}
 
 /*   A N I M A T I O N   */
