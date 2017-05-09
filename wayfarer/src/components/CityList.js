@@ -4,8 +4,6 @@ import City from './City'
 class CityList extends Component {
 
 	render() {
-
-
 		let citiesArray = this.props.cities.map( (city) => {
 
 			return (
@@ -15,8 +13,6 @@ class CityList extends Component {
 					className={city.type} />
 			)
 		})
-
-		console.log('citiesArray', citiesArray);
 
 		return(
 

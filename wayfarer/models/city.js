@@ -5,7 +5,7 @@ var Schema = mongoose.Schema;
 
 var CitySchema = new Schema({
 	cityName: String,
-	cityIMG: String,
+	imgURL: String,
 	type: String,
 	posts: String
 })
