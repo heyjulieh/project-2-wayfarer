@@ -1,52 +1,75 @@
 import React, {Component} from 'react'
+import $ from 'jquery-ajax';
 import PostList from '../components/PostList'
 import Post from '../components/Post'
 import CreatePostForm from '../components/CreatePostForm'
 
 
 class PostsContainer extends Component {
-	constructor() {
-		super();
-		this.state = {
-			posts: [
-			{	_id: 1, 
-				userIMG: 'https://images.pexels.com/photos/101584/pexels-photo-101584.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb', 
-				user: 'Anthony L.', 
-				title: 'Home is Where the Sandwich is', 
-				text: 'This is a sample text entry',
-				date: '5/10/2017'
-			},
-			{	_id: 2, 
-				userIMG: 'https://images.pexels.com/photos/27411/pexels-photo-27411.jpg?w=1260&h=750&auto=compress&cs=tinysrgb', 
-				user: 'Violet', 
-				title: 'Words from a Local', 
-				text: 'This is a sample text entry',
-				date: '5/10/2017'
-			},
-			{	_id: 3, 
-				userIMG: 'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb', 
-				user: 'Blair', 
-				title: 'Really Cool Vibes, Man.', 
-				text: 'This is a sample text entry',
-				date: '5/10/2017'
-			},
-
-
-
-
-				]
-			// need to pull in all Post objects data from API
-		}
-
+	constructor(props) {
+		super(props);
+		this.state = { data: [] };
+		this.loadPostsFromServer = this.loadPostsFromServer.bind(this);
 		this.handleNewPostSubmit = this.handleNewPostSubmit.bind(this);
-	}
-
-	handleNewPostSubmit(post){
-
-		console.log(post)
-		// send this to the server using AJAX
+		this.handlePosttSubmit = this.handlePostSubmit.bind(this);
+		this.handlePosttDelete = this.handlePosttDelete.bind(this);
+		this.handlePosttUpdate = this.handlePostUpdate.bind(this);
 
 	}
+	
+	loadPostsFromServer(){
+    $.ajax({
+      method: 'GET',
+      url: 'http://localhost:3000/api/posts'
+    })
+    .then( res => this.setState({posts: res}))
+  }
+
+  handlePostSubmit(posts) {
+      let post = this.state.data;
+      let newPosts = posts.concat([post]);
+      this.setState({ data: newPosts });
+    $.ajax({
+      method:'POST',
+      url: 'http://localhost:3000/api/posts',
+      data: posts
+    })
+      .catch(error => {
+        console.error('post error', error);
+        this.setState({data: posts});
+    });
+  }
+handlePostDelete(id){
+    $.ajax({
+      method: 'DELETE',
+      url: 'http://localhost:3000/api/posts._id'
+
+    })
+    .then((res) => {
+      console.log('Post deleted');
+    }, (err) => {
+      console.error(err);
+    });
+  }
+
+    handlePostUpdate(id, post) {
+    //sends the posts id and new text to our api
+    $.ajax({
+      method: 'put',
+      url:'http://localhost:3000/api/posts._id' ,
+      data: post
+    })
+    .then(res => {
+      console.log(res);
+    }, err => {
+      console.log(err);
+    })
+  }
+
+  componentDidMount() {
+    this.loadCommentsFromServer();
+    setInterval(this.loadPostsFromServer, this.props.pollInterval);
+  }
 
 	render() {
 
@@ -54,7 +77,9 @@ class PostsContainer extends Component {
 
 			<div>
 				<PostList 
-					posts={this.state.posts} />	
+					posts={this.state.data} 
+					onPostDelete={this.handlePostDelete}
+					onPostUpdate={this.handlePostUpdate}/>	
 				<CreatePostForm 
        				 onCreatePostFormSubmit={ this.handleNewPostSubmit } />
        		</div>
