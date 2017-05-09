@@ -48,7 +48,7 @@ class PostsContainer extends Component {
 
 		return(
 
-			<div>
+			<div className="postsList">
 				<PostList 
 					posts={this.state.posts} />	
 				<CreatePostForm 

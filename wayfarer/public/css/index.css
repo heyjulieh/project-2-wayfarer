@@ -165,23 +165,51 @@ nav ul li {
 
 /*   ProfileCards   */
 
+.postsList {
+
+  padding-top: 50px;
+  background-color: #ccffff;
+
+}
+
 .postCard {
-  background-color: #999999;
   border-radius: 20px;
   padding: 20px;
   margin-bottom: 40px;
-  color: white;
 
 }
 
 .userSection {
-  padding: 20px;
+  background-color: #00cc9944;
+  padding: 0px;
+  margin: 0px;
 
 }
 
 .userSection img {
-  width: 200px;
+  width: 100%;
 
 }
+
+.postSection {
+
+  background-color: white;
+
+}
+
+h3.postTitle a {
+
+  color: #000000;
+  padding: 20px;
+
+}
+
+h4.postUser {
+
+  padding: 20px;
+
+}
+
+
 
 /*   A N I M A T I O N   */
