@@ -7,7 +7,7 @@ class Post extends Component {
 
 		return(
 
-			<div className="postCard">
+			<div className="postCard col-sm-12 col-md-12 col-lg-12">
 				<img src={this.props.post.profileIMG}></img>
 				<h4 className="testAuthor">{this.props.post.author}</h4>
 				<p>{this.props.post.text}</p>

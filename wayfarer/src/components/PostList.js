@@ -18,8 +18,10 @@ class PostList extends Component {
 
 		return(
 
-			<div className="postsList"> 
-				{postsArray}
+			<div className="postsList container-fluid">
+				<div className="row">
+					{postsArray}
+				</div>
 			</div>	
 
 		)
