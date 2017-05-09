@@ -5,6 +5,8 @@ class Post extends Component {
 
 	render() {
 
+		console.log(this.props.post)
+
 		return(
 
 			<div className="postCard col-sm-12 col-md-12 col-lg-12">
@@ -17,7 +19,7 @@ class Post extends Component {
 					<p className="postText">{this.props.post.text}</p>
 					<h6 className="postDate">{this.props.post.date}</h6>
 				</div>
-			</div>	
+			</div>
 
 		)
 	}

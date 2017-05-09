@@ -9,7 +9,7 @@ class CityPostPage extends Component {
 
   render() {
     return (
-    <div> 
+    <div>
       <Nav />
       <Hero />
       <PostsContainer />

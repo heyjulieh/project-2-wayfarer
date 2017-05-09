@@ -47,7 +47,7 @@ class PostDetailContainer extends Component {
 
 			<PostDetail
 				post={this.state.post}
-			/>	
+			/>
 
 		)
 	}
@@ -55,3 +55,4 @@ class PostDetailContainer extends Component {
 }
 
 export default PostDetailContainer;
+

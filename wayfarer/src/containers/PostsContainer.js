@@ -71,9 +71,9 @@ class PostsContainer extends Component {
 		return(
 
 			<div className="postsList">
-				<PostList 
-					posts={this.state.posts} />	
-				<CreatePostForm 
+				<PostList
+					posts={this.state.posts} />
+				<CreatePostForm
        				 onCreatePostFormSubmit={ this.handleNewPostSubmit } />
        		</div>
 		)
@@ -81,6 +81,3 @@ class PostsContainer extends Component {
 }
 
 export default PostsContainer;
-
-
-
