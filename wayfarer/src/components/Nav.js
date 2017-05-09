@@ -23,7 +23,7 @@ class Nav extends Component {
     		</div>
 		    <div className="collapse navbar-collapse" id="myNavbar">
 		      <ul className="nav navbar-nav">
-					<li><a href="#"><h4><img src="http://ipventures.com.au/images/travel-icon.png" height="50px"/>    WAYFARER</h4></a></li>
+					<li><a href="#"><h4><img src="http://ipventures.com.au/images/travel-icon.png" height="50px"/>WAYFARER</h4></a></li>
 		        <li className="dropdown">
 		          <a className="dropdown-toggle" data-toggle="dropdown" href="#">Cities<span className="caret"></span></a>
 		          <ul className="dropdown-menu">
@@ -36,6 +36,13 @@ class Nav extends Component {
 	      <ul className="nav navbar-nav navbar-right">
 	        <li><a href="#"><span className="glyphicon glyphicon-user"></span> Sign Up</a></li>
 	        <li><a href="#"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
+					<li><div className="col-lg-12">
+								<div className="form-group input-group pull-right">
+      						<input type="text" className="form-control input-sm" placeholder="Search for a city"/>
+
+    						</div>
+							</div>
+					</li>
 	      </ul>
 
 	    </div>
