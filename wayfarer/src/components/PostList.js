@@ -9,7 +9,7 @@ class PostList extends Component {
 		let postsArray = this.props.posts.map( (post) => {
 
 			return (
-				<Post 
+				<Post
 					key={post._id}
 					post={post}
 					className="postCard" />
@@ -18,9 +18,9 @@ class PostList extends Component {
 
 		return(
 
-			<div className="postsList"> 
+			<div className="postsList">
 				{postsArray}
-			</div>	
+			</div>
 
 		)
 	}

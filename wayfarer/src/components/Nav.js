@@ -18,6 +18,7 @@ class Nav extends Component {
 						<li><a href="#">Page One</a></li>
 						<li><a href="#">Page Two</a></li>
 						<li><a href="#">Page Three</a></li>
+						<li id="maintitle"><h4>WAYFARER</h4></li>
 					</ul>
 				</div>
 				<div id="search">

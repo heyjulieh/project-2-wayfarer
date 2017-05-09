@@ -27,9 +27,9 @@ class PostsContainer extends Component {
 		return(
 
 			<div>
-				<PostList 
-					posts={this.state.posts} />	
-				<CreatePostForm 
+				<PostList
+					posts={this.state.posts} />
+				<CreatePostForm
        				 onCreatePostFormSubmit={ this.handleNewPostSubmit } />
        		</div>
 

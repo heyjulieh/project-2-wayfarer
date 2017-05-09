@@ -18,9 +18,9 @@ class CityContainer extends Component {
 
 	render() {
 		return(
-			<CityList 
+			<CityList
 				cities={this.state.cities}
-			/>	
+			/>
 
 		)
 	}

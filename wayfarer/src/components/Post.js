@@ -12,7 +12,7 @@ class Post extends Component {
 				<h4 className="testAuthor">{this.props.post.author}</h4>
 				<p>{this.props.post.text}</p>
 				<h6>{this.props.post.date}</h6>
-			</div>	
+			</div>
 
 		)
 	}

@@ -52,6 +52,7 @@ a {
 
 a:hover {
   display: block;
+  text-decoration: none;
   height: 30px;
   color: white;
   border-bottom-width: 1px;
@@ -65,11 +66,10 @@ footer {
 }
 
 nav ul {
-
-  width: 400px;
+  width: 500px;
   display: inline-block;
+  margin-top: 40px;
   list-style: none;
-  transform: translateX(50%);
   padding: 0 5px;
   height: 50px;
   vertical-align: middle;
@@ -78,7 +78,7 @@ nav ul {
 
 nav ul li {
   display: inline-block;
-  padding: 0 15px; 
+  padding: 0 15px;
   font-family: 'Archivo Narrow', sans-serif;
 }
 
@@ -90,7 +90,7 @@ nav ul li {
 .normal {}
 
 .testAuthor {
-  
+
   text-transform: uppercase;
   color: red;
 

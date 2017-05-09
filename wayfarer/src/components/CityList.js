@@ -4,12 +4,12 @@ import City from './City'
 class CityList extends Component {
 
 	render() {
-		
+
 
 		let citiesArray = this.props.cities.map( (city) => {
 
 			return (
-				<City 
+				<City
 					key={city._id}
 					city={city}
 					className={city.type} />
@@ -20,11 +20,11 @@ class CityList extends Component {
 
 		return(
 
-			<div className="citiesGrid container-fluid"> 
+			<div className="citiesGrid container-fluid">
 				<div className="row">
 					{citiesArray}
 				</div>
-			</div>	
+			</div>
 
 		)
 	}

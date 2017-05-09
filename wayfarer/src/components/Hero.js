@@ -14,11 +14,10 @@ class Hero extends Component {
 
 			<div className="Jumbotron">
 				<div className="JumbotronText">
-				<h1>Wayfarer</h1>
 				<h3>Lorem ipsum dolor sit amet consectetur apidiscing ullamco</h3>
 				<div id="ScrollArrow">V</div>
 				</div>
-			</div>		
+			</div>
 
 		)
 	}
