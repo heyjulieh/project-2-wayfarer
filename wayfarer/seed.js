@@ -51,8 +51,8 @@ var cities_list = [
 			{
 			userImg: '',
 			user: 'Julie Huang',
-			cityName: 'Reykjavik',
-			title: 'Hold My Hand',
+			cityName: 'Tokyo',
+			title: 'I Want To Hold My Hand',
 			text: 'COLD COLD COLD, but the hot springs are a must see.',
 			date: '4/10/2016'
 			}
@@ -65,7 +65,7 @@ var cities_list = [
 			{
 			userImg: '',
 			user: 'Mahmoud Bachir',
-			cityName: 'Tokyo',
+			cityName: 'Amsterdam',
 			title: 'Lucy In The Sky With Diamonds',
 			text: 'Ramen was so bomb!',
 			date: '3/25/2017'
