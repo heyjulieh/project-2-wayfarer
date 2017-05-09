@@ -14,7 +14,11 @@ class PostList extends Component {
 					post={post}
 					className="postCard" />
 			)
+			console.log(post._id)
 		})
+
+		console.log(this.props.posts)
+		console.log(postsArray)
 
 		return(
 
