@@ -40,8 +40,10 @@ class PostDetail extends Component {
 							<h6 className="postDate">{this.props.post.date}</h6>
 						</div>
 					</div>
+
 					<button type="submit">Edit</button>
 					<button type="submit">Delete</button>
+
 				</div>
 			</div>
 
@@ -53,10 +55,11 @@ class PostDetail extends Component {
 export default PostDetail;
 
 
-// <button onClick={this.deletePost}>Delete</button>
 
-//	let userIMG = this.state.userIMG,
-//	let user = this.state.user,
-//	let cityName = this.state.cityName,
-//	let title = this.state.title,
-//	let text = this.state.text
+// <button onClick={this.deletePost}>Delete</button>	
+
+	 //		let userIMG = this.state.userIMG,
+	 //    let user = this.state.user,
+	 //    let cityName = this.state.cityName,
+	 //    let title = this.state.title,
+	 //    let text = this.state.text

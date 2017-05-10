@@ -8,6 +8,7 @@ class PostDetailContainer extends Component {
 	constructor() {
 		super();
 		this.state = {
+
 			post: []
 		}
 
@@ -46,6 +47,7 @@ class PostDetailContainer extends Component {
 		return(
 
 			<PostDetail
+
 				uniqueID={ this.state.post['_id'] }
 				key={ this.state.post['_id'] }
 				post={ this.state.post }
@@ -62,5 +64,3 @@ export default PostDetailContainer;
 // add onPostUpdate as a prop to PostDetail on line 44
 
 // onPostDelete={ this.onPostDelete }
-// uniqueID={ post['_id'] }
-// key={ post['_id'] }

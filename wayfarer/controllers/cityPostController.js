@@ -55,13 +55,8 @@ function create(req, res) {
 			}
 		}
 	});
+}
 
-	db.Posts.findById(req.params.postId, function(err, post) {
-		res.json(post)
-		console.log(err);
-	});
-
-};
 
 // finds matching post content in db.Posts and returns it
 function showOne(req, res) {
@@ -84,7 +79,7 @@ function create(req, res) {
 			console.log('foundCity posts is: ', foundCity.posts);
 			console.log('req.body is: ', req.body)
 
-			foundCity.posts.push(newPost);
+			foundCity.posts.push(req.body);
 			foundCity.save()
 
 		});
@@ -95,13 +90,18 @@ function create(req, res) {
 
 function destroy(req, res) {
 
-	console.log('made it to destroy function')
-
-	db.Post.findOneAndRemove({city:req.params.city, post:req.params.post}, function (err, deletedPost) {
-		res.json(deletedPost);
-	});
-
 	console.log('made it to empty destroy function')
+	// db.City.findOneById(req.params.cityId, function (err, foundCity) {
+
+	// 	foundCity.posts.findOneById(req.params.postId, (err, foundPost) {
+
+	// 		foundPost.delete()
+	// 		foundCity.posts.save()
+
+	// 	});
+
+	// });
+
 };
 
 function update(req, res) {

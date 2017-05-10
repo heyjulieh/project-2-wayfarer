@@ -38,13 +38,16 @@ class PostsContainer extends Component {
 	handleNewPostSubmit(post){
 
 		let posts = this.state.posts;
-
 		let currCityId = window.location.href.replace('http://localhost:3001/cities/', '')
+		// use this once posts' data route is confirmed
+		//url: 'http://localhost:3000/api/cities/:cityId/posts'
 
 		$.ajax({
+
 			method: 'POST',
 			url: `http://localhost:3000/api/cities/${currCityId}posts`,
 			data: post
+
 		})
 		.then(res => {
 			console.log('res is: ', res)
@@ -56,20 +59,19 @@ class PostsContainer extends Component {
 			this.setState({posts: posts});
 		});
 	}
+  
+// handlePostDelete(id){
+//     $.ajax({
+//       method: 'DELETE',
+//       url: 'http://localhost:3000/api/cities/:cityId/posts/:postId'
 
-
-	handlePostDelete(id){
-	    $.ajax({
-	      method: 'DELETE',
-	      url: 'http://localhost:3000/api/cities/:cityId/posts/:postId'
-
-	    })
-	    .then((res) => {
-	      console.log('Post deleted');
-	    }, (err) => {
-	      console.error(err);
-	    });
-	}
+// 	    })
+// 	    .then((res) => {
+// 	      console.log('Post deleted');
+// 	    }, (err) => {
+// 	      console.error(err);
+// 	    });
+// 	}
 
     handlePostUpdate(id, post) {
     //sends the posts id and new text to our api
@@ -89,6 +91,7 @@ class PostsContainer extends Component {
     this.loadPostsFromServer();
     // setInterval(this.loadPostsFromServer, this.props.pollInterval);
   }
+
 
 	render() {
 		return(
