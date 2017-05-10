@@ -7,7 +7,7 @@ import Footer from '../components/Footer'
 class Home extends Component {
   render() {
     return (
-    <div> 
+    <div>
       <Nav />
       <Hero />
       <CityContainer />

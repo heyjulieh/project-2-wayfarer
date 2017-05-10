@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import $ from 'jquery-ajax'
 import CityList from '../components/CityList'
 import City from '../components/City'
 
@@ -6,21 +7,30 @@ class CityContainer extends Component {
 	constructor() {
 		super();
 		this.state = {
-			cities: [
-				{_id: 1, cityName: 'San Francisco', cityIMG: 'http://whatever', type: 'feature'},
-				{_id: 2, cityName: 'Azerbaijan', cityIMG: 'http://whatever', type: 'normal'},
-				{_id: 3, cityName: 'Kazakhstan', cityIMG: 'http://whatever', type: 'normal'}
-			]
-			// need to pull in all city objects data from API
-			// e.g. {name: 'SanFrancisco', imgURL: 'http://whatever', type: 'feature'}
+			cities: []
 		}
+		this.loadCitiesFromServer = this.loadCitiesFromServer.bind(this);
+
+	}
+
+	loadCitiesFromServer() {
+		$.ajax({
+			method: 'GET',
+			url: 'http://localhost:3000/api/cities'
+		})
+		.then( res => this.setState({cities: res}))
+
+	}
+
+	componentDidMount(){
+		this.loadCitiesFromServer();
 	}
 
 	render() {
 		return(
-			<CityList 
+			<CityList
 				cities={this.state.cities}
-			/>	
+			/>
 
 		)
 	}

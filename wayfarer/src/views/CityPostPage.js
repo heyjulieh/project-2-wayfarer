@@ -5,14 +5,11 @@ import PostsContainer from '../containers/PostsContainer'
 import Footer from '../components/Footer'
 import CreatePostForm from '../components/CreatePostForm'
 
-
-document.getElementsByTagName('link')[1].href = '/css/index.css'
-
 class CityPostPage extends Component {
 
   render() {
     return (
-    <div> 
+    <div>
       <Nav />
       <Hero />
       <PostsContainer />

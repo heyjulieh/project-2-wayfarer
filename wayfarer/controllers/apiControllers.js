@@ -29,7 +29,7 @@ function index(req,res) {
             method: 'GET',
             path: '/api/cities/:cityId/posts/:postId',
             description: 'shows req.param.city and posts as JSON'
-            },           
+            },
             {
             method: 'POST',
             path: '/api/cities/:cityId/posts/:postId',

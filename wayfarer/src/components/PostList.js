@@ -1,4 +1,3 @@
-console.log('This is from PostList.js')
 import React, {Component} from 'react'
 import Post from './Post'
 
@@ -9,7 +8,7 @@ class PostList extends Component {
 		let postsArray = this.props.posts.map( (post) => {
 
 			return (
-				<Post 
+				<Post
 					key={post._id}
 					post={post}
 					className="postCard" />
@@ -18,10 +17,11 @@ class PostList extends Component {
 
 		return(
 
-			<div className="postsList"> 
-				{postsArray}
-			</div>	
-
+			<div className="postsList container">
+				<div className="row">
+					{postsArray}
+				</div>
+			</div>
 		)
 	}
 }

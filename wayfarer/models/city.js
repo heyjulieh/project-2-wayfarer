@@ -1,3 +1,4 @@
+var Posts = require('./posts');
 'use strict';
 
 var mongoose = require('mongoose');
@@ -5,9 +6,9 @@ var Schema = mongoose.Schema;
 
 var CitySchema = new Schema({
 	cityName: String,
-	cityIMG: String,
+	imgURL: String,
 	type: String,
-	posts: String
+	posts: [Posts.schema]
 })
 
 var City = mongoose.model('City', CitySchema);
