@@ -32,12 +32,15 @@ class PostsContainer extends Component {
 			this.setState({posts: res.posts})
 		})
 
+		// use this once posts' data route is confirmed
+		//url: 'http://localhost:3000/api/cities/:cityId/posts'
+
 	}
 
 	handlePostDelete(id) {
 		$.ajax({
 			method: 'DELETE',
-			url: 'http://localhost:3000/api/cities'
+			url: 'http://localhost:3000/api/cities/:cityId/posts/:postId'
 		})
 		.then((res) => {
 			console.log('Post deleted');
@@ -55,21 +58,30 @@ class PostsContainer extends Component {
     .then( res => this.setState({posts: res}))
   }
 
+	handleNewPostSubmit(post){
 
-  handlePostSubmit(posts) {
-      let post = this.state.data;s
-      let newPosts = posts.concat([post]);
-      this.setState({ data: newPosts });
-    $.ajax({
-      method:'POST',
-      url: 'http://localhost:3000/api/cities/:cityId/posts/:postId',
-      data: posts
-    })
-      .catch(error => {
-        console.error('post error', error);
-        this.setState({data: posts});
-    });
-  }
+		let posts = this.state.posts;
+
+		let currCityId = window.location.href.replace('http://localhost:3001/cities/', '')
+
+		$.ajax({
+			method: 'POST',
+			url: `http://localhost:3000/api/cities/${currCityId}/posts`,
+			data: post
+		})
+		.then(res => {
+			console.log('res is: ', res)
+			let newPosts = posts.concat([res]);
+			this.setState({posts: newPosts});
+			console.log('this.state is: ', this.state)
+		}, err => {
+			console.error(err);
+			this.setState({posts: posts});
+		});
+	}
+
+
+  
 handlePostDelete(id){
     $.ajax({
       method: 'DELETE',
@@ -101,6 +113,7 @@ handlePostDelete(id){
     this.loadCommentsFromServer();
     setInterval(this.loadPostsFromServer, this.props.pollInterval);
   }
+
 
 	render() {
 		return(

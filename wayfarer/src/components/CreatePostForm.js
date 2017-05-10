@@ -4,7 +4,7 @@ class CreatePostForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userImg: '',
+      userIMG: '',
       user: '',
       cityName: '',
       title: '',
@@ -17,8 +17,8 @@ class CreatePostForm extends Component {
 
   handleInputChange(e) {
 
-  	if (e.target.name === 'userImg') {
-  		this.setState({ userImg: e.target.value });
+  	if (e.target.name === 'userIMG') {
+  		this.setState({ userIMG: e.target.value });
   	}
 
   	if (e.target.name === 'user') {
@@ -44,30 +44,30 @@ class CreatePostForm extends Component {
 
     e.preventDefault();
     //we will be tying this into the POST method in a bit
-    let userImg = this.state.userImg.trim();
+    let userIMG = this.state.userIMG.trim();
     let user = this.state.user.trim();
     let cityName = this.state.cityName.trim();
     let title = this.state.title.trim();
     let text = this.state.text.trim();
-    if (!userImg || !user || !cityName || !title || !text) {
+    if (!userIMG || !user || !cityName || !title || !text) {
       return;
     }
     this.props.onCreatePostFormSubmit(
-    {	userImg: userImg,
+    {	userIMG: userIMG,
     	user: user,
     	cityName: cityName,
     	title: title,
     	text: text
     });
     this.setState(
-    {	userImg: userImg,
+    {	userIMG: userIMG,
     	user: user,
     	cityName: cityName,
     	title: title,
     	text: text
     });
 
-    console.log(this.state);
+    console.log('logging this.state: ', this.state);
   }
 
   render() {
@@ -76,9 +76,9 @@ class CreatePostForm extends Component {
 	    <form onSubmit={ this.handleNewPostSubmit }>
 	        <input
 	          type='text'
-	          name='userImg'
+	          name='userIMG'
 	          placeholder='Link to your profile image…'
-	          value={ this.state.userImg }
+	          value={ this.state.userIMG }
 	          onChange={ this.handleInputChange } />
 	        <input
 	          type='text'
