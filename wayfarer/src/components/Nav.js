@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { firebase, auth } from '../utils/firebase'
+// import { Link } from 'react-router-dom'
 
 class Nav extends Component {
 	constructor() {
@@ -20,6 +21,7 @@ class Nav extends Component {
       }
     });
   }
+
 	loginButtonClicked(e) {
   e.preventDefault();
   // set up provider
@@ -47,39 +49,40 @@ class Nav extends Component {
 			        <span className="icon-bar"></span>
 			        <span className="icon-bar"></span>
       			</button>
-
     		</div>
+				<a href="http://localhost:3001" className="navbar-brand" ><h4><img src="http://ipventures.com.au/images/travel-icon.png" height="50px"/>WAYFARER</h4></a>
 		    <div className="collapse navbar-collapse" id="myNavbar">
 		      <ul className="nav navbar-nav">
-					<li><a href="#"><h4><img src="http://ipventures.com.au/images/travel-icon.png" height="50px"/>WAYFARER</h4></a></li>
 		        <li className="dropdown">
 		          <a className="dropdown-toggle" data-toggle="dropdown" href="#">Pick a City<span className="caret"></span></a>
 		          <ul className="dropdown-menu">
-		            <li><a href="#">Page 1-1</a></li>
-		            <li><a href="#">Page 1-2</a></li>
-		            <li><a href="#">Page 1-3</a></li>
-		          </ul>
+		            <li><a href="https://www.facebook.com">Page 1-1</a></li>
+		            <li><a href="https://www.twitter.com">Page 1-2</a></li>
+		            <li><a href="https://www.instagram.com">Page 1-3</a></li>
+		      		</ul>
 		        </li>
-      	</ul>
-	      <ul className="nav navbar-nav navbar-right">
-					<li>{this.state.currentUser}</li>
-	        <li><a href="#"><span className="glyphicon glyphicon-user" onclick={this.logoutButtonClicked}></span> Sign Up</a></li>
-	        <li><a href="#"><span className="glyphicon glyphicon-log-in" onclick={this.loginButtonClicked}></span> Login</a></li>
-					<li><div className="col-lg-12">
-								<div className="form-group input-group pull-right">
-      						<input type="text" className="form-control input-sm" placeholder="Search cities"/>
+      		</ul>
+		      <ul className="nav navbar-nav navbar-right">
+						<li id="userImg">{this.state.currentUser && this.state.currentUser}</li>
+						<li id="userName">{this.state.currentUser && this.state.currentUser.displayName}</li>
+		        <li><a onClick={this.loginButtonClicked}><span className="glyphicon glyphicon-log-in" ></span> Login</a></li>
+		        <li><a onClick={this.logoutButtonClicked}><span className="glyphicon glyphicon-log-out" ></span> Logout</a></li>
+						<li><div className="col-lg-12">
+									<div className="form-group input-group pull-right">
+	      						<input type="text" className="form-control input-sm" placeholder="Search cities"/>
 
-    						</div>
-							</div>
-					</li>
-	      </ul>
+	    						</div>
+								</div>
+						</li>
+		      </ul>
 
-	    </div>
-	  </div>
-	</nav>
+    		</div>
+  		</div>
+		</nav>
 
 		)
 	}
 }
+
 
 export default Nav;
