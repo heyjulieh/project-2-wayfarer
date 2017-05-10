@@ -6,6 +6,11 @@ import CreatePostForm from '../components/CreatePostForm'
 
 
 class PostsContainer extends Component {
+
+	// Research Prop.types
+	// Check to see if username is being passed in as a prop
+
+
 	constructor() {
 		super();
 		this.state = {
@@ -17,6 +22,8 @@ class PostsContainer extends Component {
 	}
 
 	loadPostsFromServer() {
+
+		// If username exists, load just the posts that are related to the user
 
 		let currUrlId = window.location.href.replace('http://localhost:3001/cities/', '')
 		console.log(currUrlId)
