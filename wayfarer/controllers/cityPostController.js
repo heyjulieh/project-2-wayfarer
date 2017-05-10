@@ -1,15 +1,15 @@
 var db = require('../models');
 
 function index(req, res) {
-	db.Posts.find({}, function(err, allPosts) {
-		res.json(allPosts);
+	db.City.findOne({_id: req.params.cityId}, function (err, city) {
+		res.json(city.posts);
 	});
 };
 
 function show(req, res) {
-	var postId = req.params.id;
-	db.Posts.findById(postId, function(err, foundPost) {
-		res.json(foundPost);
+	db.Posts.findById(req.params.postId, function(err, post) {
+		res.json(post)
+		console.log(err);
 	});
 };
 
