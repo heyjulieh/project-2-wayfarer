@@ -2,8 +2,10 @@ var db = require('../models');
 
 function index(req, res) {
 
+
 	db.City.findOne({_id: req.params.cityId}, function (err, city) {
 		res.json(city.posts);
+
 
 	});
 };
@@ -11,19 +13,49 @@ function index(req, res) {
 // finds a post by matching ID and returns it
 function show(req, res) {
 
-	var postId = req.params.id;
-	db.Post.findById(postId, function(err, foundPost) {
+	var postId = req.params.postId;
+	db.Posts.findById(postId, function(err, foundPost) {
 		res.json(foundPost);
 	});
 };
 
 function create(req, res) {
-	console.log('body', req.body);
-	db.Post.create(req.body, function(err, newPost) {
-		res.json(newPost);
+	var newPost = new db.Post({
+		userIMG: req.body.userIMG,
+		user: req.body.user,
+		cityName: req.body.cityName,
+		title: req.body.title,
+		text: req.body.text,
+		date: req.body.date
 	});
 
-	console.log('req.params for unique post is: ', req.params)
+	db.City.findOne({cityName: req.body.cityName}, function(err, city) {
+		if (err) {
+			console.log(err.message);
+		} else {
+			console.log('city is: ', city);
+			if (city === null) {
+				console.log('post create error: ${req.body.cityName} not found');
+			} else {
+				newPost.cityName = cityName;
+s
+				newPost.save(function(err, post) {
+					if (err) {
+						console.log('post save error: ', err);
+					} else {
+						conosle.log('saved post: ', post);
+						res.json(post);
+					}
+				})
+			}
+		}
+	};
+	// console.log('body', req.body);
+	// db.Post.create(req.body, function(err, newPost) {
+	// 	res.json(newPost);
+	// });
+
+	// console.log('req.params for unique post is: ', req.params)
 	// var foundCityId = req.params.cityId;
 	// var foundPostId = req.params.postId;
 
@@ -55,7 +87,7 @@ function showOne(req, res) {
 	db.Post.findOne({post:req.params.post})
 		.exec(function(err, foundPost) {
 			res.json(foundPost);
-		});
+	});
 };
 
 function create(req, res) {
@@ -94,11 +126,12 @@ function destroy(req, res) {
 };
 
 function update(req, res) {
-	db.Post.findOne({city:req.params.city, post:req.params.post}, function(err, updatePost) {
+
+	db.Posts.findOne({city:req.params.city, post:req.params.post}, function (err, updatePost) {
 		updatePost.date = req.body.date;
 		updatePost.user = req.body.user;
 		updatePost.text = req.body.text;
-		updateSong.save(function(err, savedPost) {
+		updatePost.save(function (err, savedPost) {
 			res.json(savedPost);
 		});
 	});
