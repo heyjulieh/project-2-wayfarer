@@ -1,8 +1,10 @@
 var db = require('../models');
 
 function index(req, res) {
-	db.Post.find({}, function(err, allPosts) {
-		res.json(allPosts);
+
+	db.City.findOne({_id: req.params.cityId}, function (err, city) {
+		res.json(city.posts);
+
 	});
 };
 
@@ -25,6 +27,12 @@ function create(req, res) {
 	// var foundCityId = req.params.cityId;
 	// var foundPostId = req.params.postId;
 
+	db.Posts.findById(req.params.postId, function(err, post) {
+		res.json(post)
+		console.log(err);
+	});
+};
+
 	// console.log(foundPostId);
 	// console.log(foundCityId);
 
@@ -39,7 +47,8 @@ function create(req, res) {
 	// 	});
 	// });
 
-};
+
+
 
 // finds matching post content in db.Posts and returns it
 function showOne(req, res) {
@@ -51,15 +60,37 @@ function showOne(req, res) {
 
 function create(req, res) {
 	console.log('body', req.body);
+	console.log('req params is: ', req.params)
 	db.Posts.create(req.body, function(err, newPost) {
+
 		res.json(newPost);
+	
+		db.City.findById(req.params.cityId, function (err, foundCity) {
+
+			console.log('foundCity posts is: ', foundCity.posts);
+			console.log('req.body is: ', req.body)
+
+			foundCity.posts.push(req.body);
+			foundCity.save()
+
+		});
 	});
+
 };
 
 function destroy(req, res) {
-	db.Post.findOneAndRemove({city:req.params.city, post:req.params.post}, function (err, deletedPost) {
-		res.json(deletedPost);
-	});
+	console.log('made it to empty destroy function')
+	// db.City.findOneById(req.params.cityId, function (err, foundCity) {
+
+	// 	foundCity.posts.findOneById(req.params.postId, (err, foundPost) {
+
+	// 		foundPost.delete()
+	// 		foundCity.posts.save()
+
+	// 	});
+
+	// });
+
 };
 
 function update(req, res) {

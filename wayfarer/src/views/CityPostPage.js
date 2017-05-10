@@ -8,11 +8,14 @@ import CreatePostForm from '../components/CreatePostForm'
 class CityPostPage extends Component {
 
   render() {
+
     return (
     <div>
       <Nav />
       <Hero />
-      <PostsContainer />
+      <PostsContainer 
+        routeParams={this.props.params}
+        />
       <Footer />
     </div>
     )
