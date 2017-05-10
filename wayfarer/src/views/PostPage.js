@@ -7,7 +7,7 @@ class PostPage extends Component {
 
   render() {
     return (
-    <div> 
+    <div>
       <Nav />
       <PostDetailContainer />
       <Footer />

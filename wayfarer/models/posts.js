@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var PostsSchema = new Schema({
-	userImg: String,
+	userIMG: String,
 	user: String,
 	cityName: String,
 	title: String,
