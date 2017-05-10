@@ -2,11 +2,16 @@ var db = require('../models');
 
 function index(req, res) {
 
+	console.log('req.params.cityId is: ', req.params.cityId)
 
 	db.City.findOne({_id: req.params.cityId}, function (err, city) {
+		
+		// var cityPosts = 
+
+		// city.populate().exec()
+
+		// returns array of post ids from city.posts
 		res.json(city.posts);
-
-
 	});
 };
 
@@ -20,6 +25,7 @@ function show(req, res) {
 };
 
 function create(req, res) {
+
 	var newPost = new db.Post({
 		userIMG: req.body.userIMG,
 		user: req.body.user,
@@ -38,7 +44,6 @@ function create(req, res) {
 				console.log('post create error: ${req.body.cityName} not found');
 			} else {
 				newPost.cityName = cityName;
-s
 				newPost.save(function(err, post) {
 					if (err) {
 						console.log('post save error: ', err);
@@ -49,37 +54,8 @@ s
 				})
 			}
 		}
-	};
-	// console.log('body', req.body);
-	// db.Post.create(req.body, function(err, newPost) {
-	// 	res.json(newPost);
-	// });
-
-	// console.log('req.params for unique post is: ', req.params)
-	// var foundCityId = req.params.cityId;
-	// var foundPostId = req.params.postId;
-
-	db.Posts.findById(req.params.postId, function(err, post) {
-		res.json(post)
-		console.log(err);
 	});
-};
-
-	// console.log(foundPostId);
-	// console.log(foundCityId);
-
-	// db.City.findById(foundCityId, function(err, foundCity) {
-		
-	// 	var allPosts = foundCity.posts;
-
-	// 	allPosts.findById(foundPostId, function(err, foundPost) {
-
-	// 		res.json(foundPost);
-
-	// 	});
-	// });
-
-
+}
 
 
 // finds matching post content in db.Posts and returns it
@@ -95,8 +71,9 @@ function create(req, res) {
 	console.log('req params is: ', req.params)
 	db.Posts.create(req.body, function(err, newPost) {
 
+		newPost.save()
 		res.json(newPost);
-	
+
 		db.City.findById(req.params.cityId, function (err, foundCity) {
 
 			console.log('foundCity posts is: ', foundCity.posts);
@@ -106,11 +83,13 @@ function create(req, res) {
 			foundCity.save()
 
 		});
+
 	});
 
 };
 
 function destroy(req, res) {
+
 	console.log('made it to empty destroy function')
 	// db.City.findOneById(req.params.cityId, function (err, foundCity) {
 
@@ -145,5 +124,3 @@ module.exports = {
 	destroy: destroy,
 	update: update
 }
-
-

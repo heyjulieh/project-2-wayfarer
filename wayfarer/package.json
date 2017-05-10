@@ -6,6 +6,7 @@
     "body-parser": "^1.17.1",
     "bootstrap": "^3.3.7",
     "express": "^4.15.2",
+    "firebase": "^3.9.0",
     "foreman": "^2.0.0",
     "jquery-ajax": "^2.1.4",
     "mongoose": "^4.9.7",

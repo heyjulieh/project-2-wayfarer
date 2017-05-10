@@ -9,65 +9,45 @@ import CreatePostForm from '../components/CreatePostForm'
 
 class PostsContainer extends Component {
 
+	// Research Prop.types
+	// Check to see if username is being passed in as a prop
+
 	constructor(props) {
 		super(props);
-		this.state = { data: [] };
+		this.state = { 
+			data: [] 
+		};
+
 		this.loadPostsFromServer = this.loadPostsFromServer.bind(this);
-		this.handleNewPostSubmit = this.handleNewPostSubmit.bind(this);
-		this.handlePosttSubmit = this.handlePostSubmit.bind(this);
-		this.handlePosttDelete = this.handlePosttDelete.bind(this);
-		this.handlePosttUpdate = this.handlePostUpdate.bind(this);
-
-
-	loadPostsFromServer() {
-
-		let currUrlId = window.location.href.replace('http://localhost:3001/cities/', '')
-		console.log(currUrlId)
-
-		$.ajax({
-			method: 'GET',
-			url: `http://localhost:3000/api/cities/${currUrlId}`
-		})
-		.then((res) => {
-			this.setState({posts: res.posts})
-		})
-
-		// use this once posts' data route is confirmed
-		//url: 'http://localhost:3000/api/cities/:cityId/posts'
-
-	}
-
-	handlePostDelete(id) {
-		$.ajax({
-			method: 'DELETE',
-			url: 'http://localhost:3000/api/cities/:cityId/posts/:postId'
-		})
-		.then((res) => {
-			console.log('Post deleted');
-		}, (err) => {
-			console.log(err);
-		});
+		// this.handleNewPostSubmit = this.handleNewPostSubmit.bind(this);
+		// this.handlePostSubmit = this.handlePostSubmit.bind(this);
+		// this.handlePostDelete = this.handlePosttDelete.bind(this);
+		// this.handlePostUpdate = this.handlePostUpdate.bind(this);
 
 	}
 	
 	loadPostsFromServer(){
-    $.ajax({
-      method: 'GET',
-      url: 'http://localhost:3000/api/cities/:cityId/posts'
-    })
-    .then( res => this.setState({posts: res}))
-  }
+
+	    $.ajax({
+	      method: 'GET',
+	      url: `http://localhost:3000/api/cities/${this.props.routeParams.cityId}/posts`
+	    })
+	    .then( res => this.setState({posts: res}))
+  	}
 
 	handleNewPostSubmit(post){
 
 		let posts = this.state.posts;
-
 		let currCityId = window.location.href.replace('http://localhost:3001/cities/', '')
+		// use this once posts' data route is confirmed
+		//url: 'http://localhost:3000/api/cities/:cityId/posts'
 
 		$.ajax({
+
 			method: 'POST',
-			url: `http://localhost:3000/api/cities/${currCityId}/posts`,
+			url: `http://localhost:3000/api/cities/${currCityId}posts`,
 			data: post
+
 		})
 		.then(res => {
 			console.log('res is: ', res)
@@ -79,21 +59,19 @@ class PostsContainer extends Component {
 			this.setState({posts: posts});
 		});
 	}
-
-
   
-handlePostDelete(id){
-    $.ajax({
-      method: 'DELETE',
-      url: 'http://localhost:3000/api/cities/:cityId/posts/:postId'
+// handlePostDelete(id){
+//     $.ajax({
+//       method: 'DELETE',
+//       url: 'http://localhost:3000/api/cities/:cityId/posts/:postId'
 
-    })
-    .then((res) => {
-      console.log('Post deleted');
-    }, (err) => {
-      console.error(err);
-    });
-  }
+// 	    })
+// 	    .then((res) => {
+// 	      console.log('Post deleted');
+// 	    }, (err) => {
+// 	      console.error(err);
+// 	    });
+// 	}
 
     handlePostUpdate(id, post) {
     //sends the posts id and new text to our api
@@ -110,8 +88,8 @@ handlePostDelete(id){
   }
 
   componentDidMount() {
-    this.loadCommentsFromServer();
-    setInterval(this.loadPostsFromServer, this.props.pollInterval);
+    this.loadPostsFromServer();
+    // setInterval(this.loadPostsFromServer, this.props.pollInterval);
   }
 
 
@@ -124,7 +102,6 @@ handlePostDelete(id){
 					onPostDelete={this.handlePostDelete}
 					onPostUpdate={this.handlePostUpdate}/>	
 				<CreatePostForm 
-
        				 onCreatePostFormSubmit={ this.handleNewPostSubmit } />
        		</div>
 		)

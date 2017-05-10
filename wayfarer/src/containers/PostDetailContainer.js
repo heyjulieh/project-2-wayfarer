@@ -10,6 +10,7 @@ class PostDetailContainer extends Component {
 		this.state = {
 
 			post: []
+		}
 
 		this.loadPostFromServer = this.loadPostFromServer.bind(this);
 		// handle post edit form submit and delete
@@ -46,6 +47,9 @@ class PostDetailContainer extends Component {
 		return(
 
 			<PostDetail
+
+				uniqueID={ this.state.post['_id'] }
+				key={ this.state.post['_id'] }
 				post={ this.state.post }
 			/>
 
@@ -60,6 +64,3 @@ export default PostDetailContainer;
 // add onPostUpdate as a prop to PostDetail on line 44
 
 // onPostDelete={ this.onPostDelete }
-// uniqueID={ post['_id'] }
-// key={ post['_id'] }
-

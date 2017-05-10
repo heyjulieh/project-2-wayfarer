@@ -49,9 +49,11 @@ class PostDetail extends Component {
 
 		)
 	}
+
 }
 
 export default PostDetail;
+
 
 
 // <button onClick={this.deletePost}>Delete</button>	

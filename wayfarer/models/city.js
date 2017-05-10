@@ -8,10 +8,11 @@ var CitySchema = new Schema({
 	cityName: String,
 	imgURL: String,
 	type: String,
-	posts: [{type:Schema.Type.ObjectId},
-			{
-			ref:Posts
-			}]
+	posts: [
+
+		{type: Schema.Types.ObjectId},
+		{ref: Posts}
+	]
 });
 
 var City = mongoose.model('City', CitySchema);

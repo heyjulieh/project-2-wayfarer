@@ -46,7 +46,7 @@ nav h4 {
 }
 
 nav img {
-  margin-left: -40px;
+  margin-left: -15px;
   margin-right: 15px;
   margin-top: -8px;
 }
@@ -97,12 +97,11 @@ footer ul {
   border: none;
   border-radius: 0;
   opacity: 0.9;
-  color: white;
   height: 100px;
   width: 100%;
   text-transform: uppercase;
   position: fixed;
-  z-index: 500;
+  z-index: 1;
 }
 
 .dropdown-toggle {
@@ -127,6 +126,12 @@ footer ul {
   width: 500px;
   text-align: justify;
   float: right;
+}
+
+#userName {
+  margin-top: 15px;
+  margin-right: 10px;
+  color: white;
 }
 
 /*   C O M P O N E N T S   */
@@ -224,6 +229,7 @@ img.overlay {
   background color: green;
   opacity: 0.5;
 }
+
 
 
 /*   A N I M A T I O N   */
