@@ -94,12 +94,14 @@ function create(req, res) {
 };
 
 function destroy(req, res) {
+
 	console.log('made it to destroy function')
 
 	db.Post.findOneAndRemove({city:req.params.city, post:req.params.post}, function (err, deletedPost) {
 		res.json(deletedPost);
 	});
 
+	console.log('made it to empty destroy function')
 };
 
 function update(req, res) {

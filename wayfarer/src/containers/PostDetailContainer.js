@@ -10,6 +10,7 @@ class PostDetailContainer extends Component {
 		this.state = {
 			post: []
 		}
+
 		this.loadPostFromServer = this.loadPostFromServer.bind(this);
 		// handle post edit form submit and delete
 		// this.handlePostDelete = this.handlePostDelete.bind(this);

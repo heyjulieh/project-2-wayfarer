@@ -25,48 +25,15 @@ class PostsContainer extends Component {
 		// this.handlePostUpdate = this.handlePostUpdate.bind(this);
 
 	}
-	// loadPostsFromServer() {
-
-	// 	// If username exists, load just the posts that are related to the user
-
-	// 	let currUrlId = window.location.href.replace('http://localhost:3001/cities/', '')
-	// 	console.log(currUrlId)
-
-	// 	$.ajax({
-	// 		method: 'GET',
-	// 		url: `http://localhost:3000/api/cities/${currUrlId}`
-	// 	})
-	// 	.then((res) => {
-	// 		this.setState({posts: res.posts})
-	// 	})
-
-	// 	// use this once posts' data route is confirmed
-	// 	//url: 'http://localhost:3000/api/cities/:cityId/posts'
-
-	// }
-
-	// handlePostDelete(id) {
-
-	// 	$.ajax({
-	// 		method: 'DELETE',
-	// 		url: 'http://localhost:3000/api/cities/:cityId/posts/:postId'
-	// 	})
-	// 	.then((res) => {
-	// 		console.log('Post deleted');
-	// 	}, (err) => {
-	// 		console.log(err);
-	// 	});
-
-	// }
 	
 	loadPostsFromServer(){
 
-    $.ajax({
-      method: 'GET',
-      url: `http://localhost:3000/api/cities/${this.props.routeParams.cityId}/posts`
-    })
-    .then( res => this.setState({posts: res}))
-  }
+	    $.ajax({
+	      method: 'GET',
+	      url: `http://localhost:3000/api/cities/${this.props.routeParams.cityId}/posts`
+	    })
+	    .then( res => this.setState({posts: res}))
+  	}
 
 	handleNewPostSubmit(post){
 
@@ -90,20 +57,6 @@ class PostsContainer extends Component {
 		});
 	}
 
-  handlePostSubmit(posts) {
-      let post = this.state.data;
-      let newPosts = posts.concat([post]);
-      this.setState({ data: newPosts });
-    $.ajax({
-      method:'POST',
-      url: 'http://localhost:3000/api/cities/:cityId/posts/:postId',
-      data: posts
-    })
-      .catch(error => {
-        console.error('post error', error);
-        this.setState({data: posts});
-    });
-  }
 
 	handlePostDelete(id){
 	    $.ajax({
