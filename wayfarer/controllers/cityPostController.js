@@ -46,17 +46,19 @@ function create(req, res) {
 	console.log('req params is: ', req.params)
 	db.Posts.create(req.body, function(err, newPost) {
 
+		newPost.save()
 		res.json(newPost);
-	
+
 		db.City.findById(req.params.cityId, function (err, foundCity) {
 
 			console.log('foundCity posts is: ', foundCity.posts);
 			console.log('req.body is: ', req.body)
 
-			foundCity.posts.push(req.body);
+			foundCity.posts.push(newPost);
 			foundCity.save()
 
 		});
+
 	});
 
 };

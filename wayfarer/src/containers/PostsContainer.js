@@ -58,7 +58,7 @@ class PostsContainer extends Component {
 
 		$.ajax({
 			method: 'POST',
-			url: `http://localhost:3000/api/cities/${currCityId}/posts`,
+			url: `http://localhost:3000/api/cities/${currCityId}posts`,
 			data: post
 		})
 		.then(res => {
@@ -79,7 +79,7 @@ class PostsContainer extends Component {
 				<PostList
 					posts={this.state.posts} />
 				<CreatePostForm
-       				 onCreatePostFormSubmit={ this.handleNewPostSubmit } />
+       				onCreatePostFormSubmit={ this.handleNewPostSubmit } />
        		</div>
 		)
 	}

@@ -45,6 +45,8 @@ class PostDetailContainer extends Component {
 		return(
 
 			<PostDetail
+				uniqueID={ this.state.post['_id'] }
+				key={ this.state.post['_id'] }
 				post={ this.state.post }
 			/>
 

@@ -53,8 +53,8 @@ export default PostDetail;
 
 // <button onClick={this.deletePost}>Delete</button>	
 
-	 //		let userIMG = this.state.userIMG,
-	 //    let user = this.state.user,
-	 //    let cityName = this.state.cityName,
-	 //    let title = this.state.title,
-	 //    let text = this.state.text
+//	let userIMG = this.state.userIMG,
+//	let user = this.state.user,
+//	let cityName = this.state.cityName,
+//	let title = this.state.title,
+//	let text = this.state.text
