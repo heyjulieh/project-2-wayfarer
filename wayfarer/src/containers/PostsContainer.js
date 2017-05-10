@@ -29,12 +29,15 @@ class PostsContainer extends Component {
 			this.setState({posts: res.posts})
 		})
 
+		// use this once posts' data route is confirmed
+		//url: 'http://localhost:3000/api/cities/:cityId/posts'
+
 	}
 
 	handlePostDelete(id) {
 		$.ajax({
 			method: 'DELETE',
-			url: 'http://localhost:3000/api/cities'
+			url: 'http://localhost:3000/api/cities/:cityId/posts/:postId'
 		})
 		.then((res) => {
 			console.log('Post deleted');
@@ -48,19 +51,21 @@ class PostsContainer extends Component {
 	}
 
 	handleNewPostSubmit(post){
-		console.log('handleNewPostSubmit is activated', post);
-		let posts = this.state.data;
-		post.id = Date.now();
+
+		let posts = this.state.posts;
+
+		let currCityId = window.location.href.replace('http://localhost:3001/cities/', '')
 
 		$.ajax({
 			method: 'POST',
-			url: 'http://localhost:3000/api/cities',
-			data: posts
+			url: `http://localhost:3000/api/cities/${currCityId}/posts`,
+			data: post
 		})
 		.then(res => {
-			console.log(res);
+			console.log('res is: ', res)
 			let newPosts = posts.concat([res]);
 			this.setState({posts: newPosts});
+			console.log('this.state is: ', this.state)
 		}, err => {
 			console.error(err);
 			this.setState({posts: posts});

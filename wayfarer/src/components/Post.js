@@ -5,8 +5,6 @@ class Post extends Component {
 
 	render() {
 
-		console.log(this.props.post)
-
 		return(
 
 			<div className="postCard col-sm-12 col-md-12 col-lg-12">
