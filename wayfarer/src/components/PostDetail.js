@@ -41,11 +41,13 @@ class PostDetail extends Component {
 						</div>
 					</div>
 					<button type="submit">Edit</button>
+					<button type="submit">Delete</button>
 				</div>
 			</div>
 
 		)
 	}
+
 }
 
 export default PostDetail;

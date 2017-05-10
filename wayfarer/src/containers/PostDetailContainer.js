@@ -57,6 +57,7 @@ class PostDetailContainer extends Component {
 
 export default PostDetailContainer;
 
+
 // add onPostUpdate as a prop to PostDetail on line 44
 
 // onPostDelete={ this.onPostDelete }
