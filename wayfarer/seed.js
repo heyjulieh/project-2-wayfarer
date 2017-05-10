@@ -89,4 +89,4 @@ db.City.remove({}, function(err, cities) {
 	});
 });
 
-		
+
