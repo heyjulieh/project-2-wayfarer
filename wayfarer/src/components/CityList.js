@@ -4,6 +4,7 @@ import City from './City'
 class CityList extends Component {
 
 	render() {
+
 		let citiesArray = this.props.cities.map( (city) => {
 
 			return (

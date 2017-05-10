@@ -18,7 +18,6 @@ class Post extends Component {
 					<h6 className="postDate">{this.props.post.date}</h6>
 				</div>
 			</div>
-
 		)
 	}
 }

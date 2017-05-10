@@ -13,9 +13,9 @@ class City extends Component {
 	  	 cardDivClass = `cityCard col-sm-12 col-md-6 col-lg-4 ${this.props.city.type}`
 	  }
 		return(
-		
+
 			<div className={cardDivClass}>
-				<img alt={this.props.city.cityName} src={this.props.city.imgURL}/>
+				<img className="overlay" alt={this.props.city.cityName} src={this.props.city.imgURL}/>
 				<h3 className="cityCardName">{this.props.city.cityName}</h3>
 			</div>
 

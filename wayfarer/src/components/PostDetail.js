@@ -40,9 +40,12 @@ class PostDetail extends Component {
 							<h6 className="postDate">{this.props.post.date}</h6>
 						</div>
 					</div>
-					<button type="submit">Edit</button>	
+
+					<button type="submit">Edit</button>
+					<button type="submit">Delete</button>
+
 				</div>
-			</div>	
+			</div>
 
 		)
 	}

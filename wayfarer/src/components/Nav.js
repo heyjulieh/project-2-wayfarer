@@ -14,6 +14,11 @@ class Nav extends Component {
 			<nav className="navbar navbar-inverse">
 			  <div className="container-fluid">
 			    <div className="navbar-header">
+						<div className="col-lg-12 pull-left">
+							<a href="#"><h4><img src="http://ipventures.com.au/images/travel-icon.png" height="50px"/>WAYFARER</h4></a>
+      					<input type="text" className="form-control input-sm" placeholder="Search cities"/>
+						</div>
+
 			      <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
 			        <span className="icon-bar"></span>
 			        <span className="icon-bar"></span>
@@ -23,7 +28,6 @@ class Nav extends Component {
     		</div>
 		    <div className="collapse navbar-collapse" id="myNavbar">
 		      <ul className="nav navbar-nav">
-					<li><a href="#"><h4><img src="http://ipventures.com.au/images/travel-icon.png" height="50px"/>WAYFARER</h4></a></li>
 		        <li className="dropdown">
 		          <a className="dropdown-toggle" data-toggle="dropdown" href="#">Pick a City<span className="caret"></span></a>
 		          <ul className="dropdown-menu">
@@ -34,15 +38,9 @@ class Nav extends Component {
 		        </li>
       	</ul>
 	      <ul className="nav navbar-nav navbar-right">
-	        <li><a href="#"><span className="glyphicon glyphicon-user"></span> Sign Up</a></li>
-	        <li><a href="#"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
-					<li><div className="col-lg-12">
-								<div className="form-group input-group pull-right">
-      						<input type="text" className="form-control input-sm" placeholder="Search cities"/>
+	        <li><a href="#"><span className="glyphicon glyphicon-share-alt"></span> Login</a></li>
+	        <li><a href="#"><span className="glyphicon glyphicon-exclamation-sign"></span> Logout</a></li>
 
-    						</div>
-							</div>
-					</li>
 	      </ul>
 
 	    </div>
