@@ -13,7 +13,7 @@ class CityPostPage extends Component {
     <div>
       <Nav />
       <Hero />
-      <PostsContainer 
+      <PostsContainer
         routeParams={this.props.params}
         />
       <Footer />

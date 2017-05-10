@@ -1,10 +1,12 @@
 import React, {Component} from 'react'
+import { firebase, auth } from '../utils/firebase'
 
 class Nav extends Component {
 	constructor() {
 		super();
 		this.state = {
 			pageName: 'Home'
+			currentUser: ''
 		}
 	}
 

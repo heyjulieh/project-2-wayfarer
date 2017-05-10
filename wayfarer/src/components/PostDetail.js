@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import { firebase, auth } from '../utils/firebase'
 
 class PostDetail extends Component {
 
@@ -40,9 +41,9 @@ class PostDetail extends Component {
 							<h6 className="postDate">{this.props.post.date}</h6>
 						</div>
 					</div>
-					<button type="submit">Edit</button>	
+					<button type="submit">Edit</button>
 				</div>
-			</div>	
+			</div>
 
 		)
 	}
@@ -51,7 +52,7 @@ class PostDetail extends Component {
 export default PostDetail;
 
 
-// <button onClick={this.deletePost}>Delete</button>	
+// <button onClick={this.deletePost}>Delete</button>
 
 	 //		let userIMG = this.state.userIMG,
 	 //    let user = this.state.user,
