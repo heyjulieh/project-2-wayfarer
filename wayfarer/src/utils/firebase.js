@@ -13,5 +13,24 @@ const config = {
 // initialize firebase app with config information
 firebase.initializeApp(config);
 
+const firebaseListToArray = (firebaseObjectList) => {
+  if (!firebaseObjectList) return [];
+
+  return Object.keys(firebaseObjectList)
+    .map(k => {
+      const obj = {
+        id: k
+      };
+      for (let key in firebaseObjectList[k]) {
+        if (firebaseObjectList[k].hasOwnProperty(key)) {
+          obj[key] = firebaseObjectList[k][key];
+        }
+      }
+      return obj;
+    });
+}
+
+const database = firebase.database();
 const auth = firebase.auth();
-export { firebase, auth }
+export { firebase, auth };
+export { firebaseListToArray };

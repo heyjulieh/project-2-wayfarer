@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import { firebase, auth } from '../utils/firebase'
 
 class PostDetail extends Component {
 

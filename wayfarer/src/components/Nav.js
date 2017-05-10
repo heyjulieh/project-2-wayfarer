@@ -5,9 +5,35 @@ class Nav extends Component {
 	constructor() {
 		super();
 		this.state = {
-			pageName: 'Home'
-			currentUser: ''
+			pageName: 'Home',
+			currentUser: null
 		}
+	}
+	componentWillMount() {
+    auth.onAuthStateChanged(currentUser => {
+      if (currentUser) {
+        console.log('Logged in:', currentUser);
+        // set currentUser in App component state
+        this.setState({ currentUser });
+      } else {
+        this.setState({ currentUser: null });
+      }
+    });
+  }
+	loginButtonClicked(e) {
+  e.preventDefault();
+  // set up provider
+  const provider = new firebase.auth.GoogleAuthProvider();
+  console.log("signing in")
+  // tell Firebase auth to log in with a popup and that provider
+  auth.signInWithPopup(provider);
+	}
+
+	logoutButtonClicked(e) {
+  e.preventDefault();
+  // tell Firebase auth to log out
+  console.log("signing out");
+  auth.signOut();
 	}
 
 	render() {
@@ -36,8 +62,9 @@ class Nav extends Component {
 		        </li>
       	</ul>
 	      <ul className="nav navbar-nav navbar-right">
-	        <li><a href="#"><span className="glyphicon glyphicon-user"></span> Sign Up</a></li>
-	        <li><a href="#"><span className="glyphicon glyphicon-log-in"></span> Login</a></li>
+					<li>{this.state.currentUser}</li>
+	        <li><a href="#"><span className="glyphicon glyphicon-user" onclick={this.logoutButtonClicked}></span> Sign Up</a></li>
+	        <li><a href="#"><span className="glyphicon glyphicon-log-in" onclick={this.loginButtonClicked}></span> Login</a></li>
 					<li><div className="col-lg-12">
 								<div className="form-group input-group pull-right">
       						<input type="text" className="form-control input-sm" placeholder="Search cities"/>
