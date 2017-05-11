@@ -12,10 +12,18 @@ class Hero extends Component {
 
 		return(
 
-			<div className="Jumbotron">
-				<div className="JumbotronText">
-				<h3>Lorem ipsum dolor sit amet consectetur apidiscing ullamco</h3>
-				<div id="ScrollArrow">V</div>
+			<div className="hero container">
+				<div className="hero-bg"></div>
+
+				<div className="hero-content row">
+
+	            	<h1 className="header center col s12 m12 l12">Find Your Way</h1>
+	            	<h2 className="center col s12 m12 l12">For when it's about the journey, <br></br> and the destination.</h2>
+					
+					<section id="hero-scroll" className="scroll">
+	            		<a href="#"><span></span><h5>Scroll</h5></a>
+	            	</section>
+
 				</div>
 			</div>
 

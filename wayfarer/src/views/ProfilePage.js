@@ -10,7 +10,7 @@ class ProfilePage extends Component {
     this.state = {
       test: ''
     }
-    this.testFunction = this.testFunction.bind(this)
+    
   }
   componentDidMount() {
     console.log(this.state, 'hello234');
