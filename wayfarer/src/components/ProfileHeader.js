@@ -17,7 +17,7 @@ class ProfileHeader extends Component {
 		return(
 
 
-			<div className="postCard col-sm-12 col-md-12 col-lg-12">
+			<div className="profile-container col-sm-12 col-md-12 col-lg-12">
 				<div className="userSection col-sm-12 col-md-12 col-lg-3">
 					<img src={this.state.userIMG}></img>
 					<h4 className="postUser">{this.state.user}</h4>
