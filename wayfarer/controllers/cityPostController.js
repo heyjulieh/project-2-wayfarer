@@ -1,18 +1,12 @@
 var db = require('../models');
 
 function index(req, res) {
-
-	console.log('req.params.cityId is: ', req.params.cityId)
-
-	db.City.findOne({_id: req.params.cityId}, function (err, city) {
-		
-		// var cityPosts = 
-
-		console.log('gotta figure out what to return here')
-		// city.populate().exec()
-
-		// returns array of post ids from city.posts
-		// res.json(city.posts);
+	console.log('FROM CITYPOSTCONTROLLER!!!')
+		db.City.find({})
+		.populate('posts')
+		.exec(function(err, allPosts){
+		console.log('The posts are: ', allPosts);
+		res.json(allPosts)
 	});
 };
 

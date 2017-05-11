@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var CitySchema = new Schema({
-	cityName: String,
+	name: String,
 	imgURL: String,
 	type: String,
 	posts: [
