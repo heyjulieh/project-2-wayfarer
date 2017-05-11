@@ -28,12 +28,11 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get('/api', controllers.api.index); // works
-app.get('/api/cities', controllers.city.index); // works
-app.get('/api/posts/', controllers.posts.index); // <<TESTING (show all posts in API)
-app.get('/api/cities/:cityId', controllers.city.show); // works 
-app.get('/api/cities/:cityId/posts', controllers.posts.showPosts); // << TESTING (show all posts in city page)
-// app.get('/api/cities/:cityId/posts/:postId', controllers.posts.show);
+app.get('/api', controllers.api.index);
+app.get('/api/cities', controllers.city.index);
+app.get('/api/posts/', controllers.posts.index);
+app.get('/api/cities/:cityId', controllers.city.showCities); 
+app.get('/api/cities/:cityId/posts', controllers.posts.showPosts);
 app.get('/api/cities/:cityId/posts/:postId', controllers.posts.showOne);
 app.post('/api/cities/:cityId/posts', controllers.posts.create);
 app.delete('/api/cities/:cityId/posts/:postId', controllers.posts.destroy);
