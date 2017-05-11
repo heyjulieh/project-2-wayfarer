@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Archivo+Narrow%7CNews+Cycle%7CQuattrocento+Sans%7CQuestrial%7CQuicksand');
-@import url('https://fonts.googleapis.com/css?family=Eczar:400,500,600,700,800%7CWork+Sans:300,400,500,600,700,800,900');
+@import url('https://fonts.googleapis.com/css?family=Eczar:400,500,600,700,800%7CWork+Sans:300,400,500,600,700,800,900%7CQuicksand');
 
 /*   H T M L  T A G S   */
 
@@ -14,7 +13,7 @@ h1 {
 
     font-family: 'Eczar', sans-serif;
     font-weight: 800;
-    font-size: 6rem;
+    font-size: 6.5rem;
     letter-spacing: 1px;
     color: white;
 
@@ -152,11 +151,11 @@ footer ul {
   margin: 0;
   padding: 0;
   position: absolute;
-  animation: background-image 40s ease forwards;
-  -ms-animation: background-image 40s ease forwards;
-  -webkit-animation: background-image 40s ease forwards;
-  -0-animation: background-image 40s ease forwards;
-  -moz-animation: background-image 40s ease forwards;
+  animation: background-image 20s ease forwards;
+  -ms-animation: background-image 20s ease forwards;
+  -webkit-animation: background-image 20s ease forwards;
+  -0-animation: background-image 20s ease forwards;
+  -moz-animation: background-image 20s ease forwards;
 
 }
 

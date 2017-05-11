@@ -1,17 +1,20 @@
 import React, {Component} from 'react'
 import { firebase, auth } from '../utils/firebase'
-// import { Link } from 'react-router-dom'
-var currentUserData;
 
+// import { Link } from 'react-router-dom'
 class Nav extends Component {
 
 	constructor(props) {
 		super(props);
 		this.state = {
 			pageName: 'Home',
-			currentUser: null
+			currentUser: null,
+      loggedIn: false
 		}
-    this.otherTestFunction = this.otherTestFunction.bind(this)
+    this.handleGetUserData = this.handleGetUserData.bind(this)
+    this.loginButtonClicked = this.loginButtonClicked.bind(this)
+    this.logoutButtonClicked = this.logoutButtonClicked.bind(this)
+
 	}
   
 	componentWillMount() {
@@ -23,7 +26,6 @@ class Nav extends Component {
         // currentUserData=currentUser;
         // console.log(currentUserData);
         console.log(this.state, "logging");
-        currentUserData = this
       } else {
         this.setState({ currentUser: null });
       }
@@ -39,29 +41,33 @@ class Nav extends Component {
     auth.signInWithPopup(provider);
 	}
 
+  componentDidMount() {
+
+    setInterval(this.handleGetUserData, 3000);
+
+  }
+
+  handleGetUserData() {
+
+    var uData = this.state.currentUser;
+    console.log('uData is: ', uData);
+    
+    () => {
+      console.log('clicked test button');
+      this.props.onGetUserData(uData)
+    }
+
+  }
+
 	logoutButtonClicked(e) {
     e.preventDefault();
     // tell Firebase auth to log out
     console.log("signing out");
     auth.signOut();
 	}
-
-  // componentDidMount() {
-  //   console.log('this after CDM is:', this)
-  //   console.log("didmount", this.state);
-  //   console.log('currentUserData is: ', currentUserData)
-  //   handleGetUserData(currentUserData) {
-  //       console.log('hello');     
-  //     // console.log("handleGetUserData reached", currentUserData);
-  //     // return currentUser;
-  //   }  
-  // }
    
-  otherTestFunction() {
-    console.log('clicked test button')
-    var data = 'hello'
-    this.props.onTestFunction(data)
-  }
+
+
 
 	render() {
 		return(
@@ -74,7 +80,7 @@ class Nav extends Component {
                     <span className="icon-bar"></span>
                     <span className="icon-bar"></span>
                   </button>
-                  <button onClick={this.otherTestFunction}>TEST BUTTON</button>
+                  
             </div>
                 <a href="http://localhost:3001" className="navbar-brand" ><h4><img src="http://ipventures.com.au/images/travel-icon.png" height="50px"/>WAYFARER</h4></a>
             <div className="collapse navbar-collapse" id="myNavbar">
@@ -90,7 +96,8 @@ class Nav extends Component {
               </ul>
               <ul className="nav navbar-nav navbar-right">
                         <li id="userName">{this.state.currentUser && this.state.currentUser.displayName}</li>
-                <li><a onClick={this.loginButtonClicked}><span className="glyphicon glyphicon-log-in" ></span> Login</a></li>
+                <li><a onClick={this.loginButtonClicked}>
+                <span className="glyphicon glyphicon-log-in" ></span> Login</a></li>
                 <li><a onClick={this.logoutButtonClicked}><span className="glyphicon glyphicon-log-out" ></span> Logout</a></li>
                         <li><div className="col-lg-12">
                                     <div className="form-group input-group pull-right">

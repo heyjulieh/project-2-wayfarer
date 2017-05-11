@@ -8,26 +8,22 @@ class ProfilePage extends Component {
   constructor() {
     super();
     this.state = {
-      test: ''
+      userData: []
     }
     
   }
-  componentDidMount() {
-    console.log(this.state, 'hello234');
-  }
 
-  testFunction(data) {
-    this.setState({test : data})
-    console.log('data is:', data);
+  getUserData(uData) {
+    this.setState({userData : uData})
+    console.log('userData is:', uData);
   }
 
   render() {
-    console.log(this.state, 'hello');
 
     return (
     <div>
       <Nav
-      onTestFunction={this.testFunction.bind(this)}
+      onGetUserData={this.getUserData.bind(this)}
       />
       <ProfileHeader />
       <PostsContainer />
