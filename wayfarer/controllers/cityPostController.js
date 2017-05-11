@@ -32,7 +32,8 @@ function create(req, res) {
 		cityName: req.body.cityName,
 		title: req.body.title,
 		text: req.body.text,
-		date: req.body.date
+		date: req.body.date,
+		userID: req.body.userID
 	});
 
 	db.City.findOne({cityName: req.body.cityName}, function(err, city) {
