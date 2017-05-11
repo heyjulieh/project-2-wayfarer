@@ -152,11 +152,11 @@ footer ul {
   margin: 0;
   padding: 0;
   position: absolute;
-  animation: background-image 40s ease;
-  -ms-animation: background-image 40s ease;
-  -webkit-animation: background-image 40s ease;
-  -0-animation: background-image 40s ease;
-  -moz-animation: background-image 40s ease;
+  animation: background-image 40s ease forwards;
+  -ms-animation: background-image 40s ease forwards;
+  -webkit-animation: background-image 40s ease forwards;
+  -0-animation: background-image 40s ease forwards;
+  -moz-animation: background-image 40s ease forwards;
 
 }
 
