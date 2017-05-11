@@ -1,28 +1,26 @@
 var db = require('../models');
 
+// Finding all posts going to api/posts route
 function index(req, res) {
-
-	console.log('req.params.cityId is: ', req.params.cityId)
-
-	db.City.findOne({_id: req.params.cityId}, function (err, city) {
-		
-		// var cityPosts = 
-
-		console.log('gotta figure out what to return here')
-		// city.populate().exec()
-
-		// returns array of post ids from city.posts
-		// res.json(city.posts);
+	db.Post.find({}, function(err, allPosts){
+		res.json(allPosts)
 	});
 };
 
-// finds a post by matching ID and returns it
-function show(req, res) {
-
-	var postId = req.params.postId;
-	db.Posts.findById(postId, function(err, foundPost) {
-		res.json(foundPost);
+// Show all posts under 1 city ID
+function showPosts(req, res) {
+	var cityId = {city:req.params.cityId}
+	db.Post.find(cityId, function(err, showAllPosts) {
+		res.json(showAllPosts);
 	});
+};
+
+// Show 1 post for 1 city ID
+function showOne(req, res) {
+    var postId = req.params.postId;
+    db.Post.findById(postId, function(err, foundPost) {
+        res.json(foundPost);
+    });
 };
 
 function create(req, res) {
@@ -59,13 +57,6 @@ function create(req, res) {
 }
 
 
-// finds matching post content in db.Posts and returns it
-function showOne(req, res) {
-	db.Post.findOne({post:req.params.post})
-		.exec(function(err, foundPost) {
-			res.json(foundPost);
-	});
-};
 
 function create(req, res) {
 	console.log('body', req.body);
@@ -119,7 +110,7 @@ function update(req, res) {
 
 module.exports = {
 	index: index,
-	show: show,
+	showPosts: showPosts,
 	create: create,
 	showOne: showOne,
 	destroy: destroy,

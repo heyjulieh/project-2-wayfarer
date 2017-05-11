@@ -2,91 +2,191 @@ var db = require('./models');
 
 var cities_list = [
 	{
-		cityName: 'San Francisco',
+		name: 'San Francisco',
 		imgURL: '/images/cities/sanfrancisco.jpg',
-		type: 'largeCard',
-		posts:
-			[{
-				userIMG: 'https://images.pexels.com/photos/101584/pexels-photo-101584.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb',
-				user: 'Anthony L.',
-				cityName: 'SanFrancisco',
-				title: 'Home is Where the Sandwich is',
-				text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolo.',
-				date: '5/10/2017'
-			}]
+		type: 'largeCard'
 	},
 	{
-		cityName: 'Dubai',
+		name: 'Dubai',
 		imgURL: '/images/cities/dubai.jpg',
-		type: 'mediumCard',
-		posts:
-			[{
-				userIMG: 'https://images.pexels.com/photos/27411/pexels-photo-27411.jpg?w=1260&h=750&auto=compress&cs=tinysrgb',
-				user: 'Violet',
-				cityName: 'Dubai',
-				title: 'Words from a Local',
-				text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolo.',
-				date: '5/10/2017'
-			}]
+		type: 'mediumCard'
 	},
 	{
-		cityName: 'Reykjavik',
+		name: 'Reykjavik',
 		imgURL: '/images/cities/reykjavik.jpg',
-		type: 'smallCard',
-		posts:
-			[{
-			userIMG: 'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb',
-			user: 'Blair',
-			cityName: 'Reykjavik',
-			title: 'Really Cool Vibes, Man.',
-			text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolo.',
-			date: '5/10/2017'
-			}]
+		type: 'smallCard'
 	},
 	{
-		cityName: 'Tokyo',
+		name: 'Tokyo',
 		imgURL: '/images/cities/tokyo.jpg',
-		type: 'smallCard',
-		posts:
-			[{
-			userImg: '',
-			user: 'Julie Huang',
-			cityName: 'Tokyo',
-			title: 'I Want To Hold My Hand',
-			text: 'COLD COLD COLD, but the hot springs are a must see.',
-			date: '4/10/2016'
-			}]
+		type: 'smallCard'
 	},
 	{
-		cityName: 'Amsterdam',
+		name: 'Amsterdam',
 		imgURL: '/images/cities/amsterdam.jpg',
-		type: 'largeCard',
-		posts:
-			[{
-			userImg: '',
-			user: 'Mahmoud Bachir',
-			cityName: 'Amsterdam',
-			title: 'Lucy In The Sky With Diamonds',
-			text: 'Ramen was so bomb!',
-			date: '3/25/2017'
-			}]
+		type: 'largeCard'
 	}
-]
-db.Post.remove({}, function(err, posts) {
-	console.log('removed all posts')
-	
-});
+];
+
+var posts_list = [
+	{
+		userIMG: 'https://images.pexels.com/photos/101584/pexels-photo-101584.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb',
+		user: 'Anthony L.',
+		cityName: 'San Francisco',
+		title: 'Home is Where the Sandwich is',
+		text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolo.',
+		date: '5/10/2017'
+	},
+	{
+		userIMG: 'https://images.pexels.com/photos/101584/pexels-photo-101584.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb',
+		user: 'George C.',
+		cityName: 'San Francisco',
+		title: 'Nowhere Man',
+		text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolo.',
+		date: '1/2/2014'
+	},
+	{
+		userIMG: 'https://images.pexels.com/photos/27411/pexels-photo-27411.jpg?w=1260&h=750&auto=compress&cs=tinysrgb',
+		user: 'Violet',
+		cityName: 'Dubai',
+		title: 'Words from a Local',
+		text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolo.',
+		date: '5/10/2017'
+	},
+	{
+		userIMG: 'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb',
+		user: 'Blair',
+		cityName: 'Reykjavik',
+		title: 'Really Cool Vibes, Man.',
+		text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolo.',
+		date: '5/10/2017'
+	},
+	{
+		userIMG: '',
+		user: 'Julie Huang',
+		cityName: 'Tokyo',
+		title: 'I Want To Hold My Hand',
+		text: 'COLD COLD COLD, but the hot springs are a must see.',
+		date: '4/10/2016'
+	},
+	{
+		userIMG: '',
+		user: 'Mahmoud Bachir',
+		cityName: 'Amsterdam',
+		title: 'Lucy In The Sky With Diamonds',
+		text: 'Ramen was so bomb!',
+		date: '3/25/2017'
+	}
+];
 
 db.City.remove({}, function(err, cities) {
-	console.log('removed all cities')
+console.log('removed all cities');
 	db.City.create(cities_list, function(err, cities) {
-		if (err){
-			return consosle.log('ERROR', err);
+		if (err) {
+			console.log(err);
+			return;
 		}
-		console.log('all cities:', cities);
-		console.log('created',cities.length, 'cities');
-		process.exit();
-	});
-});
+
+		db.Post.remove({}, function(err, posts) {
+			console.log('removed all posts')
+			
+			posts_list.forEach(function(postInfo) {
+				var post = new db.Post({
+					userIMG: postInfo.userIMG,
+					user: postInfo.user,
+					title: postInfo.title,
+					text: postInfo.text,
+					date: postInfo.date
+				});
+				db.City.findOne({name: postInfo.cityName}, function(err, foundCity) {
+					if(err) {
+						console.log(err);
+						return;
+					}
+					post.city = foundCity;
+					post.save(function(err, savedPost) {
+						if(err) {
+							return console.log(err);
+						}
+						console.log('saved ', savedPost);
+					})
+				})
+			})
+		})
+	})
+})
+
+// 			db.Post.create(posts_list, function(err, posts) {
+// 				if (err) {
+// 					console.log(err);
+// 					return;
+// 				}
+// 				console.log('recreated all posts');
+// 				console.log('created', posts.length, "posts");
+// 			});
+// 		});
+		
+// 		console.log('recreated all cities');
+// 		console.log('created', cities.length, "cities");
+// 	});
+// });
+
+
+
+// TESTING START
+
+
+// db.City.save(function(err) {
+// 	if(!error) {
+// 		db.City.find({})
+// 		.populate('name')
+// 		.populate('imgURL')
+// 		.populate('type')
+// 		.exec(function(err, posts) {
+// 			console.log(posts)
+// 		});
+// 	}
+// });
+// TESTING END
+
+
+// 	cities_list.forEach(function (cityData) {
+// 		var city = new db.City({
+// 			name: cityData.name,
+// 			imgURL: cityData.imgURL,
+// 			type: cityData.type
+	
+
+// 		db.Post.findOne({cityName: cityData.name})
+// 			.populate('userImg') 
+// 			.populate('user')
+// 			.populate('cityName')
+// 			.populate('title')
+// 			.populate('text')
+// 			.populate('date')
+// 			.exec(function(err, foundPost) {
+// 				console.log(foundPost);
+// 				city.posts = foundPost;
+// 				city.save(function(err, savedCity) {
+// 				if(err) {
+// 					return console.log(err);
+// 				}
+// 				console.log('saved: ', savedCity);
+// 			});
+
+
+// 			function(err, foundPost) {
+// 			console.log('This is foundPost: ', foundPost);
+// 			if(err) {
+// 				console.log(err);
+// 				return;
+// 			}
+// 			city.posts = foundPost;
+			
+// 		});
+// 	});
+// });
+// });
+// });
 
 

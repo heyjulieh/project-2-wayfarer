@@ -6,11 +6,15 @@ var Schema = mongoose.Schema;
 var PostsSchema = new Schema({
 	userIMG: String,
 	user: String,
-	cityName: String,
 	title: String,
 	text: String,
-	date: Date
-})
+	date: Date,
+	city: 
+	{
+		type: Schema.Types.ObjectId,
+		ref: 'City'
+	}
+});
 
 var Posts = mongoose.model('Posts', PostsSchema);
 

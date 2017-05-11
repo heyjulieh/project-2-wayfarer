@@ -28,11 +28,13 @@ class PostsContainer extends Component {
 	
 	loadPostsFromServer(){
 
-	    $.ajax({
-	      method: 'GET',
-	      url: `http://localhost:3000/api/cities/${this.props.routeParams.cityId}/posts`
-	    })
-	    .then( res => this.setState({posts: res}))
+		//need to load posts from server
+
+	    // $.ajax({
+	    //   method: 'GET',
+	    //   url: `http://localhost:3000/api/cities/${this.props.routeParams.cityId}/posts`
+	    // })
+	    // .then( res => this.setState({posts: res}))
   	}
 
 	handleNewPostSubmit(post){
