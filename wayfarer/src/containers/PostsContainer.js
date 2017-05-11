@@ -14,8 +14,8 @@ class PostsContainer extends Component {
 
 	constructor(props) {
 		super(props);
-		this.state = { 
-			data: [] 
+		this.state = {
+			posts: []
 		};
 
 		this.loadPostsFromServer = this.loadPostsFromServer.bind(this);
@@ -25,16 +25,17 @@ class PostsContainer extends Component {
 		// this.handlePostUpdate = this.handlePostUpdate.bind(this);
 
 	}
-	
+
 	loadPostsFromServer(){
 
-		//need to load posts from server
-
-	    // $.ajax({
-	    //   method: 'GET',
-	    //   url: `http://localhost:3000/api/cities/${this.props.routeParams.cityId}/posts`
-	    // })
-	    // .then( res => this.setState({posts: res}))
+		// need to load posts from server
+			console.log('city id', this.props.routeParams.cityId);
+	    $.ajax({
+	      method: 'GET',
+	      url: `http://localhost:3000/api/cities/${this.props.routeParams.cityId}/posts`
+	    })
+	    .then( (res) => {this.setState({posts: res})
+			})
   	}
 
 	handleNewPostSubmit(post){
@@ -61,7 +62,7 @@ class PostsContainer extends Component {
 			this.setState({posts: posts});
 		});
 	}
-  
+
 // handlePostDelete(id){
 //     $.ajax({
 //       method: 'DELETE',
@@ -99,11 +100,11 @@ class PostsContainer extends Component {
 		return(
 
 			<div>
-				<PostList 
-					posts={this.state.data} 
+				<PostList
+					posts={this.state.posts}
 					onPostDelete={this.handlePostDelete}
-					onPostUpdate={this.handlePostUpdate}/>	
-				<CreatePostForm 
+					onPostUpdate={this.handlePostUpdate}/>
+				<CreatePostForm
        				 onCreatePostFormSubmit={ this.handleNewPostSubmit } />
        		</div>
 		)

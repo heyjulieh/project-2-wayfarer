@@ -9,9 +9,11 @@ function index(req, res) {
 
 // Show all posts under 1 city ID
 function showPosts(req, res) {
-	var cityId = {city:req.params.cityId}
-	db.Post.find(cityId, function(err, showAllPosts) {
+	var city = req.params.cityId
+	db.Post.find({city}, function(err, showAllPosts) {
 		res.json(showAllPosts);
+		console.log('showAllPosts', showAllPosts)
+		console.log('req.params', req.params)
 	});
 };
 
