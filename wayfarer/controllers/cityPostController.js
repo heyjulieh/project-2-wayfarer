@@ -8,10 +8,11 @@ function index(req, res) {
 		
 		// var cityPosts = 
 
+		console.log('gotta figure out what to return here')
 		// city.populate().exec()
 
 		// returns array of post ids from city.posts
-		res.json(city.posts);
+		// res.json(city.posts);
 	});
 };
 

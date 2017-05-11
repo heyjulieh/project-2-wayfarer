@@ -5,12 +5,26 @@ import Footer from '../components/Footer'
 import ProfileHeader from '../components/ProfileHeader'
 
 class ProfilePage extends Component {
+  constructor() {
+    super();
+    this.state = {
+      userData: []
+    }
+    
+  }
+
+  getUserData(uData) {
+    this.setState({userData : uData})
+    console.log('userData is:', uData);
+  }
 
   render() {
 
     return (
     <div>
-      <Nav />
+      <Nav
+      onGetUserData={this.getUserData.bind(this)}
+      />
       <ProfileHeader />
       <PostsContainer />
       <Footer />
@@ -23,3 +37,5 @@ export default ProfilePage;
 
 // displayName={nav.props.currentUser.displayName}
 // displayImage={nav.props.currentUser.photoURL}
+
+{/*getUserData={this.handleGetUserData.bind(this)} put this in nav component later*/}
