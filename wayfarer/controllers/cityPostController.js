@@ -56,30 +56,6 @@ function create(req, res) {
 	});
 }
 
-
-
-function create(req, res) {
-	console.log('body', req.body);
-	console.log('req params is: ', req.params)
-	db.Posts.create(req.body, function(err, newPost) {
-
-		newPost.save()
-		res.json(newPost);
-
-		db.City.findById(req.params.cityId, function (err, foundCity) {
-
-			console.log('foundCity posts is: ', foundCity.posts);
-			console.log('req.body is: ', req.body)
-
-			foundCity.posts.push(req.body);
-			foundCity.save()
-
-		});
-
-	});
-
-};
-
 function destroy(req, res) {
 
 	console.log('made it to empty destroy function')
