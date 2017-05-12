@@ -166,7 +166,7 @@ footer p {
 
 .glyphicon {
   margin-right: 8px;
-  
+
 
 }
 
@@ -346,7 +346,7 @@ footer p {
 
 .postsList {
 
-  padding: 150px 0px;
+  padding: 150px 0px 0px 0px;
 
 }
 
@@ -423,6 +423,7 @@ h1.cityTitle {
   padding: 10px 20px;
   margin-right: 15px;
 
+
 }
 
 .postText {
@@ -436,7 +437,7 @@ h1.cityTitle {
 
 .postDate {
 
-  padding: 15px 0px;
+  padding-top: 10px;
 
 }
 
