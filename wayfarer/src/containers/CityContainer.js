@@ -25,7 +25,7 @@ class CityContainer extends Component {
 	componentDidMount(){
 		this.loadCitiesFromServer();
 	}
-
+	
 	render() {
 		return(
 			<CityList

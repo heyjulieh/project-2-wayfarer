@@ -15,8 +15,8 @@ class City extends Component {
 		return(
 
 			<div className={cardDivClass}>
-				<img className="overlay" alt={this.props.city.cityName} src={this.props.city.imgURL}/>
-				<h3 className="cityCardName">{this.props.city.cityName}</h3>
+				<img alt={this.props.city.name} src={this.props.city.imgURL}/>
+				<h3 className="cityCardName">{this.props.city.name}</h3>
 			</div>
 
 		)

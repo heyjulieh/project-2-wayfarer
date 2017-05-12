@@ -9,9 +9,11 @@ function index(req, res) {
 
 // Shows all posts under a specific city
 function showPosts(req, res) {
-	var cityId = {city:req.params.cityId}
-	db.Post.find(cityId, function(err, showAllPosts) {
+	var city = req.params.cityId
+	db.Post.find({city}, function(err, showAllPosts) {
 		res.json(showAllPosts);
+		console.log('showAllPosts', showAllPosts)
+		console.log('req.params', req.params)
 	});
 };
 
@@ -58,31 +60,6 @@ function create(req, res) {
 	});
 }
 
-
-
-// function create(req, res) {
-// 	console.log('body', req.body);
-// 	console.log('req params is: ', req.params)
-// 	db.Posts.create(req.body, function(err, newPost) {
-
-// 		newPost.save()
-// 		res.json(newPost);
-
-// 		db.City.findById(req.params.cityId, function (err, foundCity) {
-
-// 			console.log('foundCity posts is: ', foundCity.posts);
-// 			console.log('req.body is: ', req.body)
-
-// 			foundCity.posts.push(req.body);
-// 			foundCity.save()
-
-// 		});
-
-// 	});
-
-// };
-
-// Deletes a specific post in a specific city
 function destroy(req, res) {
 
 	console.log('made it to empty destroy function')
