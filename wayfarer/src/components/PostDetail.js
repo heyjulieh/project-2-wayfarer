@@ -89,6 +89,8 @@ class PostDetail extends Component {
 
 		return(
 
+			<div>
+
 			<div className="postCardDetail col-sm-12 col-md-12 col-lg-12">
 				<div className="userSection col-sm-12 col-md-12 col-lg-3">
 					<img className="postImage img-circle img-responsive center-block" src={this.props.post.userIMG}></img>
@@ -98,10 +100,16 @@ class PostDetail extends Component {
 					<h1 className="postTitle">{this.props.post.title}</h1>
 					<p className="postText">{this.props.post.text}</p>
 					<h6 className="postDate">Posted on: Some Date</h6>
+
+					<button className='btn btn-default' onClick={this.updatePost}><span className="glyphicon glyphicon-pencil" aria-hidden="true">EDIT</span></button>
+					<button className='btn btn-warning' onClick={this.deletePost}><span className="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+
 				</div>
 
-					<button className='btn btn-default' onClick={this.updatePost}><span className="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
-					<button className='btn btn-warning' onClick={this.deletePost}><span className="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
+					
+			</div>
+
+					<div>
 
 					 { (this.state.editMode)
 						 ? (<div className="container">
@@ -155,8 +163,8 @@ class PostDetail extends Component {
 							</div>
 						</div>)
 					: null}
+				</div>
 			</div>
-
 		)
 	}
 
