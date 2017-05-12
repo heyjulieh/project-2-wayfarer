@@ -98,6 +98,12 @@ handlePostDelete(id){
 
 
 	render() {
+
+		let targetPost = this.state.posts[0];
+		
+
+		console.log('currCity is: ', targetPost)
+
 		return(
 
 			<div>	

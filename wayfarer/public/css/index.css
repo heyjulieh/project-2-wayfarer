@@ -213,7 +213,7 @@ footer ul {
 .citiesGrid {
 
   margin: 0;
-  padding: 0;
+  padding-bottom: 60px;
 
 }
 
@@ -256,6 +256,8 @@ footer ul {
 
 .postCard {
   margin-top: 50px;
+  background-color: #fbf1f1;
+  padding: 0;
 }
 
 .userSection {
@@ -317,6 +319,8 @@ footer ul {
   background-color: darkgrey;
   padding: 5px;
   bottom: 0;
+
+}
 
 /*   A N I M A T I O N   */
 
