@@ -25,13 +25,14 @@ h2 {
 }
 
 h3 {
-  font-family: 'Quatrocentro Sans', sans-serif;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 500;
 }
 
 h4 {
-
-
-
+  font-family: 'Eczar';
+  font-weight: 300;
+  font-size: 40px;
 }
 
 nav a {
@@ -65,37 +66,43 @@ footer a {
   text-decoration: none;
   text-transform: uppercase;
   color: white;
-  font-family: 'Quatrocentro Sans', sans-serif;
+  vertical-align: middle;
+  padding-top: 5px;
+  font-family: 'Work Sans', sans-serif;
 }
 
 footer a:hover {
   display: block;
   text-decoration: none;
   height: 30px;
-  color: white;
+  color: #d6b0b3;
+  background-color: white;
 }
 
 footer a:active {
   display: block;
   text-decoration: none;
   height: 30px;
-  color: white;
+  color: #d6b0b3;
 }
 
 footer {
   height: 200px;
   background-color: darkgrey;
   padding: 5px;
+  margin-bottom: 0;
+  width: 100%;
 }
 
 footer ul {
   display: inline-block;
-  height: 20px;
-  color: black;
   list-style: none;
   margin-top: 10px;
-  padding: 10px;
   vertical-align: middle;
+}
+
+footer p {
+  margin-top: 10px;
 }
 
 /*   C L A S S E S   */
@@ -115,6 +122,9 @@ footer ul {
   text-transform: uppercase;
   position: fixed;
   z-index: 1;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
 }
 
 .dropdown-toggle {
@@ -149,6 +159,7 @@ footer ul {
   color: white;
   border-color: #d6b0b3;
   text-transform: uppercase;
+  font-family: 'Work Sans', sans-serif;
 }
 
 .btn-primary:focus {
@@ -156,6 +167,7 @@ footer ul {
   color: white;
   border-color: #d6b0b3;
   text-transform: uppercase;
+  font-family: 'Work Sans', sans-serif;
 }
 
 .btn-primary:hover {
@@ -163,6 +175,7 @@ footer ul {
   color: black;
   border-color: white;
   text-transform: uppercase;
+  font-family: 'Work Sans', sans-serif;
 }
 
 .btn-primary:active {
@@ -170,6 +183,7 @@ footer ul {
   color: black;
   border-color: white;
   text-transform: uppercase;
+  font-family: 'Work Sans', sans-serif;
 }
 
 .form-group {
@@ -178,6 +192,10 @@ footer ul {
   padding-top: 30px;
   border-radius: 10px;
   border: 0px white solid;
+}
+
+.form-control {
+  font-family: 'Quicksand', sans-serif;
 }
 
 .formheader {
@@ -191,15 +209,6 @@ footer ul {
 
 /*   I D S   */
 
-#footerblurb {
-  margin-top: -25px;
-  display: inline-block;
-  font-family: 'News Cycle', sans-serif;
-  font-size: 15px;
-  width: 500px;
-  text-align: justify;
-  float: right;
-}
 
 #userName {
   margin-left: 15px;
@@ -294,7 +303,7 @@ footer ul {
 }
 
 .postSection {
-  
+
   padding: 50px;
   background-color: #fbf1f1;
 
