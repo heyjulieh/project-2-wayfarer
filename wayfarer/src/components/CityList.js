@@ -19,6 +19,8 @@ class CityList extends Component {
 
 			<div className="citiesGrid container-fluid">
 				<div className="row">
+				<h1 className="center-text">Explore Cities</h1>
+
 					{citiesArray}
 				</div>
 			</div>

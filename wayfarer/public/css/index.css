@@ -93,6 +93,7 @@ footer {
   height: 200px;
   background-color: darkgrey;
   padding: 5px;
+  bottom: 0;
 }
 
 footer ul {
@@ -182,7 +183,7 @@ footer ul {
   width: 100%;
   min-height: 700px;
   height: 87.5vh !important;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
   padding: 0;
   overflow: hidden;
   position: relative;
@@ -209,22 +210,40 @@ footer ul {
 
 /*   CityCards   */
 
+.citiesGrid {
+
+  margin: 0;
+  padding: 0;
+
+}
+
+.citiesGrid h1 {
+
+  padding-bottom: 40px;
+  text-align: center;
+
+}
+
 .cityCard img {
   width: 100%;
+  margin: 5px 0px -50px 0px;
 }
 
 .cityCard h3 {
-  display: inline-block;
-  height: 100%;
-  margin-top: -10px;
-  position: relative;
+  font-family: 'Eczar', sans-serif;
+  font-weight: 800;
+  font-size: 3rem;
+  letter-spacing: 1px;
+  color: black;
+}
+
+.cityCardName {
   background-color: white;
-  color: darkgrey;
-  text-align: center;
-  font-family: 'News Cycle', sans-serif;
-  text-transform: uppercase;
-  padding-top: 5px;
-  padding-right: 10px;
+  position: relative;
+  display: inline-block;
+  margin-top: -80px;
+  padding: 30px;
+
 }
 
 /*   ProfileCards   */
@@ -283,12 +302,21 @@ footer ul {
 
 }
 
-.postUser h4 {
+.postCardDetail {
 
-  
-
+  margin-top: 150px;
+  display: block;
 
 }
+
+
+.postPage footer {
+  position: absolute;
+  height: 200px;
+  width: 100%;
+  background-color: darkgrey;
+  padding: 5px;
+  bottom: 0;
 
 /*   A N I M A T I O N   */
 
@@ -305,6 +333,7 @@ footer ul {
   text-decoration: none;
   transition: opacity .3s;
 }
+
 .scroll a:hover {
   opacity: .5;
 }
