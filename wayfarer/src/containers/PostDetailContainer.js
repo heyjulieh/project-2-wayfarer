@@ -13,30 +13,50 @@ class PostDetailContainer extends Component {
 		}
 
 		this.loadPostFromServer = this.loadPostFromServer.bind(this);
-		// handle post edit form submit and delete
-		// this.handlePostDelete = this.handlePostDelete.bind(this);
-		// this.handleNewPostSubmit = this.handleNewPostSubmit.bind(this);
+		this.handlePostUpdate = this.handlePostUpdate.bind(this);
+		this.handlePostDelete = this.handlePostDelete.bind(this);
+
 
 	}
 
 	loadPostFromServer() {
-
-		console.log('Made it to loadPostFromServer')
-
-		let parsedUrlData = window.location.href.replace('http://localhost:3001/cities/', '')
-		console.log(parsedUrlData)
-
 		$.ajax({
 			method: 'GET',
-			url: `http://localhost:3000/api/cities/${parsedUrlData}`
+			url: `http://localhost:3000/api/cities/${this.props.routeParams.cityId}/posts/${this.props.routeParams.postId}`
 		})
 		.then((res) => {
-
+			console.log(this.props.routeParams, 'route params')
 			console.log('post detail res is: ', res)
 			// find the post within the returned res.posts that matches our URL post id
 			this.setState({post: res})
 		})
 
+	}
+
+	handlePostDelete(targetPost) {
+		$.ajax({
+			method: 'DELETE',
+			url: `http://localhost:3000/api/cities/${this.props.routeParams.cityId}/posts/${this.props.routeParams.postId}`,
+			data: targetPost
+		})
+		.then((res) => {
+			console.log('Post deleted', res)
+		})
+		window.location.href=`http://localhost:3001/cities/${this.props.routeParams.cityId}`
+	}
+
+	handlePostUpdate(targetPost) {
+		$.ajax({
+			method: 'PUT',
+			url: `http://localhost:3000/api/cities/${this.props.routeParams.cityId}/posts/${this.props.routeParams.postId}`,
+			data: targetPost
+		})
+		.then((res) => {
+
+			console.log('post detail res is: ', res)
+			// find the post within the returned res.posts that matches our URL post id
+			this.setState({post: targetPost})
+		})
 	}
 
 	componentDidMount() {
@@ -47,10 +67,9 @@ class PostDetailContainer extends Component {
 		return(
 
 			<PostDetail
-
-				uniqueID={ this.state.post['_id'] }
-				key={ this.state.post['_id'] }
 				post={ this.state.post }
+				onPostUpdate={this.handlePostUpdate}
+				onPostDelete={this.handlePostDelete}
 			/>
 
 		)
@@ -60,6 +79,9 @@ class PostDetailContainer extends Component {
 
 export default PostDetailContainer;
 
+				// This stuff goes in Post Detail Component above
+				// {/*uniqueID={ this.state.post['_id']}*/}
+				// {/*key={ this.state.post['_id'] }*/}
 
 // add onPostUpdate as a prop to PostDetail on line 44
 

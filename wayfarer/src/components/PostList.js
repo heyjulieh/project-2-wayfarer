@@ -9,7 +9,8 @@ class PostList extends Component {
 
 			return (
 				<Post
-					key={post._id}
+					key={[post._id]}
+					uniqueId={[post._id]}
 					post={post}
 					className="postCard" />
 			)

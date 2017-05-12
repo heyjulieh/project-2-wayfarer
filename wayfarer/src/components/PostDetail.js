@@ -7,22 +7,80 @@ class PostDetail extends Component {
 		this.state={
 			userIMG: '',
 	    	user: '',
-	    	cityName: '',
+	    	city: '',
 	    	title: '',
-	    	text: ''
+	    	text: '',
+				editMode: false
 		}
-		// this.deleteComment = this.deleteComment.bind(this)
+		this.updatePost = this.updatePost.bind(this);
+		this.handleUpdatePost = this.handleUpdatePost.bind(this)
+		this.handleInputChange = this.handleInputChange.bind(this)
+		this.deletePost = this.deletePost.bind(this)
+  }
+
+	deletePost(e) {
+		let targetPost = this.state;
+		e.preventDefault();
+		this.props.onPostDelete(targetPost);
 
 	}
 
-	// deleteComment(e) {
+	updatePost(e) {
+		e.preventDefault();
+		this.setState({editMode: !this.state.editMode});
+		console.log('made it to updatePost')
+	}
 
-	// 	e.preventDefault();
+	handleUpdatePost(e) {
 
-	// 	let id = this.props.uniqueID
-	//     this.props.onPostDelete(id)
+		let targetPost = this.state
 
-	// }
+		e.preventDefault();
+		// let id = this.props.uniqueID;
+		let userIMG = this.state.userIMG.trim();
+    let user = this.state.user.trim();
+    let city = this.state.city.trim();
+    let title = this.state.title.trim();
+    let text = this.state.text.trim();
+    if (!userIMG || !user || !city || !title || !text) {
+      return;
+		}
+		this.props.onPostUpdate(targetPost);
+		// need to include post as a param above
+		console.log('made it to handleUpdatePost')
+		this.setState({
+			editMode: !this.state.editMode,
+			userIMG: '',
+	    	user: '',
+	    	city: '',
+	    	title: '',
+	    	text: ''
+		})
+	}
+
+	handleInputChange(e) {
+
+  	if (e.target.name === 'userIMG') {
+  		this.setState({ userIMG: e.target.value });
+  	}
+
+  	if (e.target.name === 'user') {
+  		this.setState({ user: e.target.value });
+  	}
+
+  	if (e.target.name === 'city') {
+  		this.setState({ city: e.target.value });
+  	}
+
+  	if (e.target.name === 'title') {
+  		this.setState({ title: e.target.value });
+  	}
+
+  	if (e.target.name === 'text') {
+  		this.setState({ text: e.target.value });
+  	}
+
+  }
 
 	render() {
 		return(
@@ -41,10 +99,51 @@ class PostDetail extends Component {
 						</div>
 					</div>
 
-					<button type="submit">Edit</button>
-					<button type="submit">Delete</button>
+					<button onClick={this.updatePost}>Edit</button>
+					<button onClick={this.deletePost}>Delete</button>
 
-				</div>
+					 { (this.state.editMode)
+						 ? (<form onSubmit={ this.handleUpdatePost }>
+			 	        <input
+			 	          type='text'
+			 	          name='userIMG'
+			 	          placeholder='Link to your profile image…'
+			 	          value={ this.state.userIMG }
+			 	          onChange={ this.handleInputChange } />
+			 	        <input
+			 	          type='text'
+			 	          name='user'
+			 	          placeholder='Enter your name…'
+			 	          value={ this.state.user }
+			 	          onChange={ this.handleInputChange } />
+			 	        <input
+			 	          type='text'
+			 	          name='city'
+			 	          placeholder='Select a city…'
+			 	          value={ this.state.city }
+			 	          onChange={ this.handleInputChange } />
+			 	        <input
+			 	          type='text'
+			 	          name='title'
+			 	          placeholder='Choose a title…'
+			 	          value={ this.state.title }
+			 	          onChange={ this.handleInputChange } />
+			 	        <input
+			 	          type='text'
+			 	          name='text'
+			 	          placeholder='Write your post…'
+			 	          value={ this.state.text }
+			 	          onChange={ this.handleInputChange } />
+			 	        <input
+			 	          type='hidden'
+			 	          name='date'
+			 	          value={Date.now()} />
+			 	        <input
+			 	          type='submit'
+			 	          value='Save Changes' />
+			 	    </form>)
+						 : null}
+ 				</div>
 			</div>
 
 		)
@@ -56,10 +155,10 @@ export default PostDetail;
 
 
 
-// <button onClick={this.deletePost}>Delete</button>	
+// <button onClick={this.deletePost}>Delete</button>
 
 	 //		let userIMG = this.state.userIMG,
 	 //    let user = this.state.user,
-	 //    let cityName = this.state.cityName,
+	 //    let city = this.state.city,
 	 //    let title = this.state.title,
 	 //    let text = this.state.text

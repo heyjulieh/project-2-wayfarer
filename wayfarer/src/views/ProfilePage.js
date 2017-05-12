@@ -15,7 +15,6 @@ class ProfilePage extends Component {
 
   getUserData(uData) {
     this.setState({userData : uData})
-    console.log('userData is:', uData);
   }
 
   render() {
