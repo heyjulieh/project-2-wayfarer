@@ -25,7 +25,7 @@ class PostDetail extends Component {
 
 	handleUpdatePost(e) {
 		e.preventDefault();
-		let id = this.props.uniqueID;
+		// let id = this.props.uniqueID;
 		let userIMG = this.state.userIMG.trim();
     let user = this.state.user.trim();
     let city = this.state.city.trim();
@@ -34,7 +34,9 @@ class PostDetail extends Component {
     if (!userIMG || !user || !city || !title || !text) {
       return;
 		}
-		this.props.onPostUpdate(post);
+		this.props.onPostUpdate();
+		// need to include post as a param above
+
 		this.setState ({
 			editMode: !this.state.editMode,
 			userIMG: '',
