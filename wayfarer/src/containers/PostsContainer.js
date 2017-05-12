@@ -19,7 +19,7 @@ class PostsContainer extends Component {
 		};
 
 		this.loadPostsFromServer = this.loadPostsFromServer.bind(this);
-		// this.handleNewPostSubmit = this.handleNewPostSubmit.bind(this);
+		this.handleNewPostSubmit = this.handleNewPostSubmit.bind(this);
 		// this.handlePostSubmit = this.handlePostSubmit.bind(this);
 		// this.handlePostDelete = this.handlePosttDelete.bind(this);
 		// this.handlePostUpdate = this.handlePostUpdate.bind(this);
@@ -39,7 +39,7 @@ class PostsContainer extends Component {
 
 	handleNewPostSubmit(post){
 
-		let posts = this.state.posts;
+		let posts = this.state.data;
 		let currCityId = window.location.href.replace('http://localhost:3001/cities/', '')
 		// use this once posts' data route is confirmed
 		//url: 'http://localhost:3000/api/cities/:cityId/posts'
@@ -54,11 +54,11 @@ class PostsContainer extends Component {
 		.then(res => {
 			console.log('res is: ', res)
 			let newPosts = posts.concat([res]);
-			this.setState({posts: newPosts});
+			this.setState({data: newPosts});
 			console.log('this.state is: ', this.state)
 		}, err => {
 			console.error(err);
-			this.setState({posts: posts});
+			this.setState({data: post);
 		});
 	}
   
