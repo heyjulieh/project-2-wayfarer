@@ -13,6 +13,7 @@ class PostDetailContainer extends Component {
 		}
 
 		this.loadPostFromServer = this.loadPostFromServer.bind(this);
+		this.handlePostUpdate = this.handlePostUpdate.bind(this);
 		// handle post edit form submit and delete
 		// this.handlePostDelete = this.handlePostDelete.bind(this);
 		// this.handleNewPostSubmit = this.handleNewPostSubmit.bind(this);
@@ -20,6 +21,7 @@ class PostDetailContainer extends Component {
 	}
 
 	loadPostFromServer() {
+
 
 		$.ajax({
 			method: 'GET',

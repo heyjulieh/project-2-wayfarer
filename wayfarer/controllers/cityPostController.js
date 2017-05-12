@@ -31,22 +31,22 @@ function create(req, res) {
 	var newPost = new db.Post({
 		userIMG: req.body.userIMG,
 		user: req.body.user,
-		cityName: req.body.cityName,
+		city: req.body.city,
 		title: req.body.title,
 		text: req.body.text,
 		date: req.body.date,
 		userID: req.body.userID
 	});
 
-	db.City.findOne({cityName: req.body.cityName}, function(err, city) {
+	db.City.findOne({city: req.body.city}, function(err, city) {
 		if (err) {
 			console.log(err.message);
 		} else {
 			console.log('city is: ', city);
 			if (city === null) {
-				console.log('post create error: ${req.body.cityName} not found');
+				console.log('post create error: ${req.body.city} not found');
 			} else {
-				newPost.cityName = cityName;
+				newPost.city = city;
 				newPost.save(function(err, post) {
 					if (err) {
 						console.log('post save error: ', err);
@@ -79,15 +79,27 @@ function destroy(req, res) {
 // Updates a specific post in a specific city
 function update(req, res) {
 
-	db.Posts.findOne({city:req.params.city, post:req.params.post}, function (err, updatePost) {
-		updatePost.date = req.body.date;
+	db.Post.findOne({city: req.params.cityId, _id: req.params.postId}, function (err, updatePost) {
+
+		console.log('updatePost is: ', updatePost)
+		// updatePost = req.body;
+
 		updatePost.user = req.body.user;
+		updatePost.userIMG = req.body.userIMG;
+		updatePost.title = req.body.title;
 		updatePost.text = req.body.text;
-		updatePost.save(function (err, savedPost) {
-			res.json(savedPost);
+		updatePost.city = req.params.cityId;
+
+		updatePost.save(function(err, updatedPost) {
+			if (err) {
+				console.log('post save error: ', err);
+			} else {
+				console.log('saved post: ', updatedPost);
+				res.json(updatedPost);
+			}
 		});
 	});
-};
+}
 
 module.exports = {
 	index: index,

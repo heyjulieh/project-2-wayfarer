@@ -21,9 +21,13 @@ class PostDetail extends Component {
 	updatePost(e) {
 		e.preventDefault();
 		this.setState({editMode: !this.state.editMode});
+		console.log('made it to updatePost')
 	}
 
 	handleUpdatePost(e) {
+
+		let targetPost = this.state
+
 		e.preventDefault();
 		// let id = this.props.uniqueID;
 		let userIMG = this.state.userIMG.trim();
@@ -34,10 +38,10 @@ class PostDetail extends Component {
     if (!userIMG || !user || !city || !title || !text) {
       return;
 		}
-		this.props.onPostUpdate();
+		this.props.onPostUpdate(targetPost);
 		// need to include post as a param above
-
-		this.setState ({
+		console.log('made it to handleUpdatePost')
+		this.setState({
 			editMode: !this.state.editMode,
 			userIMG: '',
 	    	user: '',
@@ -97,11 +101,11 @@ class PostDetail extends Component {
 						</div>
 					</div>
 
-					<button type="submit">Edit</button>
-					<button type="submit">Delete</button>
+					<button onClick={this.updatePost}>Edit</button>
+					<button>Delete</button>
 
 					 { (this.state.editMode)
-						 ? (<form onSubmit={ this.handlePostUpdate }>
+						 ? (<form onSubmit={ this.handleUpdatePost }>
 			 	        <input
 			 	          type='text'
 			 	          name='userIMG'
@@ -116,7 +120,7 @@ class PostDetail extends Component {
 			 	          onChange={ this.handleInputChange } />
 			 	        <input
 			 	          type='text'
-			 	          name='cityName'
+			 	          name='city'
 			 	          placeholder='Select a city…'
 			 	          value={ this.state.city }
 			 	          onChange={ this.handleInputChange } />
@@ -157,6 +161,6 @@ export default PostDetail;
 
 	 //		let userIMG = this.state.userIMG,
 	 //    let user = this.state.user,
-	 //    let cityName = this.state.cityName,
+	 //    let city = this.state.city,
 	 //    let title = this.state.title,
 	 //    let text = this.state.text
