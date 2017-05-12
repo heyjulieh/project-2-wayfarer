@@ -25,8 +25,8 @@ class CreatePostForm extends Component {
   		this.setState({ user: e.target.value });
   	}
 
-  	if (e.target.name === 'cityName') {
-  		this.setState({ cityName: e.target.value });
+  	if (e.target.name === 'city') {
+  		this.setState({ city: e.target.value });
   	}
 
   	if (e.target.name === 'title') {

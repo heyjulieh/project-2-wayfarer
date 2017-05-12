@@ -9,7 +9,9 @@ class PostPage extends Component {
     return (
     <div>
       <Nav />
-      <PostDetailContainer />
+        <PostDetailContainer
+          routeParams={this.props.params}
+        />
       <Footer />
     </div>
     )
