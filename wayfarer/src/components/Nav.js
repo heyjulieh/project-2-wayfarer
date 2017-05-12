@@ -50,6 +50,7 @@ class Nav extends Component {
   handleGetUserData() {
 
     var uData = this.state.currentUser;
+
     
     () => {
       console.log('clicked test button');
