@@ -24,7 +24,12 @@ var cities_list = [
 	{
 		name: 'Amsterdam',
 		imgURL: '/images/cities/amsterdam.jpg',
-		type: 'largeCard'
+		type: 'smallCard'
+	},
+	{
+		name: 'Oslo',
+		imgURL: '/images/cities/iceland.jpg',
+		type: 'smallCard'
 	}
 ];
 
@@ -48,7 +53,7 @@ var posts_list = [
 	{
 		userIMG: '/images/profiles/face3.jpg',
 		user: 'George C.',
-		cityName: 'San Francisco',
+		city: 'San Francisco',
 		title: 'Nowhere Man',
 		text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolo.',
 		date: '1/2/2014'
@@ -56,7 +61,7 @@ var posts_list = [
 	{
 		userIMG: '/images/profiles/face4.jpg',
 		user: 'George C.',
-		cityName: 'San Francisco',
+		city: 'San Francisco',
 		title: 'Nowhere Man',
 		text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolo.',
 		date: '1/2/2014'
@@ -80,7 +85,7 @@ var posts_list = [
 	{
 		userIMG: '/images/profiles/face7.jpg',
 		user: 'Emma Frost',
-		cityName: 'Tokyo',
+		city: 'Tokyo',
 
 		title: 'I Want To Hold My Hand',
 		text: 'COLD COLD COLD, but the hot springs are a must see.',
@@ -89,7 +94,7 @@ var posts_list = [
 	{
 		userIMG: '/images/profiles/face8.jpg',
 		user: 'Julie Huang',
-		cityName: 'Tokyo',
+		city: 'Tokyo',
 		title: 'I Want To Hold My Hand',
 		text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolo.',
 		date: '4/10/2016'
@@ -119,6 +124,7 @@ console.log('removed all cities');
 				var post = new db.Post({
 					userIMG: postInfo.userIMG,
 					user: postInfo.user,
+					cityName: postInfo.city,
 					title: postInfo.title,
 					text: postInfo.text,
 					date: postInfo.date,

@@ -16,7 +16,7 @@ class PostPage extends Component {
 
   render() {
     return (
-    <div>
+    <div className="postPage">
       <Nav
         onGetUserData={this.getUserData.bind(this)}/>
       <PostDetailContainer

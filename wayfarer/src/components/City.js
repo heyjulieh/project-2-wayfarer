@@ -12,11 +12,16 @@ class City extends Component {
 	  else {
 	  	 cardDivClass = `parrallax cityCard col-sm-12 col-md-6 col-lg-4 ${this.props.city.type}`
 	  }
+
+	  let cityLink = `/cities/${this.props.city._id}`
+
 		return(
 
 			<div className={cardDivClass}>
+				<a href={cityLink}>
 				<img alt={this.props.city.name} src={this.props.city.imgURL}/>
 				<h3 className="cityCardName">{this.props.city.name}</h3>
+				</a>
 			</div>
 
 		)

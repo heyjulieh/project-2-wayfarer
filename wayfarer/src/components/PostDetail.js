@@ -84,21 +84,21 @@ class PostDetail extends Component {
   }
 
 	render() {
+
+		let postLink = `/cities/${this.props.post.city}/posts/${this.props.post._id}`
+
 		return(
 
-			<div className="postsList container">
-				<div className="row">
-					<div className="postCard col-sm-12 col-md-12 col-lg-12">
-						<div className="userSection col-sm-12 col-md-12 col-lg-3">
-							<img src={this.props.post.userIMG}></img>
-							<h4 className="postUser">{this.props.post.user}</h4>
-						</div>
-						<div className="postSection col-sm-12 col-md-12 col-lg-9">
-							<h3 className="postTitle"><a href="#">{this.props.post.title}</a></h3>
-							<p className="postText">{this.props.post.text}</p>
-							<h6 className="postDate">{this.props.post.date}</h6>
-						</div>
-					</div>
+			<div className="postCardDetail col-sm-12 col-md-12 col-lg-12">
+				<div className="userSection col-sm-12 col-md-12 col-lg-3">
+					<img className="postImage img-circle img-responsive center-block" src={this.props.post.userIMG}></img>
+					<h3 className="postUser">{this.props.post.user}</h3>
+				</div>
+				<div className="postSection col-sm-12 col-md-12 col-lg-9">
+					<h1 className="postTitle">{this.props.post.title}</h1>
+					<p className="postText">{this.props.post.text}</p>
+					<h6 className="postDate">Posted on: Some Date</h6>
+				</div>
 
 					<button className='btn btn-default' onClick={this.updatePost}><span className="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
 					<button className='btn btn-warning' onClick={this.deletePost}><span className="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
@@ -155,8 +155,7 @@ class PostDetail extends Component {
 							</div>
 						</div>)
 					: null}
-					</div>
-					</div>
+			</div>
 
 		)
 	}

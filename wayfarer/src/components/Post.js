@@ -9,18 +9,22 @@ class Post extends Component {
 
 		var formattedDate = this.props.post.date.split("T")[0];
 		var truncatedText = this.props.post.text.substring(0, 350) + '…';
+		let postLink = `/cities/${this.props.post.city}/posts/${this.props.post._id}`
+
 
 		return(
 
 			<div className="postCard col-sm-12 col-md-12 col-lg-12">
 				<div className="userSection col-sm-12 col-md-12 col-lg-3">
 					<img className="postImage img-circle img-responsive center-block" src={this.props.post.userIMG}></img>
-					<h4 className="postUser">{this.props.post.user}</h4>
+					<h3 className="postUser">{this.props.post.user}</h3>
 				</div>
 				<div className="postSection col-sm-12 col-md-12 col-lg-9">
-					<h2 className="postTitle"><a href="#">{this.props.post.title}</a></h2>
+					<h1 className="postTitle">{this.props.post.title}</h1>
 					<p className="postText">{truncatedText}</p>
-					<h6 className="postDate">{formattedDate}</h6>
+					<h5><a href={postLink}>Read more…</a></h5>
+					<h6 className="postDate">Posted on: {formattedDate}</h6>
+
 				</div>
 			</div>
 		)
