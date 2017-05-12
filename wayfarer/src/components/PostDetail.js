@@ -21,14 +21,15 @@ class PostDetail extends Component {
 	deletePost(e) {
 		let targetPost = this.state;
 		e.preventDefault();
-		this.props.onPostDelete(targetPost);
-
+		var result = confirm("Are you sure you want to delete this post?");
+		if (result) {
+			this.props.onPostDelete(targetPost);
+			}
 	}
 
 	updatePost(e) {
 		e.preventDefault();
 		this.setState({editMode: !this.state.editMode});
-		console.log('made it to updatePost')
 	}
 
 	handleUpdatePost(e) {
@@ -109,31 +110,31 @@ class PostDetail extends Component {
 			 	          name='userIMG'
 			 	          placeholder='Link to your profile image…'
 			 	          value={ this.state.userIMG }
-			 	          onChange={ this.handleInputChange } />
+			 	          onChange={ this.handleInputChange } /><br></br>
 			 	        <input
 			 	          type='text'
 			 	          name='user'
 			 	          placeholder='Enter your name…'
 			 	          value={ this.state.user }
-			 	          onChange={ this.handleInputChange } />
+			 	          onChange={ this.handleInputChange } /><br></br>
 			 	        <input
 			 	          type='text'
 			 	          name='city'
 			 	          placeholder='Select a city…'
 			 	          value={ this.state.city }
-			 	          onChange={ this.handleInputChange } />
+			 	          onChange={ this.handleInputChange } /><br></br>
 			 	        <input
 			 	          type='text'
 			 	          name='title'
 			 	          placeholder='Choose a title…'
 			 	          value={ this.state.title }
-			 	          onChange={ this.handleInputChange } />
+			 	          onChange={ this.handleInputChange } /><br></br>
 			 	        <input
 			 	          type='text'
 			 	          name='text'
 			 	          placeholder='Write your post…'
 			 	          value={ this.state.text }
-			 	          onChange={ this.handleInputChange } />
+			 	          onChange={ this.handleInputChange } /><br></br>
 			 	        <input
 			 	          type='hidden'
 			 	          name='date'

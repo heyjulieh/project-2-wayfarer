@@ -16,7 +16,7 @@ class Nav extends Component {
     this.logoutButtonClicked = this.logoutButtonClicked.bind(this)
 
 	}
-  
+
 	componentWillMount() {
     auth.onAuthStateChanged(currentUser => {
       if (currentUser) {
@@ -50,7 +50,7 @@ class Nav extends Component {
   handleGetUserData() {
 
     var uData = this.state.currentUser;
-    
+
     () => {
       console.log('clicked test button');
       this.props.onGetUserData(uData)
@@ -64,24 +64,24 @@ class Nav extends Component {
     console.log("signing out");
     auth.signOut();
 	}
-   
+
 
 
 
 	render() {
 		return(
 
-			<nav className="navbar navbar-inverse">
+			<nav className="navbar">
               <div className="container-fluid">
                 <div className="navbar-header">
-                  <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span className="icon-bar"></span>
-                    <span className="icon-bar"></span>
-                    <span className="icon-bar"></span>
-                  </button>
-                  
-            </div>
-                <a href="http://localhost:3001" className="navbar-brand" ><h4><img src="http://ipventures.com.au/images/travel-icon.png" height="50px"/>WAYFARER</h4></a>
+									<a href="http://localhost:3001" className="navbar-brand" ><h4><img src="https://image.flaticon.com/icons/png/512/56/56059.png" height="50px"/>WAYFARER</h4></a>
+                  	<button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+	                    <span className="icon-bar"></span>
+	                    <span className="icon-bar"></span>
+	                    <span className="icon-bar"></span>
+                  	</button>
+            		</div>
+
             <div className="collapse navbar-collapse" id="myNavbar">
               <ul className="nav navbar-nav">
                 <li className="dropdown">
@@ -94,17 +94,10 @@ class Nav extends Component {
                 </li>
               </ul>
               <ul className="nav navbar-nav navbar-right">
-                        <li id="userName">{this.state.currentUser && this.state.currentUser.displayName}</li>
+                <li id="userName">{this.state.currentUser && this.state.currentUser.displayName}</li>
                 <li><a onClick={this.loginButtonClicked}>
-                <span className="glyphicon glyphicon-log-in" ></span> Login</a></li>
-                <li><a onClick={this.logoutButtonClicked}><span className="glyphicon glyphicon-log-out" ></span> Logout</a></li>
-                        <li><div className="col-lg-12">
-                                    <div className="form-group input-group pull-right">
-                                  <input type="text" className="form-control input-sm" placeholder="Search cities"/>
-
-                                </div>
-                                </div>
-                        </li>
+                <span className="glyphicon glyphicon-log-in" ></span>Login</a></li>
+                <li><a onClick={this.logoutButtonClicked}><span className="glyphicon glyphicon-log-out" ></span>Logout</a></li>
               </ul>
 
             </div>

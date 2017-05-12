@@ -7,10 +7,10 @@ class City extends Component {
 
 	  let cardDivClass;
 	  if (this.props.city.type === 'largeCard') {
-	  	 cardDivClass = `cityCard col-sm-12 col-md-6 col-lg-8 ${this.props.city.type}`
+	  	 cardDivClass = `parallax cityCard col-sm-12 col-md-6 col-lg-8 ${this.props.city.type}`
 	  }
 	  else {
-	  	 cardDivClass = `cityCard col-sm-12 col-md-6 col-lg-4 ${this.props.city.type}`
+	  	 cardDivClass = `parrallax cityCard col-sm-12 col-md-6 col-lg-4 ${this.props.city.type}`
 	  }
 		return(
 

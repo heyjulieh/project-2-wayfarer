@@ -83,50 +83,63 @@ class CreatePostForm extends Component {
 
   render() {
     return (
-
-	    <form onSubmit={ this.handleNewPostSubmit }>
-	        <input
-	          type='text'
-	          name='userIMG'
-	          placeholder='Link to your profile image…'
-	          value={ this.state.userIMG }
-	          onChange={ this.handleInputChange } />
-	        <input
-	          type='text'
-	          name='user'
-	          placeholder='Enter your name…'
-	          value={ this.state.user }
-	          onChange={ this.handleInputChange } />
-	        <input
-	          type='text'
-	          name='title'
-	          placeholder='Choose a Title…'
-	          value={ this.state.title }
-	          onChange={ this.handleInputChange } />
-	        <input
-	          type='text'
-	          name='text'
-	          placeholder='Write your Post.....'
-	          value={ this.state.text }
-	          onChange={ this.handleInputChange } />
-          <input
-            type='hidden'
-            name='date'
-            value={Date.now()} />
-	        <input
-	          type='text'
-	          name='userID'
-	          placeholder='firebase userID'
-	          value={ this.state.userID}
-	          onChange={ this.handleInputChange } />
-          <input
-            type='hidden'
-            name='city'
-            value={ this.props.city } />
-	        <input
-	          type='submit'
-	          value='Post' />
-	    </form>
+      <div className="container">
+       <div className="form-group row">
+       <h3 className="formheader">Add your post</h3>
+  	    <form className="cityList-form" onSubmit={ this.handleNewPostSubmit }>
+  	        <input
+              className='form-control'
+  	          type='text'
+  	          name='userIMG'
+  	          placeholder='Link to your profile image…'
+  	          value={ this.state.userIMG }
+  	          onChange={ this.handleInputChange } /><br></br>
+  	        <input
+              className='form-control'
+  	          type='text'
+  	          name='user'
+  	          placeholder='Enter your name…'
+  	          value={ this.state.user }
+  	          onChange={ this.handleInputChange } /><br></br>
+  	        <input
+              className='form-control'
+  	          type='text'
+  	          name='title'
+  	          placeholder='Choose a Title…'
+  	          value={ this.state.title }
+  	          onChange={ this.handleInputChange } /><br></br>
+  	        <textarea
+              className='form-control'
+              rows='8'
+  	          type='text'
+  	          name='text'
+  	          placeholder='Write your Post.....'
+  	          value={ this.state.text }
+  	          onChange={ this.handleInputChange } /><br></br>
+  	        <input
+              className='form-control'
+  	          type='text'
+  	          name='userID'
+  	          placeholder='firebase userID'
+  	          value={ this.state.userID}
+  	          onChange={ this.handleInputChange } /><br></br>
+            <input
+              className='form-control'
+              type='hidden'
+              name='date'
+              value={Date.now()} />
+            <input
+              className='form-control'
+              type='hidden'
+              name='city'
+              value={ this.props.city } />
+  	        <button
+  	          type='submit'
+              className='btn btn-primary'
+  	          value='Post'>Submit</button>
+  	    </form>
+       </div>
+     </div>
     )
   }
 }
