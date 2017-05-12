@@ -7,8 +7,8 @@ class Post extends Component {
 
 	render() {
 
-		var formattedDate = this.props.post.date.split("T")[0];
-		var truncatedText = this.props.post.text.substring(0, 350) + '…';
+		let formattedDate = this.props.post.date.split("T")[0];
+		let truncatedText = this.props.post.text.substring(0, 350) + '…';
 		let postLink = `/cities/${this.props.post.city}/posts/${this.props.post._id}`
 
 

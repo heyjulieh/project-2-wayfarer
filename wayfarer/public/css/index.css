@@ -110,10 +110,11 @@ footer a:active {
 footer {
   height: 200px;
   background-color: darkgrey;
-  padding: 5px;
+  padding: 5px 5px 0px 5px;
   width: 100%;
   font-family: 'Quicksand', sans-serif;
   bottom: 0;
+  margin-bottom: 0px;
 }
 
 footer ul {
@@ -409,17 +410,18 @@ h1.cityTitle {
 
   margin-top: 150px;
   display: block;
+  background-color: #fbf1f1;
 
 }
 
 
 .postPage footer {
-  position: absolute;
+  display: none;
+  position: relative;
   height: 200px;
   width: 100%;
   background-color: darkgrey;
   padding: 5px;
-  bottom: 0;
 
 }
 
