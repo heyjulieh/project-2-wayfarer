@@ -13,9 +13,9 @@ h1 {
 
     font-family: 'Eczar', sans-serif;
     font-weight: 800;
-    font-size: 6.5rem;
+    font-size: 3.5rem;
     letter-spacing: 1px;
-    color: white;
+    color: black;
 
 }
 
@@ -28,12 +28,29 @@ h2 {
 }
 
 h3 {
-  font-family: 'Quatrocentro Sans', sans-serif;
+
+    font-family: 'Eczar', sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    color: black;
+    text-align: center;
+    padding: 30px 0px;
+
 }
 
 h4 {
 
+}
 
+h5 a {
+
+    font-family: 'Eczar', sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    color: #f7316a;
+    text-decoration: none
 
 }
 
@@ -171,6 +188,16 @@ footer ul {
   position: relative;
 }
 
+.hero h1 {
+
+    font-family: 'Eczar', sans-serif;
+    font-weight: 800;
+    font-size: 6.5rem;
+    letter-spacing: 1px;
+    color: white;
+
+}
+
 .hero-content {
   width: 500px;
   height: 300px;
@@ -204,14 +231,13 @@ footer ul {
 
 .postsList {
 
-  padding-top: 50px;
+  padding: 150px 0px;
 
 }
 
 .postCard {
-  margin-bottom: 40px;
+  margin-top: 50px;
 }
-
 
 .userSection {
   background-color: #f6e4e4;
@@ -234,19 +260,35 @@ footer ul {
 
 }
 
-h3.postTitle a {
+.postcard h3 a {
 
   color: #000000;
   padding: 20px;
 
 }
 
-h4.postUser {
+.postCard h4 {
 
   padding: 20px;
 
 }
 
+.postCard p {
+
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 200;
+  font-size: 1.75rem;
+  line-height: 24px;
+  width: 80%;
+
+}
+
+.postUser h4 {
+
+  
+
+
+}
 
 /*   A N I M A T I O N   */
 

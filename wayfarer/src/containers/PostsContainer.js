@@ -29,7 +29,7 @@ class PostsContainer extends Component {
 	loadPostsFromServer(){
 
 		// need to load posts from server
-			console.log('city id', this.props.routeParams.cityId);
+		console.log('city id', this.props.routeParams.cityId);
 	    $.ajax({
 	      method: 'GET',
 	      url: `http://localhost:3000/api/cities/${this.props.routeParams.cityId}/posts`
@@ -100,7 +100,7 @@ handlePostDelete(id){
 	render() {
 		return(
 
-			<div>
+			<div>	
 				<PostList
 					posts={this.state.posts}
 					onPostDelete={this.handlePostDelete}
