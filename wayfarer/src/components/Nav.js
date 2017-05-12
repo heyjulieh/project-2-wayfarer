@@ -87,9 +87,13 @@ class Nav extends Component {
                 <li className="dropdown">
                   <a className="dropdown-toggle" data-toggle="dropdown" href="#">Pick a City<span className="caret"></span></a>
                   <ul className="dropdown-menu">
-                    <li><a href="https://www.facebook.com">Page 1-1</a></li>
-                    <li><a href="https://www.twitter.com">Page 1-2</a></li>
-                    <li><a href="https://www.instagram.com">Page 1-3</a></li>
+                    <li><a href="https://www.facebook.com">Amsterdam</a></li>
+                    <li><a href="https://www.twitter.com">Dubai</a></li>
+                    <li><a href="https://www.instagram.com">Reykjavik</a></li>
+										<li><a href="https://www.instagram.com">San Francisco</a></li>
+										<li><a href="https://www.instagram.com">Tokyo</a></li>
+
+
                       </ul>
                 </li>
               </ul>
