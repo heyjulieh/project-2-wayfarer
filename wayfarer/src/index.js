@@ -4,6 +4,6 @@ import {Router, browserHistory} from 'react-router'
 import routes from './config/routes.js'
 
 ReactDOM.render(
-  <Router routes={routes} history={browserHistory}/>,
-  document.getElementById('root')
+ url='https://wayfarer-jwam.herokuapp.com/cities/:cityId/posts/:postId' pollInterval={2000} />,
+		document.getElementById('root')
 );

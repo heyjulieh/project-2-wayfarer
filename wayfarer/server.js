@@ -40,6 +40,5 @@ app.put('/api/cities/:cityId/posts/:postId', controllers.posts.update);
 //use router config when we call /API
 //start server
 var port = 3000;
-app.listen(port, function() {
+app.listen(process.env.PORT || 3000) 
     console.log(`api running on ${port}`);
-});

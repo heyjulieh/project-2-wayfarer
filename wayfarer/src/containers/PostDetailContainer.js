@@ -69,8 +69,7 @@ class PostDetailContainer extends Component {
 			<PostDetail
 				post={ this.state.post }
 				onPostUpdate={this.handlePostUpdate}
-				onPostDelete={this.handlePostDelete}
-			/>
+				onPostDelete={this.handlePostDelete}/>
 
 		)
 	}
