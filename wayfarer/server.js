@@ -8,9 +8,7 @@ var express = require('express'),
     Posts = require('./models/posts'),//for the post schema when we build one
     City = require('./models/city');//for the city schema whn we build one
 
-//to create instances
 var app = express()
-	// route = express.Router();
 
 //to config API to use body body-parser and look for JSON in req.body
 app.use(bodyParser.urlencoded({extended: true}));
@@ -28,13 +26,11 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get('/api', controllers.api.index); // works
-app.get('/api/cities', controllers.city.index); // works
-app.get('/api/posts/', controllers.posts.index); // <<TESTING (show all posts in API)
-app.get('/api/cities/:cityId', controllers.city.showCities); // works
-app.get('/api/cities/:cityId/posts', controllers.posts.showPosts); // << TESTING (show all posts in city page)
-// app.get('/api/cities/:cityId/posts/:postId', controllers.posts.show);
-
+app.get('/api', controllers.api.index);
+app.get('/api/cities', controllers.city.index);
+app.get('/api/posts/', controllers.posts.index);
+app.get('/api/cities/:cityId', controllers.city.showCities);
+app.get('/api/cities/:cityId/posts', controllers.posts.showPosts);
 app.get('/api/cities/:cityId/posts/:postId', controllers.posts.showOne);
 app.post('/api/cities/:cityId/posts', controllers.posts.create);
 app.delete('/api/cities/:cityId/posts/:postId', controllers.posts.destroy);

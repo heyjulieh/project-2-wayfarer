@@ -16,18 +16,19 @@ h1 {
     font-size: 3.5rem;
     letter-spacing: 1px;
     color: black;
-
 }
 
 h2 {
-
   font-family: 'Quicksand', sans-serif;
   font-weight: 400;
   color: white;
-
 }
 
 h3 {
+  /*
+  TEST: julie
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 500;*/
 
     font-family: 'Eczar', sans-serif;
     font-weight: 600;
@@ -40,7 +41,14 @@ h3 {
 }
 
 h4 {
+  font-family: 'Eczar';
+  font-weight: 300;
+  font-size: 40px;
+}
 
+nav a {
+  color: white;
+  opacity: 0.7;
 }
 
 h5 a {
@@ -54,21 +62,23 @@ h5 a {
 
 }
 
-nav input {
-  font-family: 'Quicksand', sans-serif;
-  text-transform: uppercase;
+nav a:hover{
+  background-color: transparent;
+  color: black;
+  opacity: 1;
 }
 
 nav h4 {
   display: inline-block;
   font-size: 30px;
   width: 100%;
-  margin-top: -8px;
+  margin-top: 0;
+  color: white;
 }
 
 nav img {
   margin-left: -15px;
-  margin-right: 15px;
+  margin-right: 30px;
   margin-top: -8px;
 }
 
@@ -78,35 +88,52 @@ footer a {
   text-decoration: none;
   text-transform: uppercase;
   color: white;
-  font-family: 'Quatrocentro Sans', sans-serif;
+  padding-top: 5px;
+  font-family: 'Work Sans', sans-serif;
 }
-
 
 footer a:hover {
   display: block;
   text-decoration: none;
   height: 30px;
-  color: white;
+  color: #d6b0b3;
+  background-color: white;
+}
+
+footer a:active {
+  display: block;
+  text-decoration: none;
+  height: 30px;
+  color: #d6b0b3;
 }
 
 footer {
   height: 200px;
   background-color: darkgrey;
   padding: 5px;
+  width: 100%;
+  font-family: 'Quicksand', sans-serif;
   bottom: 0;
 }
 
 footer ul {
   display: inline-block;
-  height: 20px;
-  color: black;
   list-style: none;
   margin-top: 10px;
-  padding: 10px;
-  vertical-align: middle;
 }
 
+footer p {
+  margin-top: 10px;
+}
 
+.footerleft {
+  text-align: left;
+}
+
+.footerright {
+  text-align: justify;
+  padding-right: 40px;
+}
 
 /*   C L A S S E S   */
 
@@ -118,12 +145,16 @@ footer ul {
   padding: 20px;
   border: none;
   border-radius: 0;
-  opacity: 0.9;
+  color: white;
+  background-color: #d6b0b3;
   height: 100px;
   width: 100%;
   text-transform: uppercase;
   position: fixed;
   z-index: 1;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
 }
 
 .dropdown-toggle {
@@ -132,27 +163,87 @@ footer ul {
   margin-left: 10px;
 }
 
-.input-group {
-  margin-top: 10px;
+.glyphicon {
+  margin-right: 8px;
+
+}
+
+.navbar-toggle {
+  background-color: lightgrey;
+  opacity: 0.8;
 }
 
 
+.navbar-collapse {
+  margin-top: 10px;
+  background-color: #d6b0b3;
+}
+
+
+.icon-bar {
+  background-color: black;
+}
+
+.btn-primary {
+  background-color: #d6b0b3;
+  color: white;
+  border-color: #d6b0b3;
+  text-transform: uppercase;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.btn-primary:focus {
+  background-color: #d6b0b3;
+  color: white;
+  border-color: #d6b0b3;
+  text-transform: uppercase;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.btn-primary:hover {
+  background-color: white;
+  color: black;
+  border-color: white;
+  text-transform: uppercase;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.btn-primary:active {
+  background-color: white;
+  color: black;
+  border-color: white;
+  text-transform: uppercase;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.form-group {
+  background-color: white;
+  margin-top: 20px;
+  padding-top: 30px;
+  border-radius: 10px;
+  border: 0px white solid;
+}
+
+.form-control {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.formheader {
+  display: inline-block;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  font-size: 20px;
+  border-bottom: 1px black solid;
+  width: 100%;
+}
 
 /*   I D S   */
 
-#footerblurb {
-  margin-top: -25px;
-  display: inline-block;
-  font-family: 'News Cycle', sans-serif;
-  font-size: 15px;
-  width: 500px;
-  text-align: justify;
-  float: right;
-}
 
 #userName {
+  margin-left: 15px;
   margin-top: 15px;
-  margin-right: 10px;
+  margin-right: 15px;
   color: white;
 }
 
@@ -174,6 +265,8 @@ footer ul {
   -webkit-animation: background-image 20s ease forwards;
   -0-animation: background-image 20s ease forwards;
   -moz-animation: background-image 20s ease forwards;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 
 }
 
@@ -187,6 +280,7 @@ footer ul {
   padding: 0;
   overflow: hidden;
   position: relative;
+  z-index: -2;
 }
 
 .hero h1 {
@@ -275,7 +369,7 @@ h1.cityTitle {
 }
 
 .postSection {
-  
+
   padding: 50px;
   background-color: #fbf1f1;
 
@@ -403,21 +497,21 @@ h1.cityTitle {
     transform-origin: bottom;
     transform: scale(1.0);
     -ms-transform: scale(1.0);
-    
+
     -webkit-transform: scale(1.0);
-    
+
     -o-transform: scale(1.0);
-    
+
     -moz-transform: scale(1.0);
   }
   100% {
     transform: scale(1.2);
     -ms-transform: scale(1.2);
-    
+
     -webkit-transform: scale(1.2);
-    
+
     -o-transform: scale(1.2);
-    
+
     -moz-transform: scale(1.2);
   }
 }

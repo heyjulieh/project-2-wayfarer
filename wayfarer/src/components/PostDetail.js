@@ -21,14 +21,15 @@ class PostDetail extends Component {
 	deletePost(e) {
 		let targetPost = this.state;
 		e.preventDefault();
-		this.props.onPostDelete(targetPost);
-
+		var result = confirm("Are you sure you want to delete this post?");
+		if (result) {
+			this.props.onPostDelete(targetPost);
+			}
 	}
 
 	updatePost(e) {
 		e.preventDefault();
 		this.setState({editMode: !this.state.editMode});
-		console.log('made it to updatePost')
 	}
 
 	handleUpdatePost(e) {
@@ -99,53 +100,62 @@ class PostDetail extends Component {
 					<h6 className="postDate">Posted on: Some Date</h6>
 				</div>
 
-				<button onClick={this.updatePost}>Edit</button>
-				<button onClick={this.deletePost}>Delete</button>
+					<button className='btn btn-default' onClick={this.updatePost}><span className="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
+					<button className='btn btn-warning' onClick={this.deletePost}><span className="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
 
-				 { (this.state.editMode)
-					 ? (<form onSubmit={ this.handleUpdatePost }>
-		 	        <input
-		 	          type='text'
-		 	          name='userIMG'
-		 	          placeholder='Link to your profile image…'
-		 	          value={ this.state.userIMG }
-		 	          onChange={ this.handleInputChange } />
-		 	        <input
-		 	          type='text'
-		 	          name='user'
-		 	          placeholder='Enter your name…'
-		 	          value={ this.state.user }
-		 	          onChange={ this.handleInputChange } />
-		 	        <input
-		 	          type='text'
-		 	          name='city'
-		 	          placeholder='Select a city…'
-		 	          value={ this.state.city }
-		 	          onChange={ this.handleInputChange } />
-		 	        <input
-		 	          type='text'
-		 	          name='title'
-		 	          placeholder='Choose a title…'
-		 	          value={ this.state.title }
-		 	          onChange={ this.handleInputChange } />
-		 	        <input
-		 	          type='text'
-		 	          name='text'
-		 	          placeholder='Write your post…'
-		 	          value={ this.state.text }
-		 	          onChange={ this.handleInputChange } />
-		 	        <input
-		 	          type='hidden'
-		 	          name='date'
-		 	          value={Date.now()} />
-		 	        <input
-		 	          type='submit'
-		 	          value='Save Changes' />
-		 	    </form>)
-					 : null}
-		
+					 { (this.state.editMode)
+						 ? (<div className="container">
+			        		<div className="form-group row">
+									 <form className="cityList-form" onSubmit={ this.handleUpdatePost }>
+					 	        <input
+											className='form-control'
+					 	          type='text'
+					 	          name='userIMG'
+					 	          placeholder='Link to your profile image…'
+					 	          value={ this.state.userIMG }
+					 	          onChange={ this.handleInputChange } /><br></br>
+					 	        <input
+											className='form-control'
+					 	          type='text'
+					 	          name='user'
+					 	          placeholder='Enter your name…'
+					 	          value={ this.state.user }
+					 	          onChange={ this.handleInputChange } /><br></br>
+					 	        <input
+											className='form-control'
+					 	          type='text'
+					 	          name='city'
+					 	          placeholder='Select a city…'
+					 	          value={ this.state.city }
+					 	          onChange={ this.handleInputChange } /><br></br>
+					 	        <input
+											className='form-control'
+					 	          type='text'
+					 	          name='title'
+					 	          placeholder='Choose a title…'
+					 	          value={ this.state.title }
+					 	          onChange={ this.handleInputChange } /><br></br>
+					 	        <textarea
+											className='form-control'
+											rows='8'
+					 	          type='text'
+					 	          name='text'
+					 	          placeholder='Write your post…'
+					 	          value={ this.state.text }
+					 	          onChange={ this.handleInputChange } /><br></br>
+					 	        <input
+											className='form-control'
+					 	          type='hidden'
+					 	          name='date'
+					 	          value={Date.now()} />
+					 	        <input
+					 	          type='submit'
+					 	          value='Save Changes' />
+					 	    </form>
+							</div>
+						</div>)
+					: null}
 			</div>
-		
 
 		)
 	}
@@ -153,13 +163,3 @@ class PostDetail extends Component {
 }
 
 export default PostDetail;
-
-
-
-// <button onClick={this.deletePost}>Delete</button>
-
-	 //		let userIMG = this.state.userIMG,
-	 //    let user = this.state.user,
-	 //    let city = this.state.city,
-	 //    let title = this.state.title,
-	 //    let text = this.state.text

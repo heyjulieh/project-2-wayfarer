@@ -5,12 +5,22 @@ import Footer from '../components/Footer'
 import CreatePostForm from '../components/CreatePostForm'
 
 class CityPostPage extends Component {
+  constructor() {
+    super();
+    this.state = {
+      userData: []
+    }
+  }
+  getUserData(uData) {
+    this.setState({userData : uData})
+  }
 
   render() {
 
     return (
     <div>
-      <Nav />
+      <Nav
+        onGetUserData={this.getUserData.bind(this)}/>/>
       <PostsContainer
         routeParams={this.props.params}
         />

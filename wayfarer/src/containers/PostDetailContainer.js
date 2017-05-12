@@ -20,8 +20,6 @@ class PostDetailContainer extends Component {
 	}
 
 	loadPostFromServer() {
-
-
 		$.ajax({
 			method: 'GET',
 			url: `http://localhost:3000/api/cities/${this.props.routeParams.cityId}/posts/${this.props.routeParams.postId}`
@@ -36,7 +34,6 @@ class PostDetailContainer extends Component {
 	}
 
 	handlePostDelete(targetPost) {
-		console.log(this.props)
 		$.ajax({
 			method: 'DELETE',
 			url: `http://localhost:3000/api/cities/${this.props.routeParams.cityId}/posts/${this.props.routeParams.postId}`,
@@ -49,7 +46,6 @@ class PostDetailContainer extends Component {
 	}
 
 	handlePostUpdate(targetPost) {
-
 		$.ajax({
 			method: 'PUT',
 			url: `http://localhost:3000/api/cities/${this.props.routeParams.cityId}/posts/${this.props.routeParams.postId}`,
