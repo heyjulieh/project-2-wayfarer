@@ -26,6 +26,7 @@ function showOne(req, res) {
 // Creates a specific post in a specific city
 function create(req, res) {
 
+
 	console.log('req.body: ', req.body)
 	console.log('req.body.city is: ', req.body.city)
 
@@ -71,6 +72,7 @@ function create(req, res) {
 function destroy(req, res) {
 
 	console.log('made it to empty destroy function')
+
 	db.Post.remove({_id: req.params.postId}, function (err, foundPost) {
 			if (err)
 				res.send(err);
@@ -81,10 +83,12 @@ function destroy(req, res) {
 // Updates a specific post in a specific city
 function update(req, res) {
 
+
 	db.Post.findOne({city: req.params.cityId, _id: req.params.postId}, function (err, updatePost) {
 
 		console.log('updatePost is: ', updatePost)
 		// updatePost = req.body;
+
 
 		updatePost.user = req.body.user;
 		updatePost.userIMG = req.body.userIMG;
