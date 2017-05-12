@@ -9,6 +9,7 @@ var PostsSchema = new Schema({
 	title: String,
 	text: String,
 	date: Date,
+	userID: String,
 	city: 
 	{
 		type: Schema.Types.ObjectId,

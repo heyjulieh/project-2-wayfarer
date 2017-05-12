@@ -34,6 +34,7 @@ app.get('/api/posts/', controllers.posts.index); // <<TESTING (show all posts in
 app.get('/api/cities/:cityId', controllers.city.show); // works
 app.get('/api/cities/:cityId/posts', controllers.posts.showPosts); // << TESTING (show all posts in city page)
 // app.get('/api/cities/:cityId/posts/:postId', controllers.posts.show);
+
 app.get('/api/cities/:cityId/posts/:postId', controllers.posts.showOne);
 app.post('/api/cities/:cityId/posts', controllers.posts.create);
 app.delete('/api/cities/:cityId/posts/:postId', controllers.posts.destroy);

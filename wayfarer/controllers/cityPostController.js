@@ -1,13 +1,13 @@
 var db = require('../models');
 
-// Finding all posts going to api/posts route
+// Shows all posts in /api/posts route
 function index(req, res) {
 	db.Post.find({}, function(err, allPosts){
 		res.json(allPosts)
 	});
 };
 
-// Show all posts under 1 city ID
+// Shows all posts under a specific city
 function showPosts(req, res) {
 	var city = req.params.cityId
 	db.Post.find({city}, function(err, showAllPosts) {
@@ -17,7 +17,7 @@ function showPosts(req, res) {
 	});
 };
 
-// Show 1 post for 1 city ID
+// Shows a specific post for a specific city
 function showOne(req, res) {
     var postId = req.params.postId;
     db.Post.findById(postId, function(err, foundPost) {
@@ -25,6 +25,7 @@ function showOne(req, res) {
     });
 };
 
+// Creates a specific post in a specific city
 function create(req, res) {
 
 	var newPost = new db.Post({
@@ -33,7 +34,8 @@ function create(req, res) {
 		cityName: req.body.cityName,
 		title: req.body.title,
 		text: req.body.text,
-		date: req.body.date
+		date: req.body.date,
+		userID: req.body.userID
 	});
 
 	db.City.findOne({cityName: req.body.cityName}, function(err, city) {
@@ -74,6 +76,7 @@ function destroy(req, res) {
 
 };
 
+// Updates a specific post in a specific city
 function update(req, res) {
 
 	db.Posts.findOne({city:req.params.city, post:req.params.post}, function (err, updatePost) {

@@ -96,7 +96,8 @@ console.log('removed all cities');
 					user: postInfo.user,
 					title: postInfo.title,
 					text: postInfo.text,
-					date: postInfo.date
+					date: postInfo.date,
+					userID: postInfo.userID
 				});
 				db.City.findOne({name: postInfo.cityName}, function(err, foundCity) {
 					if(err) {
