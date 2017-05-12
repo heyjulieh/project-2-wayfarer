@@ -30,21 +30,21 @@ function create(req, res) {
 	var newPost = new db.Post({
 		userIMG: req.body.userIMG,
 		user: req.body.user,
-		cityName: req.body.cityName,
+		city: req.params.cityId,
 		title: req.body.title,
-		text: req.body.text,
-		date: req.body.date
+		text: req.body.text
+	
 	});
 
-	db.City.findOne({cityName: req.body.cityName}, function(err, city) {
+	db.City.findOne({city: req.body.cityId}, function(err, city) {
 		if (err) {
 			console.log(err.message);
 		} else {
 			console.log('city is: ', city);
 			if (city === null) {
-				console.log('post create error: ${req.body.cityName} not found');
+				console.log('post create error: ${req.body.cityId} not found');
 			} else {
-				newPost.cityName = cityName;
+				newPost.city = city;
 				newPost.save(function(err, post) {
 					if (err) {
 						console.log('post save error: ', err);
@@ -61,22 +61,22 @@ function create(req, res) {
 function destroy(req, res) {
 
 	console.log('made it to empty destroy function')
-	// db.City.findOneById(req.params.cityId, function (err, foundCity) {
+	db.City.findOneById(req.params.cityId, function (err, foundCity) {
 
-	// 	foundCity.posts.findOneById(req.params.postId, (err, foundPost) {
+		foundCity.post.findOneById(req.params.postId, (err, foundPost) {
 
-	// 		foundPost.delete()
-	// 		foundCity.posts.save()
+	 		foundPost.delete()
+			foundCity.post.save()
 
-	// 	});
+ 	});
 
-	// });
+});
 
 };
 
 function update(req, res) {
 
-	db.Posts.findOne({city:req.params.city, post:req.params.post}, function (err, updatePost) {
+	db.Post.findOne({city:req.params.city, post:req.params.post}, function (err, updatePost) {
 		updatePost.date = req.body.date;
 		updatePost.user = req.body.user;
 		updatePost.text = req.body.text;
