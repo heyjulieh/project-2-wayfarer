@@ -74,7 +74,7 @@ class Nav extends Component {
 			<nav className="navbar">
               <div className="container-fluid">
                 <div className="navbar-header">
-									<a href="http://localhost:3001" className="navbar-brand" ><h4><img src="https://image.flaticon.com/icons/png/512/56/56059.png" height="50px"/>WAYFARER</h4></a>
+									<a href="/" className="navbar-brand" ><h4><img src="https://image.flaticon.com/icons/png/512/56/56059.png" height="50px"/>WAYFARER</h4></a>
                   	<button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
 	                    <span className="icon-bar"></span>
 	                    <span className="icon-bar"></span>
