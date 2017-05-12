@@ -14,66 +14,68 @@ class PostsContainer extends Component {
 
 	constructor(props) {
 		super(props);
-		this.state = { 
-			data: [] 
+		this.state = {
+			posts: []
 		};
 
 		this.loadPostsFromServer = this.loadPostsFromServer.bind(this);
-		// this.handleNewPostSubmit = this.handleNewPostSubmit.bind(this);
-		// this.handlePostSubmit = this.handlePostSubmit.bind(this);
+		this.handleNewPostSubmit = this.handleNewPostSubmit.bind(this);
+		//this.handlePostSubmit = this.handlePostSubmit.bind(this);
 		// this.handlePostDelete = this.handlePosttDelete.bind(this);
 		// this.handlePostUpdate = this.handlePostUpdate.bind(this);
 
 	}
-	
+
 	loadPostsFromServer(){
 
-		//need to load posts from server
-
-	    // $.ajax({
-	    //   method: 'GET',
-	    //   url: `http://localhost:3000/api/cities/${this.props.routeParams.cityId}/posts`
-	    // })
-	    // .then( res => this.setState({posts: res}))
+		// need to load posts from server
+			console.log('city id', this.props.routeParams.cityId);
+	    $.ajax({
+	      method: 'GET',
+	      url: `http://localhost:3000/api/cities/${this.props.routeParams.cityId}/posts`
+	    })
+	    .then( (res) => {this.setState({posts: res})
+			})
   	}
 
 	handleNewPostSubmit(post){
 
+		post.city = this.props.routeParams.cityId;
+
+		console.log('reached handleNewPostSubmit');
 		let posts = this.state.posts;
-		let currCityId = window.location.href.replace('http://localhost:3001/cities/', '')
+		console.log('posts is: ', posts);
+		let newPost = posts.concat([post]);
+		console.log('newPost is: ', newPost)
+		this.setState({posts: newPost});
 		// use this once posts' data route is confirmed
 		//url: 'http://localhost:3000/api/cities/:cityId/posts'
 
 		$.ajax({
-
 			method: 'POST',
-			url: `http://localhost:3000/api/cities/${currCityId}posts`,
+			url: `http://localhost:3000/api/cities/${this.props.routeParams.cityId}/posts/`,
 			data: post
-
 		})
 		.then(res => {
 			console.log('res is: ', res)
-			let newPosts = posts.concat([res]);
-			this.setState({posts: newPosts});
-			console.log('this.state is: ', this.state)
 		}, err => {
 			console.error(err);
 			this.setState({posts: posts});
 		});
 	}
-  
-// handlePostDelete(id){
-//     $.ajax({
-//       method: 'DELETE',
-//       url: 'http://localhost:3000/api/cities/:cityId/posts/:postId'
 
-// 	    })
-// 	    .then((res) => {
-// 	      console.log('Post deleted');
-// 	    }, (err) => {
-// 	      console.error(err);
-// 	    });
-// 	}
+handlePostDelete(id){
+    $.ajax({
+      method: 'DELETE',
+      url: 'http://localhost:3000/api/cities/:cityId/posts/:postId'
+
+	    })
+	    .then((res) => {
+	      console.log('Post deleted');
+	    }, (err) => {
+	      console.error(err);
+	    });
+	}
 
     handlePostUpdate(id, post) {
     //sends the posts id and new text to our api
@@ -99,11 +101,11 @@ class PostsContainer extends Component {
 		return(
 
 			<div>
-				<PostList 
-					posts={this.state.data} 
+				<PostList
+					posts={this.state.posts}
 					onPostDelete={this.handlePostDelete}
-					onPostUpdate={this.handlePostUpdate}/>	
-				<CreatePostForm 
+					onPostUpdate={this.handlePostUpdate}/>
+				<CreatePostForm
        				 onCreatePostFormSubmit={ this.handleNewPostSubmit } />
        		</div>
 		)

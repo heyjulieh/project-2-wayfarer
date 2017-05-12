@@ -1,13 +1,14 @@
 var db = require('../models');
 
-// GET
+// Shows all cities in /api/cities route
 function index(req, res) {
 	db.City.find({}, function(err, allCity){
 		res.json(allCity)
 	});
 };
 
-function show(req, res) {
+// Shows all cities
+function showCities(req, res) {
 
 	var cityId = req.params.cityId;
 	
@@ -18,5 +19,5 @@ function show(req, res) {
 
 module.exports = {
 	index: index,
-	show: show
+	showCities: showCities
 };

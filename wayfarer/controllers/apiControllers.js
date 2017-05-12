@@ -17,18 +17,23 @@ function index(req,res) {
             },
             {
             method: 'GET',
+            path: '/api/posts',
+            description: 'shows all posts as JSON'
+            },
+            {
+            method: 'GET',
             path: '/api/cities/:cityId',
-            description: 'shows req.param.id specific city as JSON'
+            description: 'shows specific id as JSON'
+            },
+            {
+            method: 'GET',
+            path: '/api/cities/:cityId/posts/',
+            description: 'shows all posts within a city id as JSON'
             },
             {
             method: 'GET',
             path: '/api/cities/:cityId/posts/:postId',
-            description: 'shows req.param.id specific post as JSON'
-            },
-            {
-            method: 'GET',
-            path: '/api/cities/:cityId/posts/:postId',
-            description: 'shows req.param.city and posts as JSON'
+            description: 'shows a specific post id within a city id as JSON'
             },
             {
             method: 'POST',
