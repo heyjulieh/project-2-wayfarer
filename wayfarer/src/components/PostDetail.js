@@ -15,9 +15,16 @@ class PostDetail extends Component {
 		this.updatePost = this.updatePost.bind(this);
 		this.handleUpdatePost = this.handleUpdatePost.bind(this)
 		this.handleInputChange = this.handleInputChange.bind(this)
-		// this.deleteComment = this.deleteComment.bind(this)
-
+		this.deletePost = this.deletePost.bind(this)
   }
+
+	deletePost(e) {
+		let targetPost = this.state;
+		e.preventDefault();
+		this.props.onPostDelete(targetPost);
+
+	}
+
 	updatePost(e) {
 		e.preventDefault();
 		this.setState({editMode: !this.state.editMode});
@@ -75,15 +82,6 @@ class PostDetail extends Component {
 
   }
 
-	// deleteComment(e) {
-
-	// 	e.preventDefault();
-
-	// 	let id = this.props.uniqueID
-	//     this.props.onPostDelete(id)
-
-	// }
-
 	render() {
 		return(
 
@@ -102,7 +100,7 @@ class PostDetail extends Component {
 					</div>
 
 					<button onClick={this.updatePost}>Edit</button>
-					<button>Delete</button>
+					<button onClick={this.deletePost}>Delete</button>
 
 					 { (this.state.editMode)
 						 ? (<form onSubmit={ this.handleUpdatePost }>
@@ -142,7 +140,7 @@ class PostDetail extends Component {
 			 	          value={Date.now()} />
 			 	        <input
 			 	          type='submit'
-			 	          value='Edit' />
+			 	          value='Save Changes' />
 			 	    </form>)
 						 : null}
  				</div>
