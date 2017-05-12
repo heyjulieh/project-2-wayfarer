@@ -12,8 +12,6 @@ function showPosts(req, res) {
 	var city = req.params.cityId
 	db.Post.find({city}, function(err, showAllPosts) {
 		res.json(showAllPosts);
-		console.log('showAllPosts', showAllPosts)
-		console.log('req.params', req.params)
 	});
 };
 
@@ -28,34 +26,44 @@ function showOne(req, res) {
 // Creates a specific post in a specific city
 function create(req, res) {
 
-	var newPost = new db.Post({
-		userIMG: req.body.userIMG,
-		user: req.body.user,
-		city: req.body.city,
-		title: req.body.title,
-		text: req.body.text,
-		date: req.body.date,
-		userID: req.body.userID
-	});
+	console.log('req.body: ', req.body)
+	console.log('req.body.city is: ', req.body.city)
 
-	db.City.findOne({city: req.body.city}, function(err, city) {
-		if (err) {
-			console.log(err.message);
-		} else {
-			console.log('city is: ', city);
-			if (city === null) {
-				console.log('post create error: ${req.body.city} not found');
+		var newPost = new db.Post({
+			userIMG: req.body.userIMG,
+			user: req.body.user,
+			city: req.body.city,
+			title: req.body.title,
+			text: req.body.text,
+			date: req.body.date,
+			userID: req.body.userID
+		});
+
+		db.City.findOne({city: req.body.city}, function(err, city) {
+
+			// city returns null. Why? Shouldn't this be a matching db.City object, or at least an ID
+
+			if (err) {
+
+				console.log(err.message);
+
+			} else if (req.body.city === null) {
+
+					console.log('post create error: ${req.body.city} not found');
+
 			} else {
-				newPost.city = city;
-				newPost.save(function(err, post) {
+
+				db.Post.create(newPost, function(err, newCreatedPost) {
+
 					if (err) {
 						console.log('post save error: ', err);
 					} else {
-						conosle.log('saved post: ', post);
-						res.json(post);
+						console.log('new created post: ', newCreatedPost);
+						res.json(newCreatedPost);
 					}
-				})
-			}
+
+				});
+
 		}
 	});
 }

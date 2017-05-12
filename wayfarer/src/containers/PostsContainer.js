@@ -20,7 +20,7 @@ class PostsContainer extends Component {
 
 		this.loadPostsFromServer = this.loadPostsFromServer.bind(this);
 		this.handleNewPostSubmit = this.handleNewPostSubmit.bind(this);
-		// this.handlePostSubmit = this.handlePostSubmit.bind(this);
+		//this.handlePostSubmit = this.handlePostSubmit.bind(this);
 		// this.handlePostDelete = this.handlePosttDelete.bind(this);
 		// this.handlePostUpdate = this.handlePostUpdate.bind(this);
 
@@ -39,24 +39,28 @@ class PostsContainer extends Component {
   	}
 
 	handleNewPostSubmit(post){
+
+		post.city = this.props.routeParams.cityId;
+
 		console.log('reached handleNewPostSubmit');
-		let posts = this.state.data;
-		console.log(posts);
-		let newPosts = posts.concat([post]);
-		this.setState({data: newPosts});
+		let posts = this.state.posts;
+		console.log('posts is: ', posts);
+		let newPost = posts.concat([post]);
+		console.log('newPost is: ', newPost)
+		this.setState({posts: newPost});
 		// use this once posts' data route is confirmed
 		//url: 'http://localhost:3000/api/cities/:cityId/posts'
 
 		$.ajax({
 			method: 'POST',
-			url: 'http://localhost:3000/api/cities/:cityId/posts/',
+			url: `http://localhost:3000/api/cities/${this.props.routeParams.cityId}/posts/`,
 			data: post
 		})
 		.then(res => {
 			console.log('res is: ', res)
 		}, err => {
 			console.error(err);
-			this.setState({data: posts});
+			this.setState({posts: posts});
 		});
 	}
 

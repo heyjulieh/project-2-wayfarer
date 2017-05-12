@@ -32,7 +32,7 @@ var posts_list = [
 	{
 		userIMG: 'https://images.pexels.com/photos/101584/pexels-photo-101584.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb',
 		user: 'Anthony L.',
-		cityName: 'San Francisco',
+		city: 'San Francisco',
 		title: 'Home is Where the Sandwich is',
 		text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolo.',
 		date: '5/10/2017'
@@ -40,7 +40,7 @@ var posts_list = [
 	{
 		userIMG: 'https://images.pexels.com/photos/101584/pexels-photo-101584.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb',
 		user: 'George C.',
-		cityName: 'San Francisco',
+		city: 'San Francisco',
 		title: 'Nowhere Man',
 		text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolo.',
 		date: '1/2/2014'
@@ -48,7 +48,7 @@ var posts_list = [
 	{
 		userIMG: 'https://images.pexels.com/photos/27411/pexels-photo-27411.jpg?w=1260&h=750&auto=compress&cs=tinysrgb',
 		user: 'Violet',
-		cityName: 'Dubai',
+		city: 'Dubai',
 		title: 'Words from a Local',
 		text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolo.',
 		date: '5/10/2017'
@@ -56,7 +56,7 @@ var posts_list = [
 	{
 		userIMG: 'https://images.pexels.com/photos/91227/pexels-photo-91227.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb',
 		user: 'Blair',
-		cityName: 'Reykjavik',
+		city: 'Reykjavik',
 		title: 'Really Cool Vibes, Man.',
 		text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolo.',
 		date: '5/10/2017'
@@ -64,7 +64,7 @@ var posts_list = [
 	{
 		userIMG: '',
 		user: 'Julie Huang',
-		cityName: 'Tokyo',
+		city: 'Tokyo',
 		title: 'I Want To Hold My Hand',
 		text: 'COLD COLD COLD, but the hot springs are a must see.',
 		date: '4/10/2016'
@@ -72,7 +72,7 @@ var posts_list = [
 	{
 		userIMG: '',
 		user: 'Mahmoud Bachir',
-		cityName: 'Amsterdam',
+		city: 'Amsterdam',
 		title: 'Lucy In The Sky With Diamonds',
 		text: 'Ramen was so bomb!',
 		date: '3/25/2017'
@@ -89,7 +89,7 @@ console.log('removed all cities');
 
 		db.Post.remove({}, function(err, posts) {
 			console.log('removed all posts')
-			
+
 			posts_list.forEach(function(postInfo) {
 				var post = new db.Post({
 					userIMG: postInfo.userIMG,
@@ -99,7 +99,7 @@ console.log('removed all cities');
 					date: postInfo.date,
 					userID: postInfo.userID
 				});
-				db.City.findOne({name: postInfo.cityName}, function(err, foundCity) {
+				db.City.findOne({name: postInfo.city}, function(err, foundCity) {
 					if(err) {
 						console.log(err);
 						return;
@@ -126,7 +126,7 @@ console.log('removed all cities');
 // 				console.log('created', posts.length, "posts");
 // 			});
 // 		});
-		
+
 // 		console.log('recreated all cities');
 // 		console.log('created', cities.length, "cities");
 // 	});
@@ -156,10 +156,10 @@ console.log('removed all cities');
 // 			name: cityData.name,
 // 			imgURL: cityData.imgURL,
 // 			type: cityData.type
-	
+
 
 // 		db.Post.findOne({cityName: cityData.name})
-// 			.populate('userImg') 
+// 			.populate('userImg')
 // 			.populate('user')
 // 			.populate('cityName')
 // 			.populate('title')
@@ -183,11 +183,9 @@ console.log('removed all cities');
 // 				return;
 // 			}
 // 			city.posts = foundPost;
-			
+
 // 		});
 // 	});
 // });
 // });
 // });
-
-

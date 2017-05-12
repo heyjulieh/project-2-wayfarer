@@ -36,12 +36,9 @@ class CreatePostForm extends Component {
 
   	if (e.target.name === 'date') {
   		this.setState({ date: e.target.value });
-    }  
+    }
       if (e.target.name === 'userID') {
       this.setState({ userID: e.target.value });
-    }
-    if (e.target.name === 'city') {
-      this.setState({ city: e.target.value });
     }
 
   }
@@ -57,12 +54,11 @@ class CreatePostForm extends Component {
     let text = this.state.text.trim();
     let date = this.state.date;
     let userID = this.state.userID.trim();
-    let city = this.state.city.trim();
-   
-    
 
 
-    if (!userIMG || !user || !title || !text || !date || !userID || !city) {
+
+
+    if (!userIMG || !user || !title || !text || !date || !userID ) {
       return;
     }
     this.props.onCreatePostFormSubmit(
@@ -72,7 +68,6 @@ class CreatePostForm extends Component {
     	text: text,
       date: Date,
       userID: userID,
-      city: city
     });
     this.setState(
     {	userIMG: userIMG,
@@ -81,7 +76,6 @@ class CreatePostForm extends Component {
     	text: text,
       date: Date,
       userID: userID,
-      city:city
     });
 
     console.log('logging this.state: ', this.state);
@@ -122,15 +116,13 @@ class CreatePostForm extends Component {
 	        <input
 	          type='text'
 	          name='userID'
-	          placeholder=''
+	          placeholder='firebase userID'
 	          value={ this.state.userID}
 	          onChange={ this.handleInputChange } />
           <input
-            type='text'
+            type='hidden'
             name='city'
-            placeholder='Choose City…'
-            value={ this.state.city }
-            onChange={ this.handleInputChange } />       
+            value={ this.props.city } />
 	        <input
 	          type='submit'
 	          value='Post' />
