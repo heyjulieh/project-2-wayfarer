@@ -71,18 +71,12 @@ function create(req, res) {
 function destroy(req, res) {
 
 	console.log('made it to empty destroy function')
-	// db.City.findOneById(req.params.cityId, function (err, foundCity) {
+	db.Post.remove({_id: req.params.postId}, function (err, foundPost) {
+			if (err)
+				res.send(err);
+		});
+}
 
-	// 	foundCity.posts.findOneById(req.params.postId, (err, foundPost) {
-
-	// 		foundPost.delete()
-	// 		foundCity.posts.save()
-
-	// 	});
-
-	// });
-
-};
 
 // Updates a specific post in a specific city
 function update(req, res) {

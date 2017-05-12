@@ -64,18 +64,18 @@ class PostsContainer extends Component {
 		});
 	}
 
-// handlePostDelete(id){
-//     $.ajax({
-//       method: 'DELETE',
-//       url: 'http://localhost:3000/api/cities/:cityId/posts/:postId'
+handlePostDelete(id){
+    $.ajax({
+      method: 'DELETE',
+      url: 'http://localhost:3000/api/cities/:cityId/posts/:postId'
 
-// 	    })
-// 	    .then((res) => {
-// 	      console.log('Post deleted');
-// 	    }, (err) => {
-// 	      console.error(err);
-// 	    });
-// 	}
+	    })
+	    .then((res) => {
+	      console.log('Post deleted');
+	    }, (err) => {
+	      console.error(err);
+	    });
+	}
 
     handlePostUpdate(id, post) {
     //sends the posts id and new text to our api

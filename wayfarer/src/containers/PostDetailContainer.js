@@ -14,9 +14,8 @@ class PostDetailContainer extends Component {
 
 		this.loadPostFromServer = this.loadPostFromServer.bind(this);
 		this.handlePostUpdate = this.handlePostUpdate.bind(this);
-		// handle post edit form submit and delete
-		// this.handlePostDelete = this.handlePostDelete.bind(this);
-		// this.handleNewPostSubmit = this.handleNewPostSubmit.bind(this);
+		this.handlePostDelete = this.handlePostDelete.bind(this);
+
 
 	}
 
@@ -34,6 +33,19 @@ class PostDetailContainer extends Component {
 			this.setState({post: res})
 		})
 
+	}
+
+	handlePostDelete(targetPost) {
+		console.log(this.props)
+		$.ajax({
+			method: 'DELETE',
+			url: `http://localhost:3000/api/cities/${this.props.routeParams.cityId}/posts/${this.props.routeParams.postId}`,
+			data: targetPost
+		})
+		.then((res) => {
+			console.log('Post deleted', res)
+		})
+		window.location.href=`http://localhost:3001/cities/${this.props.routeParams.cityId}`
 	}
 
 	handlePostUpdate(targetPost) {
@@ -61,6 +73,7 @@ class PostDetailContainer extends Component {
 			<PostDetail
 				post={ this.state.post }
 				onPostUpdate={this.handlePostUpdate}
+				onPostDelete={this.handlePostDelete}
 			/>
 
 		)
