@@ -6,10 +6,11 @@ class CreatePostForm extends Component {
     this.state = {
       userIMG: '',
       user: '',
-      cityName: '',
       title: '',
       text: '',
-      date: Date.now()
+      date: Date,
+      userID: '',
+      city: ''
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleNewPostSubmit = this.handleNewPostSubmit.bind(this);
@@ -25,10 +26,6 @@ class CreatePostForm extends Component {
   		this.setState({ user: e.target.value });
   	}
 
-  	if (e.target.name === 'cityName') {
-  		this.setState({ cityName: e.target.value });
-  	}
-
   	if (e.target.name === 'title') {
   		this.setState({ title: e.target.value });
   	}
@@ -36,6 +33,13 @@ class CreatePostForm extends Component {
   	if (e.target.name === 'text') {
   		this.setState({ text: e.target.value });
   	}
+
+  	if (e.target.name === 'date') {
+  		this.setState({ date: e.target.value });
+    }
+      if (e.target.name === 'userID') {
+      this.setState({ userID: e.target.value });
+    }
 
   }
 
@@ -46,25 +50,32 @@ class CreatePostForm extends Component {
     //we will be tying this into the POST method in a bit
     let userIMG = this.state.userIMG.trim();
     let user = this.state.user.trim();
-    let cityName = this.state.cityName.trim();
     let title = this.state.title.trim();
     let text = this.state.text.trim();
-    if (!userIMG || !user || !cityName || !title || !text) {
+    let date = this.state.date;
+    let userID = this.state.userID.trim();
+
+
+
+
+    if (!userIMG || !user || !title || !text || !date || !userID ) {
       return;
     }
     this.props.onCreatePostFormSubmit(
     {	userIMG: userIMG,
     	user: user,
-    	cityName: cityName,
     	title: title,
-    	text: text
+    	text: text,
+      date: Date,
+      userID: userID,
     });
     this.setState(
     {	userIMG: userIMG,
     	user: user,
-    	cityName: cityName,
     	title: title,
-    	text: text
+    	text: text,
+      date: Date,
+      userID: userID,
     });
 
     console.log('logging this.state: ', this.state);
@@ -88,26 +99,30 @@ class CreatePostForm extends Component {
 	          onChange={ this.handleInputChange } />
 	        <input
 	          type='text'
-	          name='cityName'
-	          placeholder='Select a city…'
-	          value={ this.state.cityName }
-	          onChange={ this.handleInputChange } />
-	        <input
-	          type='text'
 	          name='title'
-	          placeholder='Choose a title…'
+	          placeholder='Choose a Title…'
 	          value={ this.state.title }
 	          onChange={ this.handleInputChange } />
 	        <input
 	          type='text'
 	          name='text'
-	          placeholder='Write your post…'
+	          placeholder='Write your Post.....'
 	          value={ this.state.text }
 	          onChange={ this.handleInputChange } />
+          <input
+            type='hidden'
+            name='date'
+            value={Date.now()} />
 	        <input
-	          type='hidden'
-	          name='date'
-	          value={Date.now()} />
+	          type='text'
+	          name='userID'
+	          placeholder='firebase userID'
+	          value={ this.state.userID}
+	          onChange={ this.handleInputChange } />
+          <input
+            type='hidden'
+            name='city'
+            value={ this.props.city } />
 	        <input
 	          type='submit'
 	          value='Post' />

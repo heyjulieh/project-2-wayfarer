@@ -19,8 +19,8 @@ class PostsContainer extends Component {
 		};
 
 		this.loadPostsFromServer = this.loadPostsFromServer.bind(this);
-		// this.handleNewPostSubmit = this.handleNewPostSubmit.bind(this);
-		// this.handlePostSubmit = this.handlePostSubmit.bind(this);
+		this.handleNewPostSubmit = this.handleNewPostSubmit.bind(this);
+		//this.handlePostSubmit = this.handlePostSubmit.bind(this);
 		// this.handlePostDelete = this.handlePosttDelete.bind(this);
 		// this.handlePostUpdate = this.handlePostUpdate.bind(this);
 
@@ -40,41 +40,42 @@ class PostsContainer extends Component {
 
 	handleNewPostSubmit(post){
 
+		post.city = this.props.routeParams.cityId;
+
+		console.log('reached handleNewPostSubmit');
 		let posts = this.state.posts;
-		let currCityId = window.location.href.replace('http://localhost:3001/cities/', '')
+		console.log('posts is: ', posts);
+		let newPost = posts.concat([post]);
+		console.log('newPost is: ', newPost)
+		this.setState({posts: newPost});
 		// use this once posts' data route is confirmed
 		//url: 'http://localhost:3000/api/cities/:cityId/posts'
 
 		$.ajax({
-
 			method: 'POST',
-			url: `http://localhost:3000/api/cities/${currCityId}posts`,
+			url: `http://localhost:3000/api/cities/${this.props.routeParams.cityId}/posts/`,
 			data: post
-
 		})
 		.then(res => {
 			console.log('res is: ', res)
-			let newPosts = posts.concat([res]);
-			this.setState({posts: newPosts});
-			console.log('this.state is: ', this.state)
 		}, err => {
 			console.error(err);
 			this.setState({posts: posts});
 		});
 	}
 
-// handlePostDelete(id){
-//     $.ajax({
-//       method: 'DELETE',
-//       url: 'http://localhost:3000/api/cities/:cityId/posts/:postId'
+handlePostDelete(id){
+    $.ajax({
+      method: 'DELETE',
+      url: 'http://localhost:3000/api/cities/:cityId/posts/:postId'
 
-// 	    })
-// 	    .then((res) => {
-// 	      console.log('Post deleted');
-// 	    }, (err) => {
-// 	      console.error(err);
-// 	    });
-// 	}
+	    })
+	    .then((res) => {
+	      console.log('Post deleted');
+	    }, (err) => {
+	      console.error(err);
+	    });
+	}
 
     handlePostUpdate(id, post) {
     //sends the posts id and new text to our api
