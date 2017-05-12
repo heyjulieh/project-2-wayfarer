@@ -19,6 +19,8 @@ class PostList extends Component {
 		return(
 
 			<div className="postsList container">
+				<h1 className="cityTitle center">{this.props.cityName}</h1>
+
 				<div className="row">
 					{postsArray}
 				</div>

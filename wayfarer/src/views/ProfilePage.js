@@ -10,7 +10,7 @@ class ProfilePage extends Component {
     this.state = {
       userData: []
     }
-    
+
   }
 
   getUserData(uData) {
@@ -22,8 +22,7 @@ class ProfilePage extends Component {
     return (
     <div>
       <Nav
-      onGetUserData={this.getUserData.bind(this)}
-      />
+        onGetUserData={this.getUserData.bind(this)}/>
       <ProfileHeader />
       <PostsContainer />
       <Footer />

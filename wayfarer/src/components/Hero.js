@@ -4,7 +4,7 @@ class Hero extends Component {
 	constructor() {
 		super();
 		this.state = {
-			backgroundURL: ''
+			scrollURL: ''
 		}
 	}
 
@@ -19,7 +19,7 @@ class Hero extends Component {
 
 	            	<h1 className="header center col s12 m12 l12">Wayfarer</h1>
 	            	<h2 className="center col s12 m12 l12">For when it's about the journey, <br></br> <em>and</em> the destination.</h2>
-					
+
 					<section id="hero-scroll" className="scroll">
 	            		<a href="#"><span></span><h5>Scroll</h5></a>
 	            	</section>
