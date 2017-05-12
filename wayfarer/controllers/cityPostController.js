@@ -66,7 +66,7 @@ function create(req, res) {
 
 		}
 	});
-}
+};
 
 function destroy(req, res) {
 
@@ -75,7 +75,7 @@ function destroy(req, res) {
 			if (err)
 				res.send(err);
 		});
-}
+};
 
 
 // Updates a specific post in a specific city
@@ -101,7 +101,7 @@ function update(req, res) {
 			}
 		});
 	});
-}
+};
 
 module.exports = {
 	index: index,

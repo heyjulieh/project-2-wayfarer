@@ -278,32 +278,32 @@ footer ul {
 .postsList {
 
   padding-top: 50px;
-  background-color: #ccffff;
 
 }
 
 .postCard {
-  border-radius: 20px;
-  padding: 20px;
   margin-bottom: 40px;
-
 }
 
+
 .userSection {
-  background-color: #00cc99;
+  background-color: #f6e4e4;
   padding: 0px;
   margin: 0px;
 
 }
 
-.userSection img {
-  width: 100%;
+.postSection {
+  
+  padding: 50px;
+  background-color: #fbf1f1;
 
 }
 
-.postSection {
+.postImage {
 
-  background-color: white;
+  width: 200px;
+  margin-top: 40px;
 
 }
 
