@@ -7,11 +7,11 @@ class PostPage extends Component {
 
   render() {
     return (
-    <div>
+    <div className="postPage">
       <Nav />
-        <PostDetailContainer
-          routeParams={this.props.params}
-        />
+      <PostDetailContainer
+        routeParams={this.props.params}
+      />
       <Footer />
     </div>
     )
