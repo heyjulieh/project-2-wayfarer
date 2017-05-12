@@ -254,6 +254,13 @@ footer ul {
 
 }
 
+h1.cityTitle {
+
+  text-align: center;
+  font-size: 4.5em;
+
+}
+
 .postCard {
   margin-top: 50px;
   background-color: #fbf1f1;

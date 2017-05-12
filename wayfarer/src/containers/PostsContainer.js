@@ -99,15 +99,17 @@ handlePostDelete(id){
 
 	render() {
 
-		let targetPost = this.state.posts[0];
-		
+		const targetPost = this.state.posts.map(post => post.cityName)
 
-		console.log('currCity is: ', targetPost)
+		const testPost = this.state.posts[0]
+
+		console.log('targetPost is: ', testPost)
 
 		return(
 
 			<div>	
 				<PostList
+					cityName={targetPost[0]}
 					posts={this.state.posts}
 					onPostDelete={this.handlePostDelete}
 					onPostUpdate={this.handlePostUpdate}/>
