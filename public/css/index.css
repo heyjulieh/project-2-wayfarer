@@ -1,0 +1,545 @@
+@import url('https://fonts.googleapis.com/css?family=Eczar:400,500,600,700,800%7CWork+Sans:300,400,500,600,700,800,900%7CQuicksand');
+
+/*   H T M L  T A G S   */
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+
+h1 {
+
+    font-family: 'Eczar', sans-serif;
+    font-weight: 800;
+    font-size: 3.5rem;
+    letter-spacing: 1px;
+    color: black;
+}
+
+h2 {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 400;
+  color: white;
+}
+
+h3 {
+  /*
+  TEST: julie
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 500;*/
+
+    font-family: 'Eczar', sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    color: black;
+    text-align: center;
+    padding: 35px 0px;
+
+}
+
+h4 {
+  font-family: 'Eczar';
+  font-weight: 300;
+  font-size: 40px;
+}
+
+nav a {
+  color: white;
+  opacity: 0.7;
+}
+
+h5 a {
+
+    font-family: 'Eczar', sans-serif;
+    font-weight: 600;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    color: #f7316a;
+    text-decoration: none
+
+}
+
+nav a:hover{
+  background-color: transparent;
+  color: black;
+  opacity: 1;
+}
+
+nav h4 {
+  display: inline-block;
+  font-size: 30px;
+  width: 100%;
+  margin-top: 0;
+  color: white;
+}
+
+nav img {
+  margin-left: -15px;
+  margin-right: 30px;
+  margin-top: -8px;
+}
+
+footer a {
+  display: block;
+  height: 30px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: white;
+  padding-top: 5px;
+  font-family: 'Work Sans', sans-serif;
+}
+
+footer a:hover {
+  display: block;
+  text-decoration: none;
+  height: 30px;
+  color: #d6b0b3;
+  background-color: white;
+}
+
+footer a:active {
+  display: block;
+  text-decoration: none;
+  height: 30px;
+  color: #d6b0b3;
+}
+
+footer {
+  height: 200px;
+  background-color: darkgrey;
+  padding: 5px 5px 0px 5px;
+  width: 100%;
+  font-family: 'Quicksand', sans-serif;
+  bottom: 0;
+  margin-bottom: 0px;
+}
+
+footer ul {
+  display: inline-block;
+  list-style: none;
+  margin-top: 10px;
+}
+
+footer p {
+  margin-top: 10px;
+}
+
+.footerleft {
+  text-align: left;
+}
+
+.footerright {
+  text-align: justify;
+  padding-right: 40px;
+}
+
+/*   C L A S S E S   */
+
+.feature {}
+
+.normal {}
+
+.navbar {
+  padding: 20px;
+  border: none;
+  border-radius: 0;
+  color: white;
+  background-color: #d6b0b3;
+  height: 100px;
+  width: 100%;
+  text-transform: uppercase;
+  position: fixed;
+  z-index: 1;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.dropdown-toggle {
+  font-size: 18px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.glyphicon {
+  margin-right: 8px;
+
+
+}
+
+.navbar-toggle {
+  background-color: lightgrey;
+  opacity: 0.8;
+}
+
+
+.navbar-collapse {
+  margin-top: 10px;
+  background-color: #d6b0b3;
+}
+
+
+.icon-bar {
+  background-color: black;
+}
+
+.btn-primary {
+  background-color: #d6b0b3;
+  color: white;
+  border-color: #d6b0b3;
+  text-transform: uppercase;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.btn-primary:focus {
+  background-color: #d6b0b3;
+  color: white;
+  border-color: #d6b0b3;
+  text-transform: uppercase;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.btn-primary:hover {
+  background-color: white;
+  color: black;
+  border-color: white;
+  text-transform: uppercase;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.btn-primary:active {
+  background-color: white;
+  color: black;
+  border-color: white;
+  text-transform: uppercase;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.form-group {
+  background-color: white;
+  margin-top: 20px;
+  padding-top: 30px;
+  border-radius: 10px;
+  border: 0px white solid;
+}
+
+.form-control {
+  font-family: 'Quicksand', sans-serif;
+}
+
+.formheader {
+  display: inline-block;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  font-size: 20px;
+  border-bottom: 1px black solid;
+  width: 100%;
+}
+
+/*   I D S   */
+
+
+#userName {
+  margin-left: 15px;
+  margin-top: 15px;
+  margin-right: 15px;
+  color: white;
+}
+
+/*   C O M P O N E N T S   */
+
+/*   Jumbotron   */
+
+.hero-bg {
+
+  background-image: url('../images/cities/homepage.jpg');
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  animation: background-image 20s ease forwards;
+  -ms-animation: background-image 20s ease forwards;
+  -webkit-animation: background-image 20s ease forwards;
+  -0-animation: background-image 20s ease forwards;
+  -moz-animation: background-image 20s ease forwards;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+
+}
+
+.hero {
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 700px;
+  height: 87.5vh !important;
+  margin-bottom: 40px;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+  z-index: -2;
+}
+
+.hero h1 {
+
+    font-family: 'Eczar', sans-serif;
+    font-weight: 800;
+    font-size: 6.5rem;
+    letter-spacing: 1px;
+    color: white;
+
+}
+
+.hero-content {
+  width: 500px;
+  height: 300px;
+  margin: 0 auto;
+  padding-top: 250px;
+  text-align: center;
+  z-index: 2;
+}
+
+/*   CityCards   */
+
+.citiesGrid {
+
+  margin: 0;
+  padding-bottom: 60px;
+
+}
+
+.citiesGrid h1 {
+
+  padding-bottom: 40px;
+  text-align: center;
+
+}
+
+.cityCard img {
+  width: 100%;
+  margin: 5px 0px -50px 0px;
+}
+
+.cityCard h3 {
+  font-family: 'Eczar', sans-serif;
+  font-weight: 800;
+  font-size: 3rem;
+  letter-spacing: 1px;
+  color: black;
+}
+
+.cityCardName {
+  background-color: white;
+  position: relative;
+  display: inline-block;
+  margin-top: -80px;
+  padding: 30px;
+
+}
+
+/*   ProfileCards   */
+
+.postsList {
+
+  padding: 150px 0px 0px 0px;
+
+}
+
+h1.cityTitle {
+
+  text-align: center;
+  font-size: 4.5em;
+
+}
+
+.postCard {
+  margin-top: 50px;
+  background-color: #fbf1f1;
+  padding: 0;
+}
+
+
+.userSection {
+  background-color: #f6e4e4;
+  padding: 0px;
+  margin: 0px;
+
+}
+
+.postSection {
+
+  padding: 50px;
+  background-color: #fbf1f1;
+
+}
+
+.postImage {
+
+  width: 200px;
+  margin-top: 40px;
+
+}
+
+.postcard h3 a {
+
+  color: #000000;
+  padding: 20px;
+
+}
+
+.postCard h4 {
+
+  padding: 20px;
+
+}
+
+.postCard p {
+
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 200;
+  font-size: 1.75rem;
+  line-height: 24px;
+  width: 80%;
+
+}
+
+.postCardDetail {
+
+  margin-top: 150px;
+  display: block;
+  background-color: #fbf1f1;
+  margin-bottom: 60px;
+  padding: 0;
+
+}
+
+.postCardDetail button {
+
+  padding: 10px 20px;
+  margin-right: 15px;
+
+
+}
+
+.postText {
+
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 200;
+    font-size: 1.75rem;
+    line-height: 24px;
+    width: 80%;
+}
+
+.postDate {
+
+  padding-top: 10px;
+
+}
+
+.postPage footer {
+  display: none;
+  position: relative;
+  height: 200px;
+  width: 100%;
+  background-color: darkgrey;
+  padding: 5px;
+
+}
+
+/*   A N I M A T I O N   */
+
+.scroll a {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  z-index: 2;
+  display: inline-block;
+  -webkit-transform: translate(-40%, -40%);
+  transform: translate(-40%, -40%);
+  color: #fff;
+  letter-spacing: .1em;
+  text-decoration: none;
+  transition: opacity .3s;
+}
+
+.scroll a:hover {
+  opacity: .5;
+}
+
+#hero-scroll a {
+  padding-top: 70px;
+}
+#hero-scroll a span {
+  position: absolute;
+  top: 0;
+  left: 45%;
+  width: 24px;
+  height: 24px;
+  margin-left: -12px;
+  border-left: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-animation: sdb05 1.5s infinite;
+  animation: sdb05 1.5s infinite;
+  box-sizing: border-box;
+}
+@-webkit-keyframes sdb05 {
+  0% {
+    -webkit-transform: rotate(-45deg) translate(0, 0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: rotate(-45deg) translate(-20px, 20px);
+    opacity: 0;
+  }
+}
+@keyframes sdb05 {
+  0% {
+    transform: rotate(-45deg) translate(0, 0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-45deg) translate(-20px, 20px);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes background-image {
+  0% {
+    -webkit-transform-origin: bottom;
+    -moz-transform-origin: bottom;
+    -ms-transform-origin: bottom;
+    -o-transform-origin: bottom;
+    transform-origin: bottom;
+    transform: scale(1.0);
+    -ms-transform: scale(1.0);
+
+    -webkit-transform: scale(1.0);
+
+    -o-transform: scale(1.0);
+
+    -moz-transform: scale(1.0);
+  }
+  100% {
+    transform: scale(1.2);
+    -ms-transform: scale(1.2);
+
+    -webkit-transform: scale(1.2);
+
+    -o-transform: scale(1.2);
+
+    -moz-transform: scale(1.2);
+  }
+}
