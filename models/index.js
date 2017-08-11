@@ -1,5 +1,5 @@
 var mongoose = require("mongoose");
-mongoose.connect( process.env.MONGODB_URI || "mongodb://<heyjulieh@gmail.com>:<Rotten1!>@ds033143.mlab.com:33143/heroku_12xmzgqj");
+mongoose.connect( process.env.MONGODB_URI || "mongodb://localhost/project-2-wayfarer");
 var City = require('./city');
 var Post = require('./posts');
 
