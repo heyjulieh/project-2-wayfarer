@@ -5,6 +5,7 @@
   "dependencies": {
     "body-parser": "^1.17.1",
     "bootstrap": "^3.3.7",
+    "cors": "^2.8.4",
     "express": "^4.15.2",
     "firebase": "^3.9.0",
     "foreman": "^2.0.0",
@@ -27,5 +28,4 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
-
 }

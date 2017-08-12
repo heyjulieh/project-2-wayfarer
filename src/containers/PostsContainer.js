@@ -32,7 +32,7 @@ class PostsContainer extends Component {
 		console.log('city id', this.props.routeParams.cityId);
 	    $.ajax({
 	      method: 'GET',
-	      url: `http://localhost:3000/api/cities/${this.props.routeParams.cityId}/posts`
+	      url: `http://localhost:3001/api/cities/${this.props.routeParams.cityId}/posts`
 	    })
 	    .then( (res) => {this.setState({posts: res})
 			})
@@ -49,11 +49,11 @@ class PostsContainer extends Component {
 		console.log('newPost is: ', newPost)
 		this.setState({posts: newPost});
 		// use this once posts' data route is confirmed
-		//url: 'http://localhost:3000/api/cities/:cityId/posts'
+		//url: 'http://localhost:3001/api/cities/:cityId/posts'
 
 		$.ajax({
 			method: 'POST',
-			url: `http://localhost:3000/api/cities/${this.props.routeParams.cityId}/posts/`,
+			url: `http://localhost:3001/api/cities/${this.props.routeParams.cityId}/posts/`,
 			data: post
 		})
 		.then(res => {
@@ -67,7 +67,7 @@ class PostsContainer extends Component {
 handlePostDelete(id){
     $.ajax({
       method: 'DELETE',
-      url: 'http://localhost:3000/api/cities/:cityId/posts/:postId'
+      url: 'http://localhost:3001/api/cities/:cityId/posts/:postId'
 
 	    })
 	    .then((res) => {
@@ -78,10 +78,10 @@ handlePostDelete(id){
 	}
 
     handlePostUpdate(id, post) {
-    //sends the posts id and new text to our api
+    //sends the posts id and new text to ou1 api
     $.ajax({
       method: 'PUT',
-      url:'http://localhost:3000/api/cities/:cityId/posts/:postId' ,
+      url:'http://localhost:3001/api/cities/:cityId/posts/:postId' ,
       data: post
     })
     .then(res => {
@@ -107,7 +107,7 @@ handlePostDelete(id){
 
 		return(
 
-			<div>	
+			<div>
 				<PostList
 					cityName={targetPost[0]}
 					posts={this.state.posts}

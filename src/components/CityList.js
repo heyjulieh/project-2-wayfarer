@@ -3,10 +3,10 @@ import City from './City'
 
 class CityList extends Component {
 
+
 	render() {
-
+		console.log('props',this.props.cities);
 		let citiesArray = this.props.cities.map( (city) => {
-
 			return (
 				<City
 					key={city._id}

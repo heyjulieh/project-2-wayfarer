@@ -2,8 +2,8 @@
 var express = require('express'),
     mongoose = require('mongoose'),
     db = require('./models');
-    controllers = require('./controllers');
-
+    controllers = require('./controllers'),
+    cors = require('cors'),
     bodyParser = require('body-parser'),
     Posts = require('./models/posts'),//for the post schema when we build one
     City = require('./models/city');//for the city schema whn we build one
@@ -13,7 +13,7 @@ var app = express()
 //to config API to use body body-parser and look for JSON in req.body
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-
+app.use(cors());
 //Prevent CORS errors
 app.use(function(req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -39,7 +39,7 @@ app.put('/api/cities/:cityId/posts/:postId', controllers.posts.update);
 
 //use router config when we call /API
 //start server
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3001;
 app.listen(port, function() {
     console.log(`api running on ${port}`);
 });
