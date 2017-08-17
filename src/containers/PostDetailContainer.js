@@ -22,7 +22,7 @@ class PostDetailContainer extends Component {
 	loadPostFromServer() {
 		$.ajax({
 			method: 'GET',
-			url: `http://localhost:3001/api/cities/${this.props.routeParams.cityId}/posts/${this.props.routeParams.postId}`
+			url: `/api/cities/${this.props.routeParams.cityId}/posts/${this.props.routeParams.postId}`
 		})
 		.then((res) => {
 			console.log(this.props.routeParams, 'route params')
@@ -36,19 +36,19 @@ class PostDetailContainer extends Component {
 	handlePostDelete(targetPost) {
 		$.ajax({
 			method: 'DELETE',
-			url: `http://localhost:3001/api/cities/${this.props.routeParams.cityId}/posts/${this.props.routeParams.postId}`,
+			url: `/api/cities/${this.props.routeParams.cityId}/posts/${this.props.routeParams.postId}`,
 			data: targetPost
 		})
 		.then((res) => {
 			console.log('Post deleted', res)
 		})
-		window.location.href=`http://localhost:3001/cities/${this.props.routeParams.cityId}`
+		window.location.href=`/cities/${this.props.routeParams.cityId}`
 	}
 
 	handlePostUpdate(targetPost) {
 		$.ajax({
 			method: 'PUT',
-			url: `http://localhost:3001/api/cities/${this.props.routeParams.cityId}/posts/${this.props.routeParams.postId}`,
+			url: `/api/cities/${this.props.routeParams.cityId}/posts/${this.props.routeParams.postId}`,
 			data: targetPost
 		})
 		.then((res) => {

@@ -3,7 +3,7 @@ function index(req,res) {
         message: 'Awkward High Five!',
         collaborators: 'Julie, Mahmoud, Will, and Addy',
         documentation_url:'https://github.com/heyjulieh/project-2-wayfarer.git',
-        base_url: 'localhost:3000',
+        base_url: '/',
         endpoint: [
             {
             method: 'GET',

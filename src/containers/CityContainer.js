@@ -16,7 +16,7 @@ class CityContainer extends Component {
 	loadCitiesFromServer() {
 		$.ajax({
 			method: 'GET',
-			url: 'http://localhost:3001/api/cities'
+			url: '/api/cities'
 		})
 		.then( res => this.setState({cities: res}))
 
