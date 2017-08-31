@@ -1,19 +1,29 @@
 //importing dependencies
 var express = require('express'),
     mongoose = require('mongoose'),
-    db = require('./models');
+    db = require('./models'),
     controllers = require('./controllers'),
-    cors = require('cors'),
     bodyParser = require('body-parser'),
     Posts = require('./models/posts'),//for the post schema when we build one
     City = require('./models/city');//for the city schema whn we build one
 
-var app = express()
+var app = express(),
+    router = express.Router();
 
+var databaseUrl = process.env.MONGODB_URI;
+mongoose.connect(databaseUrl || 'mongodb://localhost/wayfarer2-api')
+mongoose.Promise = global.Promise;
+
+app.set("port", process.env.PORT || 3001);
+
+// Express only serves static assets in production
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 //to config API to use body body-parser and look for JSON in req.body
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-app.use(cors());
+
 //Prevent CORS errors
 app.use(function(req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -26,20 +36,19 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get('/api', controllers.api.index);
+app.get('/api', controllers.api.index); //done
 app.get('/api/cities', controllers.city.index);
-app.get('/api/posts/', controllers.posts.index);
-app.get('/api/cities/:cityId', controllers.city.showCities);
-app.get('/api/cities/:cityId/posts', controllers.posts.showPosts);
-app.get('/api/cities/:cityId/posts/:postId', controllers.posts.showOne);
-app.post('/api/cities/:cityId/posts', controllers.posts.create);
+app.get('/api/cities/:cityId', controllers.city.show); //done
+app.get('/api/posts', controllers.posts.index); //done
+app.get('/api/cities/:cityName/posts', controllers.posts.show); //done
+app.post('/api/posts', controllers.posts.create);
+app.get('/api/cities/:cityId/posts/:postId', controllers.posts.showOne); //done
 app.delete('/api/cities/:cityId/posts/:postId', controllers.posts.destroy);
 app.put('/api/cities/:cityId/posts/:postId', controllers.posts.update);
 
-
 //use router config when we call /API
 //start server
-var port = process.env.PORT || 3001;
+var port = process.env.PORT || 3000;
 app.listen(port, function() {
     console.log(`api running on ${port}`);
 });

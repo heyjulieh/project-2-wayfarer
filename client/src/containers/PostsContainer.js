@@ -32,7 +32,7 @@ class PostsContainer extends Component {
 		console.log('city id', this.props.routeParams.cityId);
 	    $.ajax({
 	      method: 'GET',
-	      url: `http://localhost:3001/api/cities/${this.props.routeParams.cityId}/posts`
+	      url: `/api/cities/${this.props.routeParams.cityId}/posts`
 	    })
 	    .then( (res) => {this.setState({posts: res})
 			})
@@ -53,7 +53,7 @@ class PostsContainer extends Component {
 
 		$.ajax({
 			method: 'POST',
-			url: `http://localhost:3001/api/cities/${this.props.routeParams.cityId}/posts/`,
+			url: `/api/cities/${this.props.routeParams.cityId}/posts/`,
 			data: post
 		})
 		.then(res => {
@@ -67,7 +67,7 @@ class PostsContainer extends Component {
 handlePostDelete(id){
     $.ajax({
       method: 'DELETE',
-      url: 'http://localhost:3001/api/cities/:cityId/posts/:postId'
+      url: '/api/cities/:cityId/posts/:postId'
 
 	    })
 	    .then((res) => {
@@ -81,7 +81,7 @@ handlePostDelete(id){
     //sends the posts id and new text to ou1 api
     $.ajax({
       method: 'PUT',
-      url:'http://localhost:3001/api/cities/:cityId/posts/:postId' ,
+      url:'/api/cities/:cityId/posts/:postId' ,
       data: post
     })
     .then(res => {

@@ -19,7 +19,6 @@ class CityContainer extends Component {
 			url: '/api/cities'
 		})
 		.then( res => this.setState({cities: res}))
-
 	}
 
 	componentDidMount(){

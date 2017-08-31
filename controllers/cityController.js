@@ -2,20 +2,22 @@ var db = require('../models');
 
 // Shows all cities in /api/cities route
 function index(req, res) {
-	db.City.find({}, function(err, allCity){
-		res.json(allCity)
-	});
-};
+  db.City.find({})
+    .exec(function(error, cities) {
+      if (error) { res.send(error) };
+      res.json(cities);
+    });
+}
 
-// Shows all cities
-function showCities(req, res) {
-	var cityId = req.params.cityId;
-	db.City.findById(cityId, function(err, foundCity) {
-		res.json(foundCity);
-	});
-};
+function show(req, res) {
+  db.City.findById(req.params.cityId, function(error, comment) {
+    if (error) { res.send(error) };
+    res.json(comment);
+  });
+}
+
 
 module.exports = {
 	index: index,
-	showCities: showCities
+	show: show
 };

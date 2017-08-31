@@ -1,73 +1,58 @@
 var db = require('../models');
 
-// Shows all posts in /api/posts route
+// Shows all posts in /api/posts
 function index(req, res) {
-	db.Post.find({}, function(err, allPosts){
-		res.json(allPosts)
-	});
-};
-
-// Shows all posts under a specific city
-function showPosts(req, res) {
-	var city = req.params.cityId
-	db.Post.find({city}, function(err, showAllPosts) {
-		res.json(showAllPosts);
-	});
-};
-
-// Shows a specific post for a specific city
-function showOne(req, res) {
-    var postId = req.params.postId;
-    db.Post.findById(postId, function(err, foundPost) {
-        res.json(foundPost);
+	db.Posts.find({})
+    .populate('cityName')
+    .exec(function(error, posts) {
+      if (error) { res.send(error) };
+      res.json(posts);
     });
 };
 
-// Creates a specific post in a specific city
+// Shows all posts in /api/cities/:cityName/posts route (cityName = cityId)
+function show(req, res) {
+	var cityName = req.params.cityName;
+  db.Posts.find({cityName: cityName})
+	.populate('cityName')
+	.exec(function(error, posts) {
+		if (error) { res.send(error) };
+		res.json(posts);
+  });
+}
+
+// Shows a specific post in /api/cities/:cityName/posts/:postId
+function showOne(req, res) {
+	var postId = req.params.postId;
+	 db.Posts.findById(postId, function(err, foundPost) {
+			 res.json(foundPost);
+	 });
+}
+
+// Create a new post at /api/posts
 function create(req, res) {
-
-
-	console.log('req.body: ', req.body)
-	console.log('req.body.city is: ', req.body.city)
-
-		var newPost = new db.Post({
+  db.Posts.findOne({cityName: req.body.cityName}, function(err, cityName){
+		var newPost = new db.Posts({
 			userIMG: req.body.userIMG,
 			user: req.body.user,
-			city: req.body.city,
 			title: req.body.title,
-			text: req.body.text,
-			date: req.body.date,
-			userID: req.body.userID
+	    text: req.body.text,
+	    date: req.body.date,
 		});
-
-		db.City.findOne({city: req.body.city}, function(err, city) {
-
-			// city returns null. Why? Shouldn't this be a matching db.City object, or at least an ID
-
-			if (err) {
-
-				console.log(err.message);
-
-			} else if (req.body.city === null) {
-
-					console.log('post create error: ${req.body.city} not found');
-
-			} else {
-
-				db.Post.create(newPost, function(err, newCreatedPost) {
-
-					if (err) {
-						console.log('post save error: ', err);
-					} else {
-						console.log('new created post: ', newCreatedPost);
-						res.json(newCreatedPost);
-					}
-
-				});
-
-		}
-	});
-};
+  if (err) {
+    return console.log(err);
+  }
+		newPost.cityName = cityName;
+     // save newBook to database
+     newPost.save(function(err, post){
+       if (err) {
+         return console.log("save error: " + err);
+       }
+       console.log("saved ", post.title);
+       res.json(post);
+     });
+   });
+ };
 
 function destroy(req, res) {
 
@@ -80,7 +65,7 @@ function destroy(req, res) {
 };
 
 
-// Updates a specific post in a specific city
+// Updates a specific post in a specific cityName
 function update(req, res) {
 
 
@@ -109,9 +94,9 @@ function update(req, res) {
 
 module.exports = {
 	index: index,
-	showPosts: showPosts,
-	create: create,
+	show: show,
 	showOne: showOne,
+	create: create,
 	destroy: destroy,
 	update: update
 }
