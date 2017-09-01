@@ -9,7 +9,6 @@ class CreatePostForm extends Component {
       title: '',
       text: '',
       date: Date,
-      userID: '',
       city: ''
     };
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -37,9 +36,6 @@ class CreatePostForm extends Component {
   	if (e.target.name === 'date') {
   		this.setState({ date: e.target.value });
     }
-      if (e.target.name === 'userID') {
-      this.setState({ userID: e.target.value });
-    }
 
   }
 
@@ -53,12 +49,11 @@ class CreatePostForm extends Component {
     let title = this.state.title.trim();
     let text = this.state.text.trim();
     let date = this.state.date;
-    let userID = this.state.userID.trim();
 
 
 
 
-    if (!userIMG || !user || !title || !text || !date || !userID ) {
+    if (!userIMG || !user || !title || !text || !date ) {
       return;
     }
     this.props.onCreatePostFormSubmit(
@@ -67,7 +62,6 @@ class CreatePostForm extends Component {
     	title: title,
     	text: text,
       date: Date,
-      userID: userID,
     });
     this.setState(
     {	userIMG: userIMG,
@@ -75,7 +69,6 @@ class CreatePostForm extends Component {
     	title: title,
     	text: text,
       date: Date,
-      userID: userID,
     });
 
     console.log('logging this.state: ', this.state);
@@ -119,9 +112,9 @@ class CreatePostForm extends Component {
   	        <input
               className='form-control'
   	          type='text'
-  	          name='userID'
+  	          name='user'
   	          placeholder='firebase userID'
-  	          value={ this.state.userID}
+  	          value={ this.state.user}
   	          onChange={ this.handleInputChange } /><br></br>
             <input
               className='form-control'

@@ -40,8 +40,6 @@ class PostsContainer extends Component {
 
 	handleNewPostSubmit(post){
 
-		post.city = this.props.routeParams.cityId;
-
 		console.log('reached handleNewPostSubmit');
 		let posts = this.state.posts;
 		console.log('posts is: ', posts);
@@ -67,7 +65,7 @@ class PostsContainer extends Component {
 handlePostDelete(id){
     $.ajax({
       method: 'DELETE',
-      url: '/api/cities/:cityId/posts/:postId'
+      url: `/api/cities/${this.props.routeParams.cityId}/posts/${this.props.routeParams.postId}`
 
 	    })
 	    .then((res) => {
@@ -81,7 +79,7 @@ handlePostDelete(id){
     //sends the posts id and new text to ou1 api
     $.ajax({
       method: 'PUT',
-      url:'/api/cities/:cityId/posts/:postId' ,
+			url: `/api/cities/${this.props.routeParams.cityId}/posts/${this.props.routeParams.postId}`,
       data: post
     })
     .then(res => {

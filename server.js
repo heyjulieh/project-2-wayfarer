@@ -11,10 +11,10 @@ var app = express(),
     router = express.Router();
 
 var databaseUrl = process.env.MONGODB_URI;
-mongoose.connect(databaseUrl || 'mongodb://localhost/wayfarer2-api')
+mongoose.connect(databaseUrl || 'mongodb://localhost/wayfarer-server')
 mongoose.Promise = global.Promise;
 
-app.set("port", process.env.PORT || 3001);
+app.set("port", process.env.PORT || 3000);
 
 // Express only serves static assets in production
 if (process.env.NODE_ENV === "production") {
@@ -48,7 +48,6 @@ app.put('/api/cities/:cityId/posts/:postId', controllers.posts.update);
 
 //use router config when we call /API
 //start server
-var port = process.env.PORT || 3000;
-app.listen(port, function() {
-    console.log(`api running on ${port}`);
+app.listen(app.get("port"), () => {
+  console.log(`Find the server at: http://localhost:${app.get("port")}/`); // eslint-disable-line no-console
 });
