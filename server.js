@@ -14,15 +14,17 @@ var databaseUrl = process.env.MONGODB_URI;
 mongoose.connect(databaseUrl || 'mongodb://localhost/wayfarer-server')
 mongoose.Promise = global.Promise;
 
-app.set("port", process.env.PORT || 3000);
+app.set("port", process.env.PORT || 3001);
 
 // Express only serves static assets in production
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
 //to config API to use body body-parser and look for JSON in req.body
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+
 
 //Prevent CORS errors
 app.use(function(req, res, next) {
@@ -31,10 +33,11 @@ app.use(function(req, res, next) {
   res.setHeader('Access-Control-Allow-Methods', 'GET,HEAD,OPTIONS,POST,PUT,DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
 
- //Remove caching
+  //Remove caching
   res.setHeader('Cache-Control', 'no-cache');
   next();
 });
+
 
 app.get('/api', controllers.api.index); //done
 app.get('/api/cities', controllers.city.index);
