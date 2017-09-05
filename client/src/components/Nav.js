@@ -1,5 +1,8 @@
 import React, {Component} from 'react'
 import { firebase, auth } from '../utils/firebase'
+import $ from 'jquery-ajax'
+import NavCity from './NavCity'
+
 
 // import { Link } from 'react-router-dom'
 class Nav extends Component {
@@ -9,8 +12,11 @@ class Nav extends Component {
 		this.state = {
 			pageName: 'Home',
 			currentUser: null,
-      loggedIn: false
+      loggedIn: false,
+			cities: []
 		}
+
+		this.loadCitiesFromServer = this.loadCitiesFromServer.bind(this);
     this.handleGetUserData = this.handleGetUserData.bind(this)
     this.loginButtonClicked = this.loginButtonClicked.bind(this)
     this.logoutButtonClicked = this.logoutButtonClicked.bind(this)
@@ -41,10 +47,17 @@ class Nav extends Component {
     auth.signInWithPopup(provider);
 	}
 
+	loadCitiesFromServer() {
+		$.ajax({
+			method: 'GET',
+			url: '/api/cities'
+		})
+		.then( res => this.setState({cities: res}))
+	}
+
   componentDidMount() {
-
+		this.loadCitiesFromServer();
     setInterval(this.handleGetUserData, 3000);
-
   }
 
   handleGetUserData() {
@@ -55,7 +68,6 @@ class Nav extends Component {
       console.log('clicked test button');
       this.props.onGetUserData(uData)
     }
-
   }
 
 	logoutButtonClicked(e) {
@@ -65,10 +77,18 @@ class Nav extends Component {
     auth.signOut();
 	}
 
-
-
-
 	render() {
+		console.log('nav props',this.state.cities);
+		let citiesArray = this.state.cities.map( (city) => {
+			return (
+					<NavCity
+						key={city._id}
+						city={city} />
+			)
+		});
+		let cityLink = `/cities/${this.state.cities._id}`
+
+
 		return(
 
 			<nav className="navbar">
@@ -87,12 +107,7 @@ class Nav extends Component {
                 <li className="dropdown">
                   <a className="dropdown-toggle" data-toggle="dropdown" href="#">Pick a City<span className="caret"></span></a>
                   <ul className="dropdown-menu">
-                    <li><a href="https://www.facebook.com">Amsterdam</a></li>
-                    <li><a href="https://www.twitter.com">Dubai</a></li>
-                    <li><a href="https://www.instagram.com">Reykjavik</a></li>
-										<li><a href="https://www.instagram.com">San Francisco</a></li>
-										<li><a href="https://www.instagram.com">Tokyo</a></li>
-
+                    <li><a href="#">{citiesArray}</a></li>
 
                       </ul>
                 </li>

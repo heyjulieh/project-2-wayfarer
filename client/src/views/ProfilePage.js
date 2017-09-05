@@ -22,7 +22,8 @@ class ProfilePage extends Component {
     return (
     <div>
       <Nav
-        onGetUserData={this.getUserData.bind(this)}/>
+        onGetUserData={this.getUserData.bind(this)}
+        routeParams={this.props.params}/>
       <ProfileHeader />
       <PostsContainer />
       <Footer />

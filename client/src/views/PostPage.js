@@ -18,7 +18,8 @@ class PostPage extends Component {
     return (
     <div className="postPage">
       <Nav
-        onGetUserData={this.getUserData.bind(this)}/>
+        onGetUserData={this.getUserData.bind(this)}
+        routeParams={this.props.params}/>
       <PostDetailContainer
         routeParams={this.props.params}
       />

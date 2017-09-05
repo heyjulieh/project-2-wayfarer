@@ -19,8 +19,8 @@ class City extends Component {
 
 			<div className={cardDivClass}>
 				<a href={cityLink}>
-				<img alt={this.props.city.name} src={this.props.city.imgURL}/>
-				<h3 className="cityCardName">{this.props.city.name}</h3>
+				<img alt={this.props.city.cityName} src={this.props.city.imgURL}/>
+				<h3 className="cityCardName">{this.props.city.cityName}</h3>
 				</a>
 			</div>
 

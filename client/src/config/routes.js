@@ -11,8 +11,8 @@ module.exports = (
 	<div>
   		<Route path='/' component={Home} />
   		<Route path='/user' component={ProfilePage} />
-  		<Route path='/cities/:cityName' component={CityPostPage}/>
-  		<Route path='/cities/:cityName/posts/:postId' component={PostPage}/>
+  		<Route path='/cities/:cityId' component={CityPostPage}/>
+  		<Route path='/cities/:cityId/posts/:postId' component={PostPage}/>
 	</div>
 )
 

@@ -1,17 +1,17 @@
 import React, {Component} from 'react'
-import City from './City'
+import NavCity from './NavCity'
 
-class CityList extends Component {
+class NavList extends Component {
 
 
 	render() {
 		console.log('props',this.props.cities);
 		let citiesArray = this.props.cities.map( (city) => {
 			return (
-					<City
+					<NavCity
 						key={city._id}
 						city={city}
-						className={city.type} />
+					 />
 			)
 		});
 
@@ -19,8 +19,6 @@ class CityList extends Component {
 
 			<div className="citiesGrid container-fluid">
 				<div className="row">
-				<h1>Explore Cities</h1>
-
 					{citiesArray}
 				</div>
 			</div>
@@ -29,4 +27,4 @@ class CityList extends Component {
 	}
 }
 
-export default CityList;
+export default NavList;

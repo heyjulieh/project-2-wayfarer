@@ -29,10 +29,11 @@ class PostsContainer extends Component {
 	loadPostsFromServer(){
 
 		// need to load posts from server
+		console.log('this.props.routeParams is', this.props.routeParams)
 		console.log('city id', this.props.routeParams.cityId);
 	    $.ajax({
 	      method: 'GET',
-	      url: `/api/cities/${this.props.routeParams.cityId}/posts`
+	      url: `/api/cities/${this.props.routeParams.cityName}/posts`
 	    })
 	    .then( (res) => {this.setState({posts: res})
 			})
