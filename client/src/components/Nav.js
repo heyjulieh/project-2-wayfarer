@@ -65,7 +65,6 @@ class Nav extends Component {
     var uData = this.state.currentUser;
 
     () => {
-      console.log('clicked test button');
       this.props.onGetUserData(uData)
     }
   }
@@ -78,7 +77,6 @@ class Nav extends Component {
 	}
 
 	render() {
-		console.log('nav props',this.state.cities);
 		let citiesArray = this.state.cities.map( (city) => {
 			return (
 					<NavCity
@@ -107,9 +105,8 @@ class Nav extends Component {
                 <li className="dropdown">
                   <a className="dropdown-toggle" data-toggle="dropdown" href="#">Pick a City<span className="caret"></span></a>
                   <ul className="dropdown-menu">
-                    <li><a href="#">{citiesArray}</a></li>
-
-                      </ul>
+                    <li>{citiesArray}</li>
+                  </ul>
                 </li>
               </ul>
               <ul className="nav navbar-nav navbar-right">

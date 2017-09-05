@@ -20,8 +20,7 @@ class CityPostPage extends Component {
     return (
     <div>
       <Nav
-        onGetUserData={this.getUserData.bind(this)}
-        routeParams={this.props.params}/>
+        onGetUserData={this.getUserData.bind(this)} />
       <PostsContainer
         routeParams={this.props.params}/>
       <Footer />

@@ -5,7 +5,6 @@ class CityList extends Component {
 
 
 	render() {
-		console.log('props',this.props.cities);
 		let citiesArray = this.props.cities.map( (city) => {
 			return (
 					<City
@@ -16,11 +15,9 @@ class CityList extends Component {
 		});
 
 		return(
-
 			<div className="citiesGrid container-fluid">
 				<div className="row">
-				<h1>Explore Cities</h1>
-
+					<h1>Explore Cities</h1>
 					{citiesArray}
 				</div>
 			</div>

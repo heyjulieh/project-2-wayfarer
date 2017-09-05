@@ -1,9 +1,6 @@
 import React, {Component} from 'react'
-
 import $ from 'jquery-ajax';
-
 import PostList from '../components/PostList'
-import Post from '../components/Post'
 import CreatePostForm from '../components/CreatePostForm'
 
 
@@ -33,11 +30,16 @@ class PostsContainer extends Component {
 		console.log('city id', this.props.routeParams.cityId);
 	    $.ajax({
 	      method: 'GET',
-	      url: `/api/cities/${this.props.routeParams.cityName}/posts`
+	      url: `/api/cities/${this.props.routeParams.cityId}/posts`
 	    })
 	    .then( (res) => {this.setState({posts: res})
 			})
-  	}
+  }
+	componentDidMount() {
+		this.loadPostsFromServer();
+		// setInterval(this.loadPostsFromServer, this.props.pollInterval);
+	}
+
 
 	handleNewPostSubmit(post){
 
@@ -90,11 +92,6 @@ handlePostDelete(id){
     })
   }
 
-  componentDidMount() {
-    this.loadPostsFromServer();
-    // setInterval(this.loadPostsFromServer, this.props.pollInterval);
-  }
-
 
 	render() {
 
@@ -103,18 +100,17 @@ handlePostDelete(id){
 		const testPost = this.state.posts[0]
 
 		console.log('targetPost is: ', testPost)
+		console.log('this state POSTS', this.state.posts)
 
 		return(
-
 			<div>
 				<PostList
-					cityName={targetPost[0]}
 					posts={this.state.posts}
 					onPostDelete={this.handlePostDelete}
-					onPostUpdate={this.handlePostUpdate}/>
+					onPostUpdate={this.handlePostUpdate} />
 				<CreatePostForm
-       				 onCreatePostFormSubmit={ this.handleNewPostSubmit } />
-       		</div>
+       		onCreatePostFormSubmit={this.handleNewPostSubmit} />
+      </div>
 		)
 	}
 }

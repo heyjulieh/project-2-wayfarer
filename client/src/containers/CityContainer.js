@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
 import $ from 'jquery-ajax'
 import CityList from '../components/CityList'
-import City from '../components/City'
-import Nav from '../components/Nav'
 
 class CityContainer extends Component {
 	constructor() {
