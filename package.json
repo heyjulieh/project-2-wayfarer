@@ -23,6 +23,7 @@
     "url": "https://github.com/heyjulieh/project-2-wayfarer"
   },
   "engines": {
-    "node": "7.7.4"
+    "node": "7.7.4",
+    "npm": "5.4.2"
   }
 }
