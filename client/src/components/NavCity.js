@@ -9,7 +9,7 @@ class NavCity extends Component {
 		return(
 
 			<div className="navCity">
-				<a href={cityLink}>
+				<a className= "cityLink" href={cityLink}>
 				<p className="navCity">{this.props.city.cityName}</p>
 				</a>
 			</div>

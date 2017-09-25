@@ -105,7 +105,7 @@ class Nav extends Component {
                 <li className="dropdown">
                   <a className="dropdown-toggle" data-toggle="dropdown" href="#">Pick a City<span className="caret"></span></a>
                   <ul className="dropdown-menu">
-                    <li>{citiesArray}</li>
+                    {citiesArray}
                   </ul>
                 </li>
               </ul>
