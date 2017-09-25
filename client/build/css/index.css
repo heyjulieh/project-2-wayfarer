@@ -163,6 +163,15 @@ footer p {
   margin-right: 10px;
   margin-left: 10px;
 }
+p.navCity {
+  color: black;
+  padding-left: 10px;
+}
+
+a.cityLink:hover, p.navCity:hover {
+  text-decoration: none;
+  color: darkgrey;
+}
 
 .glyphicon {
   margin-right: 8px;
