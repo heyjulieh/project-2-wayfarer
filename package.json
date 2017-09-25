@@ -3,19 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node server",
-    "heroku-postbuild": "cd react-ui/ && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "start": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "node server.js",
+    "client": "node start-client.js",
+    "dev": "echo \"This command has been deprecated. Use 'npm start'\" && exit 1"
   },
-  "cacheDirectories": [
-    "node_modules",
-    "react-ui/node_modules"
-  ],
   "dependencies": {
     "body-parser": "^1.17.1",
     "express": "^4.15.2",
     "firebase": "^3.9.0",
     "foreman": "^2.0.0",
     "mongoose": "^4.9.8"
+  },
+  "devDependencies": {
+    "concurrently": "3.1.0"
   },
   "repository": {
     "type": "git",

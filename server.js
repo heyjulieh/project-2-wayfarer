@@ -5,9 +5,8 @@ var express = require('express'),
     controllers = require('./controllers'),
     bodyParser = require('body-parser'),
     Posts = require('./models/posts'),//for the post schema when we build one
-    City = require('./models/city'),//for the city schema whn we build one
-    path = require('path');
-    
+    City = require('./models/city');//for the city schema whn we build one
+
 var app = express(),
     router = express.Router();
 
@@ -17,15 +16,10 @@ mongoose.Promise = global.Promise;
 
 app.set("port", process.env.PORT || 3001);
 
-// // Express only serves static assets in production
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static("client/build"));
-// }
-app.use(express.static(path.resolve(__dirname, '../react-ui/build')));
-app.get('*', function(request, response) {
-  response.sendFile(path.resolve(__dirname, '../react-ui/build', 'index.html'));
-});
-
+// Express only serves static assets in production
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
 //to config API to use body body-parser and look for JSON in req.body
 app.use(bodyParser.urlencoded({extended: true}));
