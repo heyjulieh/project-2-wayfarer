@@ -6,7 +6,8 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     Posts = require('./models/posts'),//for the post schema when we build one
     City = require('./models/city');//for the city schema whn we build one
-    // path = require('path');
+
+var path = require('path');
 
 var app = express(),
     router = express.Router();
@@ -39,9 +40,9 @@ app.use(function(req, res, next) {
   next();
 });
 
-// app.get('*', (req, res) => {
-//   res.sendFile(path.join(__dirname, '/client/build/index.html'));
-// });
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/client/build/index.html'));
+});
 
 app.get('/api', controllers.api.index); //done
 app.get('/api/cities', controllers.city.index);
@@ -53,8 +54,8 @@ app.get('/api/cities/:cityId/posts/:postId', controllers.posts.showOne); //done
 app.delete('/api/cities/:cityId/posts/:postId', controllers.posts.destroy);
 app.put('/api/cities/:cityId/posts/:postId', controllers.posts.update);
 
-//use router config when we call /API
-//start server
+// use router config when we call /API
+// start server
 app.listen(app.get("port"), () => {
   console.log(`Find the server at: http://localhost:${app.get("port")}/`); // eslint-disable-line no-console
 });
