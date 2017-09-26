@@ -7,7 +7,7 @@ class Post extends Component {
         console.log('POST PROPS', 'this.props.post');
         let formattedDate = this.props.post.date.split("T")[0];
         let truncatedText = this.props.post.text.substring(0, 350) + '…';
-        let postLink = `/cities/${this.props.post.cityName._id}/posts/${this.props.post._id}`
+        let postLink = `/api/cities/${this.props.post.cityName._id}/posts/${this.props.post._id}`
         console.log('POST USER', this.props.post.user);
         console.log('POST TITLE', this.props.post.title);
 
