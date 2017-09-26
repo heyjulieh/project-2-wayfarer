@@ -11,7 +11,7 @@ var app = express(),
     router = express.Router();
 
 var databaseUrl = process.env.MONGODB_URI;
-mongoose.connect(databaseUrl || 'mongodb://localhost/wayfarer-server')
+mongoose.connect(databaseUrl || 'mongodb://localhost/wayfarer1')
 mongoose.Promise = global.Promise;
 
 app.set("port", process.env.PORT || 3001);
