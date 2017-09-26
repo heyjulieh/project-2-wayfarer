@@ -40,10 +40,6 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '/client/build/index.html'));
-});
-
 app.get('/api', controllers.api.index); //done
 app.get('/api/cities', controllers.city.index);
 app.get('/api/cities/:cityId', controllers.city.show); //done
@@ -53,6 +49,11 @@ app.post('/api/posts', controllers.posts.create);
 app.get('/api/cities/:cityId/posts/:postId', controllers.posts.showOne); //done
 app.delete('/api/cities/:cityId/posts/:postId', controllers.posts.destroy);
 app.put('/api/cities/:cityId/posts/:postId', controllers.posts.update);
+
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '/client/build/index.html'));
+});
 
 // use router config when we call /API
 // start server
