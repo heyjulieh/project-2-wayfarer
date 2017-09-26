@@ -5,8 +5,8 @@ var express = require('express'),
     controllers = require('./controllers'),
     bodyParser = require('body-parser'),
     Posts = require('./models/posts'),//for the post schema when we build one
-    City = require('./models/city'),//for the city schema whn we build one
-    path = require('path');
+    City = require('./models/city');//for the city schema whn we build one
+    // path = require('path');
 
 var app = express(),
     router = express.Router();
