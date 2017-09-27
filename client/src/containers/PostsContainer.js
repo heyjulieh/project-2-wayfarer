@@ -49,20 +49,18 @@ class PostsContainer extends Component {
 		let newPost = posts.concat([post]);
 		console.log('newPost is: ', newPost)
 		this.setState({posts: newPost});
-		// use this once posts' data route is confirmed
-		//url: 'http://localhost:3001/api/cities/:cityId/posts'
 
 		$.ajax({
 			method: 'POST',
-			url: `/api/cities/${this.props.routeParams.cityId}/posts/`,
+			url: `/api/posts/`,
 			data: post
 		})
 		.then(res => {
 			console.log('res is: ', res)
 		}, err => {
 			console.error(err);
-			this.setState({posts: posts});
 		});
+
 	}
 
 handlePostDelete(id){
@@ -95,12 +93,12 @@ handlePostDelete(id){
 
 	render() {
 
-		const targetPost = this.state.posts.map(post => post.cityName)
-
-		const testPost = this.state.posts[0]
-
-		console.log('targetPost is: ', testPost)
-		console.log('this state POSTS', this.state.posts)
+		// const targetPost = this.state.posts.map(post => post.cityName)
+		//
+		// const testPost = this.state.posts[0]
+		//
+		// console.log('targetPost is: ', testPost)
+		// console.log('this state POSTS', this.state.posts)
 
 		return(
 			<div>
@@ -109,7 +107,8 @@ handlePostDelete(id){
 					onPostDelete={this.handlePostDelete}
 					onPostUpdate={this.handlePostUpdate} />
 				<CreatePostForm
-       		onCreatePostFormSubmit={this.handleNewPostSubmit} />
+       		onCreatePostFormSubmit={this.handleNewPostSubmit}
+					cityName={this.props.routeParams.cityId} />
       </div>
 		)
 	}

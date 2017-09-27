@@ -8,8 +8,8 @@ class CreatePostForm extends Component {
       user: '',
       title: '',
       text: '',
-      date: Date,
-      city: ''
+      date: Date.now(),
+      cityName: this.props.cityName
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleNewPostSubmit = this.handleNewPostSubmit.bind(this);
@@ -32,28 +32,18 @@ class CreatePostForm extends Component {
   	if (e.target.name === 'text') {
   		this.setState({ text: e.target.value });
   	}
-
-  	if (e.target.name === 'date') {
-  		this.setState({ date: e.target.value });
-    }
-
   }
 
-
   handleNewPostSubmit(e) {
-
     e.preventDefault();
-    //we will be tying this into the POST method in a bit
     let userIMG = this.state.userIMG.trim();
     let user = this.state.user.trim();
     let title = this.state.title.trim();
     let text = this.state.text.trim();
     let date = this.state.date;
+    let cityName = this.props.cityName
 
-
-
-
-    if (!userIMG || !user || !title || !text || !date ) {
+    if (!title || !text) {
       return;
     }
     this.props.onCreatePostFormSubmit(
@@ -61,20 +51,19 @@ class CreatePostForm extends Component {
     	user: user,
     	title: title,
     	text: text,
-      date: Date,
+      date: date,
+      cityName: cityName
     });
     this.setState(
     {	userIMG: userIMG,
     	user: user,
     	title: title,
-    	text: text,
-      date: Date,
+    	text: text
     });
-
-    console.log('logging this.state: ', this.state);
   }
 
   render() {
+    console.log('this city name is', this.props.cityName)
     return (
       <div className="container">
        <div className="form-group row">
@@ -109,23 +98,12 @@ class CreatePostForm extends Component {
   	          placeholder='Write your Post.....'
   	          value={ this.state.text }
   	          onChange={ this.handleInputChange } /><br></br>
-  	        <input
-              className='form-control'
-  	          type='text'
-  	          name='user'
-  	          placeholder='firebase userID'
-  	          value={ this.state.user}
-  	          onChange={ this.handleInputChange } /><br></br>
             <input
               className='form-control'
-              type='hidden'
-              name='date'
-              value={Date.now()} />
-            <input
-              className='form-control'
-              type='hidden'
-              name='city'
-              value={ this.props.city } />
+  	          type='hidden'
+  	          name='cityName'
+  	          value={ this.props.cityName }
+  	          onChange={ this.handleInputChange } />
   	        <button
   	          type='submit'
               className='btn btn-primary'
