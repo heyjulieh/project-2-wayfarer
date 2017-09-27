@@ -50,9 +50,11 @@ class PostsContainer extends Component {
 		console.log('newPost is: ', newPost)
 		this.setState({posts: newPost});
 		// use this once posts' data route is confirmed
+		//url: 'http://localhost:3001/api/cities/:cityId/posts'
+
 		$.ajax({
 			method: 'POST',
-			url: `/api/cities/${this.props.routeParams.cityId}/posts`,
+			url: `/api/posts/`,
 			data: post
 		})
 		.then(res => {

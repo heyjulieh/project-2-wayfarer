@@ -44,8 +44,8 @@ app.get('/api', controllers.api.index); //done
 app.get('/api/cities', controllers.city.index);
 app.get('/api/cities/:cityId', controllers.city.show); //done
 app.get('/api/posts', controllers.posts.index); //done
-app.get('/api/cities/:cityId/posts', controllers.posts.show); //done
-app.post('/api/cities/:cityId/posts', controllers.posts.create);
+app.get('/api/cities/:cityName/posts', controllers.posts.show); //done
+app.post('/api/posts', controllers.posts.create);
 app.get('/api/cities/:cityId/posts/:postId', controllers.posts.showOne); //done
 app.delete('/api/cities/:cityId/posts/:postId', controllers.posts.destroy);
 app.put('/api/cities/:cityId/posts/:postId', controllers.posts.update);

@@ -9,6 +9,7 @@ class CreatePostForm extends Component {
       title: '',
       text: '',
       date: Date.now(),
+      cityName: ''
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleNewPostSubmit = this.handleNewPostSubmit.bind(this);
@@ -61,11 +62,12 @@ class CreatePostForm extends Component {
     	user: user,
     	title: title,
     	text: text,
-      date: date
+      date: date,
     });
   }
 
   render() {
+    console.log('this city name is', this.props.cityName)
     return (
       <div className="container">
        <div className="form-group row">
