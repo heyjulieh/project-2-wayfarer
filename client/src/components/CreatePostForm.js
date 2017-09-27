@@ -9,7 +9,7 @@ class CreatePostForm extends Component {
       title: '',
       text: '',
       date: Date.now(),
-      cityName: ''
+      cityName: this.props.cityName
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleNewPostSubmit = this.handleNewPostSubmit.bind(this);
@@ -32,19 +32,16 @@ class CreatePostForm extends Component {
   	if (e.target.name === 'text') {
   		this.setState({ text: e.target.value });
   	}
-
   }
 
-
   handleNewPostSubmit(e) {
-
     e.preventDefault();
-    //we will be tying this into the POST method in a bit
     let userIMG = this.state.userIMG.trim();
     let user = this.state.user.trim();
     let title = this.state.title.trim();
     let text = this.state.text.trim();
     let date = this.state.date;
+    let cityName = this.props.cityName
 
     if (!title || !text) {
       return;
@@ -55,14 +52,13 @@ class CreatePostForm extends Component {
     	title: title,
     	text: text,
       date: date,
-      cityName: this.props.cityName
+      cityName: cityName
     });
     this.setState(
     {	userIMG: userIMG,
     	user: user,
     	title: title,
-    	text: text,
-      date: date,
+    	text: text
     });
   }
 
@@ -102,6 +98,12 @@ class CreatePostForm extends Component {
   	          placeholder='Write your Post.....'
   	          value={ this.state.text }
   	          onChange={ this.handleInputChange } /><br></br>
+            <input
+              className='form-control'
+  	          type='hidden'
+  	          name='cityName'
+  	          value={ this.props.cityName }
+  	          onChange={ this.handleInputChange } />
   	        <button
   	          type='submit'
               className='btn btn-primary'
