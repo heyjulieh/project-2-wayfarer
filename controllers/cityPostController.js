@@ -31,7 +31,10 @@ function showOne(req, res) {
 
 // Create a new post at /api/posts
 function create(req, res) {
-  db.Posts.findOne({cityName: req.body.cityName}, function(err, cityName){
+	console.log('Hello before cityName')
+  db.Posts.find({cityName: req.body.cityName}, function(err, cityName){
+		console.log('req.body.cityName.id is', req.body.cityName);
+		console.log('Hello after cityName')
 		var newPost = new db.Posts({
 			userIMG: req.body.userIMG,
 			user: req.body.user,
@@ -43,7 +46,7 @@ function create(req, res) {
     return console.log(err);
   }
 		newPost.cityName = cityName;
-     // save newBook to database
+     // save new ciy to database
      newPost.save(function(err, post){
        if (err) {
          return console.log("save error: " + err);
