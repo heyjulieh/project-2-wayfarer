@@ -20,8 +20,7 @@ class PostPage extends Component {
       <Nav
         onGetUserData={this.getUserData.bind(this)}/>
       <PostDetailContainer
-        routeParams={this.props.params}
-      />
+        routeParams={this.props.params}/>
       <Footer />
     </div>
     )
