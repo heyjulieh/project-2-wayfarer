@@ -3,7 +3,6 @@ var db = require('../models');
 // Shows all posts in /api/posts
 function index(req, res) {
 	db.Posts.find({})
-    .populate('cityName')
     .exec(function(error, posts) {
       if (error) { res.send(error) };
       res.json(posts);
@@ -14,7 +13,6 @@ function index(req, res) {
 function show(req, res) {
 	var cityName = req.params.cityName;
   db.Posts.find({cityName: cityName})
-	.populate('cityName')
 	.exec(function(error, posts) {
 		if (error) { res.send(error) };
 		res.json(posts);
@@ -31,19 +29,20 @@ function showOne(req, res) {
 
 // Create a new post at /api/posts
 function create(req, res) {
-  db.Posts.findOne({cityName: req.body.cityName}, function(err, cityName){
-		var newPost = new db.Posts({
-			userIMG: req.body.userIMG,
-			user: req.body.user,
-			title: req.body.title,
-	    text: req.body.text,
-	    date: req.body.date,
-		});
+	var newPost = new db.Posts({
+		userIMG: req.body.userIMG,
+		user: req.body.user,
+		title: req.body.title,
+		text: req.body.text,
+		date: req.body.date,
+		cityName: req.body.cityName
+	});
+
+  db.City.findOne({cityName: req.body.cityName}, function(err, cityName){
+		console.log('cityName in findOne is: ', req.body.cityName);
   if (err) {
     return console.log(err);
   }
-		newPost.cityName = cityName;
-     // save newBook to database
      newPost.save(function(err, post){
        if (err) {
          return console.log("save error: " + err);
