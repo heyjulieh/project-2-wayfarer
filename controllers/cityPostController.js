@@ -43,7 +43,6 @@ function create(req, res) {
   if (err) {
     return console.log(err);
   }
-     // save new ciy to database
      newPost.save(function(err, post){
        if (err) {
          return console.log("save error: " + err);
