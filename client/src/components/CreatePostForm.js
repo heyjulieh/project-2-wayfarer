@@ -55,27 +55,27 @@ class CreatePostForm extends Component {
     return (
       <div className="container">
        <div className="form-group row">
-       <h3 className="formheader">Add your post</h3>
-  	    <form className="cityList-form" onSubmit={ this.handleNewPostSubmit }>
-  	        <input
+        <h3 className="formheader">Add your post</h3>
+        <form className="cityList-form" onSubmit={ this.handleNewPostSubmit }>
+            <input
               className='form-control'
-  	          type='text'
-  	          name='title'
-  	          placeholder='Choose a Title…'
-  	          value={ this.state.title }
-  	          onChange={ this.handleInputChange } /><br></br>
-  	        <textarea
+              type='text'
+              name='title'
+              placeholder='Choose a Title…'
+              value={ this.state.title }
+              onChange={ this.handleInputChange } /><br></br>
+            <textarea
               className='form-control'
               rows='8'
-  	          type='text'
-  	          name='text'
-  	          placeholder='Write your Post.....'
-  	          value={ this.state.text }
-  	          onChange={ this.handleInputChange } /><br></br>
-  	        <button
-  	          type='submit'
+              type='text'
+              name='text'
+              placeholder='Write your Post.....'
+              value={ this.state.text }
+              onChange={ this.handleInputChange } /><br></br>
+            <button
+              type='submit'
               className='btn btn-primary'
-  	          value='Post'>Submit</button>
+              value='Post'>Submit</button>
   	    </form>
        </div>
      </div>

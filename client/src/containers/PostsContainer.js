@@ -137,7 +137,7 @@ handlePostDelete(id){
 			)
 		}
 		return(
-			<div>
+			<div id="wrapper">
 				<PostList
 					posts={this.state.posts}
 					onPostDelete={this.handlePostDelete}

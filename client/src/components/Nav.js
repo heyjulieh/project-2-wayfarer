@@ -74,6 +74,7 @@ class Nav extends Component {
 	}
 
 	render() {
+		let loggedIn = this.state.loggedIn;
 		let citiesArray = this.state.cities.map( (city) => {
 			return (
 					<NavCity
@@ -82,18 +83,18 @@ class Nav extends Component {
 			)
 		});
 
-		return(
-			<nav className="navbar">
-              <div className="container-fluid">
-                <div className="navbar-header">
-									<a href="/" className="navbar-brand" ><h4><img src="https://image.flaticon.com/icons/png/512/56/56059.png" height="50px" alt="traveler logo"/>WAYFARER</h4></a>
-                  	<button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-	                    <span className="icon-bar"></span>
-	                    <span className="icon-bar"></span>
-	                    <span className="icon-bar"></span>
-                  	</button>
-            		</div>
-
+		if(loggedIn){
+			return(
+				<nav className="navbar">
+          <div className="container-fluid">
+            <div className="navbar-header">
+							<a href="/" className="navbar-brand" ><h4><img src="https://image.flaticon.com/icons/png/512/56/56059.png" height="50px" alt="traveler logo"/>WAYFARER</h4></a>
+              	<button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span className="icon-bar"></span>
+                  <span className="icon-bar"></span>
+                  <span className="icon-bar"></span>
+              	</button>
+        		</div>
             <div className="collapse navbar-collapse" id="myNavbar">
               <ul className="nav navbar-nav">
                 <li className="dropdown">
@@ -105,15 +106,40 @@ class Nav extends Component {
               </ul>
               <ul className="nav navbar-nav navbar-right">
                 <li id="userName">{this.state.currentUser && this.state.currentUser.displayName}</li>
-                <li><a onClick={this.loginButtonClicked}>
-                <span className="glyphicon glyphicon-log-in" ></span>Login</a></li>
                 <li><a onClick={this.logoutButtonClicked}><span className="glyphicon glyphicon-log-out" ></span>Logout</a></li>
               </ul>
-
             </div>
           </div>
         </nav>
-
+			)
+		}
+		return(
+			<nav className="navbar">
+        <div className="container-fluid">
+          <div className="navbar-header">
+						<a href="/" className="navbar-brand" ><h4><img src="https://image.flaticon.com/icons/png/512/56/56059.png" height="50px" alt="traveler logo"/>WAYFARER</h4></a>
+            	<button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
+                <span className="icon-bar"></span>
+            	</button>
+      		</div>
+          <div className="collapse navbar-collapse" id="myNavbar">
+            <ul className="nav navbar-nav">
+              <li className="dropdown">
+                <a className="dropdown-toggle" data-toggle="dropdown" href="#">Pick a City<span className="caret"></span></a>
+                <ul className="dropdown-menu">
+                  {citiesArray}
+                </ul>
+              </li>
+            </ul>
+            <ul className="nav navbar-nav navbar-right">
+              <li id="userName">{this.state.currentUser && this.state.currentUser.displayName}</li>
+              <li><a onClick={this.loginButtonClicked}><span className="glyphicon glyphicon-log-in" ></span>Login</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 		)
 	}
 }

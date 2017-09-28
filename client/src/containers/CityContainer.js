@@ -25,9 +25,11 @@ class CityContainer extends Component {
 
 	render() {
 		return(
+			<div id="wrapper">
 				<CityList
 					cities={this.state.cities}
 				/>
+			</div>
 		)
 	}
 }

@@ -65,13 +65,13 @@ class PostDetailContainer extends Component {
 
 	render() {
 		return(
-
-			<PostDetail
-				post={ this.state.post }
-				onPostUpdate={this.handlePostUpdate}
-				onPostDelete={this.handlePostDelete}
-			/>
-
+			<div id="wrapper">
+				<PostDetail
+					post={ this.state.post }
+					onPostUpdate={this.handlePostUpdate}
+					onPostDelete={this.handlePostDelete}
+				/>
+			</div>
 		)
 	}
 
