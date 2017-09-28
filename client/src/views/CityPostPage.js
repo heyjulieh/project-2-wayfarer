@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Nav from '../components/Nav'
 import PostsContainer from '../containers/PostsContainer'
 import Footer from '../components/Footer'
-import CreatePostForm from '../components/CreatePostForm'
 
 class CityPostPage extends Component {
   constructor() {

@@ -9,7 +9,6 @@ class CityContainer extends Component {
 			cities: []
 		}
 		this.loadCitiesFromServer = this.loadCitiesFromServer.bind(this);
-
 	}
 
 	loadCitiesFromServer() {

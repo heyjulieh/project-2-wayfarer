@@ -14,7 +14,7 @@ class Post extends Component {
 
             <div className="postCard col-sm-12 col-md-12 col-lg-12">
                 <div className="userSection col-sm-12 col-md-3 col-lg-3">
-                    <img className="postImage img-circle img-responsive center-block" src={this.props.post.userIMG}></img>
+                    <img className="postImage img-circle img-responsive center-block" src={this.props.post.userIMG} alt="user"></img>
                     <h3 className="postUser">{this.props.post.user}</h3>
                 </div>
                 <div className="postSection col-sm-12 col-md-9 col-lg-9">

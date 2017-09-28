@@ -4,31 +4,21 @@ class CreatePostForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      userIMG: '',
-      user: '',
+      userIMG: this.props.currentUser,
+      user: this.props.currentUser,
       title: '',
       text: '',
       date: Date.now(),
-      cityName: this.props.cityName
+      cityName: this.props.cityName,
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleNewPostSubmit = this.handleNewPostSubmit.bind(this);
   }
 
   handleInputChange(e) {
-
-  	if (e.target.name === 'userIMG') {
-  		this.setState({ userIMG: e.target.value });
-  	}
-
-  	if (e.target.name === 'user') {
-  		this.setState({ user: e.target.value });
-  	}
-
   	if (e.target.name === 'title') {
   		this.setState({ title: e.target.value });
   	}
-
   	if (e.target.name === 'text') {
   		this.setState({ text: e.target.value });
   	}
@@ -36,28 +26,26 @@ class CreatePostForm extends Component {
 
   handleNewPostSubmit(e) {
     e.preventDefault();
-    let userIMG = this.state.userIMG.trim();
-    let user = this.state.user.trim();
+    let cityName = this.props.cityName;
+    let userIMG = this.props.currentUser.photoURL;
+    let user = this.props.currentUser.displayName;
     let title = this.state.title.trim();
     let text = this.state.text.trim();
     let date = this.state.date;
-    let cityName = this.props.cityName
 
     if (!title || !text) {
-      return;
+        return;
     }
     this.props.onCreatePostFormSubmit(
-    {	userIMG: userIMG,
+    {	cityName: cityName,
+      userIMG: userIMG,
     	user: user,
     	title: title,
     	text: text,
-      date: date,
-      cityName: cityName
+      date: date
     });
     this.setState(
-    {	userIMG: userIMG,
-    	user: user,
-    	title: title,
+    {	title: title,
     	text: text
     });
   }
@@ -69,20 +57,6 @@ class CreatePostForm extends Component {
        <div className="form-group row">
        <h3 className="formheader">Add your post</h3>
   	    <form className="cityList-form" onSubmit={ this.handleNewPostSubmit }>
-  	        <input
-              className='form-control'
-  	          type='text'
-  	          name='userIMG'
-  	          placeholder='Link to your profile image…'
-  	          value={ this.state.userIMG }
-  	          onChange={ this.handleInputChange } /><br></br>
-  	        <input
-              className='form-control'
-  	          type='text'
-  	          name='user'
-  	          placeholder='Enter your name…'
-  	          value={ this.state.user }
-  	          onChange={ this.handleInputChange } /><br></br>
   	        <input
               className='form-control'
   	          type='text'
@@ -98,12 +72,6 @@ class CreatePostForm extends Component {
   	          placeholder='Write your Post.....'
   	          value={ this.state.text }
   	          onChange={ this.handleInputChange } /><br></br>
-            <input
-              className='form-control'
-  	          type='hidden'
-  	          name='cityName'
-  	          value={ this.props.cityName }
-  	          onChange={ this.handleInputChange } />
   	        <button
   	          type='submit'
               className='btn btn-primary'

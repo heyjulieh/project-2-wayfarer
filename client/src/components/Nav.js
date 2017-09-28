@@ -10,7 +10,7 @@ class Nav extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			pageName: 'Home',
+			pageName: '',
 			currentUser: null,
       loggedIn: false,
 			cities: []
@@ -29,11 +29,10 @@ class Nav extends Component {
         console.log('Logged in:', currentUser);
         // set currentUser in App component state
         this.setState({ currentUser });
-        // currentUserData=currentUser;
-        // console.log(currentUserData);
-        console.log(this.state, "logging");
+				this.setState({ loggedIn: true });
       } else {
         this.setState({ currentUser: null });
+				this.setState({ loggedIn: false});
       }
     })
   }
@@ -61,9 +60,7 @@ class Nav extends Component {
   }
 
   handleGetUserData() {
-
     var uData = this.state.currentUser;
-
     () => {
       this.props.onGetUserData(uData)
     }
@@ -84,15 +81,12 @@ class Nav extends Component {
 						city={city} />
 			)
 		});
-		let cityLink = `/cities/${this.state.cities._id}`
-
 
 		return(
-
 			<nav className="navbar">
               <div className="container-fluid">
                 <div className="navbar-header">
-									<a href="/" className="navbar-brand" ><h4><img src="https://image.flaticon.com/icons/png/512/56/56059.png" height="50px"/>WAYFARER</h4></a>
+									<a href="/" className="navbar-brand" ><h4><img src="https://image.flaticon.com/icons/png/512/56/56059.png" height="50px" alt="traveler logo"/>WAYFARER</h4></a>
                   	<button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
 	                    <span className="icon-bar"></span>
 	                    <span className="icon-bar"></span>
