@@ -1,11 +1,14 @@
 import React, {Component} from 'react'
 import $ from 'jquery-ajax'
 import PostDetail from '../components/PostDetail'
+import { auth } from '../utils/firebase'
 
 class PostDetailContainer extends Component {
 	constructor() {
 		super();
 		this.state = {
+			currentUser: null,
+			loggedIn: false,
 			post: [],
 			city: []
 		}
@@ -13,8 +16,23 @@ class PostDetailContainer extends Component {
 		this.loadPostFromServer = this.loadPostFromServer.bind(this);
 		this.handlePostUpdate = this.handlePostUpdate.bind(this);
 		this.handlePostDelete = this.handlePostDelete.bind(this);
+		this.handleGetUserData = this.handleGetUserData.bind(this);
 		this.loadCityFromServer = this.loadCityFromServer.bind(this);
 	}
+
+	componentWillMount() {
+		auth.onAuthStateChanged(currentUser => {
+			if (currentUser) {
+				// set currentUser in App component state
+				this.setState({ currentUser });
+				this.setState({ loggedIn: true });
+			} else {
+				this.setState({ currentUser: null });
+				this.setState({ loggedIn: false });
+			}
+		})
+	}
+
 
 	loadCityFromServer() {
 		$.ajax({
@@ -60,10 +78,19 @@ class PostDetailContainer extends Component {
 	componentDidMount() {
 		this.loadPostFromServer();
 		this.loadCityFromServer();
-		setInterval(this.loadPostsFromServer, this.loadCityFromServer, this.props.pollInterval)
+		setInterval(this.loadPostsFromServer, this.loadCityFromServer, this.handleGetUserData, this.props.pollInterval)
+	}
+
+	handleGetUserData() {
+		var uData = this.state.currentUser;
+		() => {
+			this.props.onGetUserData(uData)
+		}
 	}
 
 	render() {
+		console.log('this.state.currentUser is: ', this.state.currentUser)
+
 		return(
 			<div className="postPage">
 				<PostDetail
@@ -75,6 +102,8 @@ class PostDetailContainer extends Component {
 					onPostUpdate={this.handlePostUpdate}
 					onPostDelete={this.handlePostDelete}
 					city={this.state.city.cityName}
+					currentUser={this.state.currentUser}
+					loggedIn={this.state.loggedIn}
 				/>
 			</div>
 		)
