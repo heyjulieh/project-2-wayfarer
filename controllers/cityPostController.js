@@ -9,9 +9,9 @@ function index(req, res) {
     });
 };
 
-// Shows all posts in /api/cities/:cityName/posts route (cityName = cityId)
+// Shows all posts in /api/cities/:cityId/posts route
 function show(req, res) {
-	var cityName = req.params.cityName;
+	var cityName = req.params.cityId;
   db.Posts.find({cityName: cityName})
 	.exec(function(error, posts) {
 		if (error) { res.send(error) };
@@ -66,19 +66,13 @@ function destroy(req, res) {
 
 // Updates a specific post in a specific cityName
 function update(req, res) {
-
-
-	db.Post.findOne({city: req.params.cityId, _id: req.params.postId}, function (err, updatePost) {
+	db.Post.findOne({city: req.params.cityName, _id: req.params.postId}, function (err, updatePost) {
 
 		console.log('updatePost is: ', updatePost)
 		// updatePost = req.body;
 
-
-		updatePost.user = req.body.user;
-		updatePost.userIMG = req.body.userIMG;
 		updatePost.title = req.body.title;
 		updatePost.text = req.body.text;
-		updatePost.city = req.params.cityId;
 
 		updatePost.save(function(err, updatedPost) {
 			if (err) {

@@ -15,7 +15,6 @@ body {
   /* Pad bottom by footer height */
   padding: 0 0 60px;
 }
-
 h1 {
     font-family: 'Eczar', sans-serif;
     font-weight: 800;
@@ -23,7 +22,6 @@ h1 {
     letter-spacing: 1px;
     color: black;
 }
-
 h2 {
   font-family: 'Quicksand', sans-serif;
   font-weight: 400;
@@ -75,15 +73,12 @@ nav h4 {
   margin-top: 0;
   color: white;
 }
-
 nav img {
   margin-left: -15px;
   margin-right: 30px;
   margin-top: -8px;
 }
-
 footer a {
-  display: block;
   height: 30px;
   text-decoration: none;
   text-transform: uppercase;
@@ -118,20 +113,17 @@ footer {
   width: 100%;
   font-family: 'Quicksand', sans-serif;
   bottom: 0;
-  bottom: 0;
   padding: 10px;
 }
 .container {
   width: 100%;
 }
-
 footer ul {
   padding-left: 10px;
   display: inline-block;
   list-style: none;
   margin-top: 10px;
 }
-
 footer p {
   margin-top: 10px;
 }
@@ -166,7 +158,6 @@ footer p {
   font-weight: 400;
   font-size: 16px;
 }
-
 .dropdown-toggle {
   font-size: 18px;
   margin-right: 10px;
@@ -176,30 +167,21 @@ p.navCity {
   color: black;
   padding-left: 10px;
 }
-
 a.cityLink:hover, p.navCity:hover {
   text-decoration: none;
   color: lightgrey;
 }
-
 .glyphicon {
   margin-right: 8px;
-
-
 }
-
 .navbar-toggle {
   background-color: lightgrey;
   opacity: 0.8;
 }
-
-
 .navbar-collapse {
   margin-top: 10px;
   background-color: #d6b0b3;
 }
-
-
 .icon-bar {
   background-color: black;
 }
@@ -211,7 +193,6 @@ a.cityLink:hover, p.navCity:hover {
   text-transform: uppercase;
   font-family: 'Work Sans', sans-serif;
 }
-
 .btn-primary:focus {
   background-color: #d6b0b3;
   color: white;
@@ -219,7 +200,6 @@ a.cityLink:hover, p.navCity:hover {
   text-transform: uppercase;
   font-family: 'Work Sans', sans-serif;
 }
-
 .btn-primary:hover {
   background-color: black;
   color: white;
@@ -227,7 +207,6 @@ a.cityLink:hover, p.navCity:hover {
   text-transform: uppercase;
   font-family: 'Work Sans', sans-serif;
 }
-
 .btn-primary:active {
   background-color: white;
   color: black;
@@ -235,7 +214,6 @@ a.cityLink:hover, p.navCity:hover {
   text-transform: uppercase;
   font-family: 'Work Sans', sans-serif;
 }
-
 .btn-primary:visited {
   background-color: #d6b0b3;
   color: black;
@@ -243,7 +221,6 @@ a.cityLink:hover, p.navCity:hover {
   text-transform: uppercase;
   font-family: 'Work Sans', sans-serif;
 }
-
 .form-group {
   background-color: white;
   margin-top: 20px;
@@ -251,11 +228,9 @@ a.cityLink:hover, p.navCity:hover {
   border-radius: 10px;
   border: 0px white solid;
 }
-
 .form-control {
   font-family: 'Quicksand', sans-serif;
 }
-
 .formheader {
   display: inline-block;
   margin-bottom: 40px;
@@ -266,8 +241,6 @@ a.cityLink:hover, p.navCity:hover {
 }
 
 /*   I D S   */
-
-
 #userName {
   margin-left: 15px;
   margin-top: 15px;
@@ -276,11 +249,8 @@ a.cityLink:hover, p.navCity:hover {
 }
 
 /*   C O M P O N E N T S   */
-
 /*   Jumbotron   */
-
 .hero-bg {
-
   background-image: url('../images/cities/homepage.jpg');
   width: 100%;
   height: 100%;
@@ -295,9 +265,7 @@ a.cityLink:hover, p.navCity:hover {
   -moz-animation: background-image 20s ease forwards;
   background-attachment: fixed;
   background-repeat: no-repeat;
-
 }
-
 .hero {
   top: 0;
   left: 0;
@@ -310,7 +278,6 @@ a.cityLink:hover, p.navCity:hover {
   position: relative;
   z-index: -2;
 }
-
 .hero h1 {
     font-family: 'Eczar', sans-serif;
     font-weight: 800;
@@ -323,7 +290,6 @@ a.cityLink:hover, p.navCity:hover {
     font-size: 25px;
     letter-spacing: 1px;
 }
-
 .hero-content {
   width: 100%;
   height: 300px;
@@ -336,26 +302,18 @@ a.cityLink:hover, p.navCity:hover {
 }
 
 /*   CityCards   */
-
 .citiesGrid {
-
   margin: 0;
   padding-bottom: 60px;
-
 }
-
 .citiesGrid h1 {
-
   padding-bottom: 40px;
   text-align: center;
-
 }
-
 .cityCard img {
   width: 100%;
   margin: 5px 0px -50px 0px;
 }
-
 .cityCard h3 {
   font-family: 'Eczar', sans-serif;
   font-weight: 800;
@@ -370,83 +328,61 @@ a.cityLink:hover, p.navCity:hover {
   display: inline-block;
   margin-top: -80px;
   padding: 30px;
-
 }
 
 /*   ProfileCards   */
-
 .postsList {
   padding: 150px 0px 0px 0px;
   margin-bottom: 35px;
-
 }
 
 h1.cityTitle {
-
   text-align: center;
   font-size: 4.5em;
-
 }
-
 .postCard {
   margin-top: 50px;
   background-color: #fbf1f1;
   padding: 0;
 }
-
-
 .userSection {
   background-color: #f6e4e4;
   padding: 0px;
   margin: 0px;
-
 }
-
 .postSection {
-
   padding: 50px;
   background-color: #fbf1f1;
-
 }
 
 .postImage {
-
   width: 200px;
   margin-top: 40px;
-
 }
 
 .postcard h3 a {
-
   color: #000000;
   padding: 20px;
-
 }
 
 .postCard h4 {
-
   padding: 20px;
-
 }
 
 .postCard p {
-
   font-family: 'Work Sans', sans-serif;
   font-weight: 200;
   font-size: 1.75rem;
   line-height: 24px;
   width: 80%;
-
 }
 
 .postCardDetail {
-
   margin-top: 150px;
   display: block;
   background-color: #fbf1f1;
   margin-bottom: 60px;
   padding: 0;
-
 }
 
 .postCardDetail button {
@@ -455,23 +391,19 @@ h1.cityTitle {
 }
 
 .postText {
-
-    font-family: 'Work Sans', sans-serif;
-    font-weight: 200;
-    font-size: 1.75rem;
-    line-height: 24px;
-    width: 80%;
+  font-family: 'Work Sans', sans-serif;
+  font-weight: 200;
+  font-size: 1.75rem;
+  line-height: 24px;
+  width: 80%;
 }
 
 .postDate {
-
   padding-top: 10px;
-
 }
 
 
 /*   A N I M A T I O N   */
-
 .scroll a {
   position: absolute;
   bottom: 30px;
@@ -485,11 +417,9 @@ h1.cityTitle {
   text-decoration: none;
   transition: opacity .3s;
 }
-
 .scroll a:hover {
   opacity: .5;
 }
-
 #hero-scroll a {
   padding-top: 70px;
 }
@@ -544,21 +474,15 @@ h1.cityTitle {
     transform-origin: bottom;
     transform: scale(1.0);
     -ms-transform: scale(1.0);
-
     -webkit-transform: scale(1.0);
-
     -o-transform: scale(1.0);
-
     -moz-transform: scale(1.0);
   }
   100% {
     transform: scale(1.2);
     -ms-transform: scale(1.2);
-
     -webkit-transform: scale(1.2);
-
     -o-transform: scale(1.2);
-
     -moz-transform: scale(1.2);
   }
 }

@@ -11,9 +11,6 @@ module.exports = (
   		<Route path='/' component={Home} />
   		<Route path='/user' component={ProfilePage} />
   		<Route path='/cities/:cityId' component={CityPostPage}/>
-  		<Route path='/cities/:cityId/posts/:postId' component={PostPage}/>
+  		<Route path='/cities/:cityName/posts/:postId' component={PostPage}/>
 	</div>
 )
-
-// get :uid from nav bar (firebase)
-// add :uid to to user route path

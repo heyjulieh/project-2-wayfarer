@@ -16,12 +16,13 @@ class PostPage extends Component {
 
   render() {
     return (
-    <div className="postPage">
+    <div>
       <Nav
         onGetUserData={this.getUserData.bind(this)}/>
       <PostDetailContainer
         routeParams={this.props.params}
-        onGetUserData={this.getUserData.bind(this)}/>
+        onGetUserData={this.getUserData.bind(this)}
+        />
       <Footer />
     </div>
     )
