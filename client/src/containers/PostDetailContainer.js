@@ -44,7 +44,7 @@ class PostDetailContainer extends Component {
 	handlePostUpdate(targetPost) {
 		$.ajax({
 			method: 'PUT',
-			url: `http://localhost:3001/api/cities/${this.props.routeParams.cityName}/posts/${this.props.routeParams.postId}`,
+			url: `/api/cities/${this.props.routeParams.cityName}/posts/${this.props.routeParams.postId}`,
 			data: targetPost
 		})
 		.then((res) => {
