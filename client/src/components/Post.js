@@ -1,4 +1,3 @@
-console.log('This is from Post.js')
 import React, {Component} from 'react'
 
 class Post extends Component {

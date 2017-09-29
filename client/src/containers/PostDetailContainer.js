@@ -27,13 +27,12 @@ class PostDetailContainer extends Component {
 			// find the post within the returned res.posts that matches our URL post id
 			this.setState({post: res})
 		})
-
 	}
 
 	handlePostDelete(targetPost) {
 		$.ajax({
 			method: 'DELETE',
-			url: `/api/cities/${this.props.routeParams.cityName}/posts/${this.props.routeParams.postId}`,
+			url: `http://localhost:3001/api/cities/${this.props.routeParams.cityName}/posts/${this.props.routeParams.postId}`,
 			data: targetPost
 		})
 		.then((res) => {

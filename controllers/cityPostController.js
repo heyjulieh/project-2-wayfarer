@@ -53,20 +53,18 @@ function create(req, res) {
    });
  };
 
-function destroy(req, res) {
-
-	console.log('made it to empty destroy function')
-
-	db.Post.remove({_id: req.params.postId}, function (err, foundPost) {
-			if (err)
-				res.send(err);
-		});
-};
+ function destroy(req, res) {
+	 console.log('made it to destroy function')
+   db.Posts.remove({_id: req.params.postId}, function(error, post) {
+     if (error) { res.send(error) };
+     res.json({ message: 'post has been deleted' })
+   });
+ }
 
 
 // Updates a specific post in a specific cityName
 function update(req, res) {
-	db.Post.findOne({city: req.params.cityName, _id: req.params.postId}, function (err, updatePost) {
+	db.Posts.findOne({city: req.params.cityName, _id: req.params.postId}, function (err, updatePost) {
 
 		console.log('updatePost is: ', updatePost)
 		// updatePost = req.body;
