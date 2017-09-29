@@ -368,6 +368,12 @@ h1.cityTitle {
   padding: 50px;
   background-color: #fbf1f1;
 }
+.postCity {
+  text-align: left;
+  font-family: 'Eczar', sans-serif;
+  padding-bottom: 0px;
+  padding-top: 0px;
+}
 .postImage {
   width: 200px;
   margin-top: 40px;

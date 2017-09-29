@@ -4,24 +4,29 @@ import PostList from '../components/PostList'
 import CreatePostForm from '../components/CreatePostForm'
 import { auth } from '../utils/firebase'
 
-
-
 class PostsContainer extends Component {
-
-	// Research Prop.types
-	// Check to see if username is being passed in as a prop
-
 	constructor(props) {
 		super(props);
 		this.state = {
 			currentUser: null,
 			loggedIn: false,
-			posts: []
+			posts: [],
+			city: []
 		};
 
 		this.loadPostsFromServer = this.loadPostsFromServer.bind(this);
 		this.handleNewPostSubmit = this.handleNewPostSubmit.bind(this);
 		this.handleGetUserData = this.handleGetUserData.bind(this);
+		this.loadCityFromServer = this.loadCityFromServer.bind(this);
+
+	}
+
+	loadCityFromServer() {
+		$.ajax({
+			method: 'GET',
+			url: `/api/cities/${this.props.routeParams.cityId}`
+		})
+		.then( res => this.setState({city: res}))
 	}
 
 	loadPostsFromServer(){
@@ -35,7 +40,6 @@ class PostsContainer extends Component {
 	componentWillMount() {
     auth.onAuthStateChanged(currentUser => {
       if (currentUser) {
-        console.log('Logged in at Posts Container:', currentUser);
         // set currentUser in App component state
         this.setState({ currentUser });
 				this.setState({ loggedIn: true });
@@ -47,6 +51,7 @@ class PostsContainer extends Component {
   }
 	componentDidMount() {
 		this.loadPostsFromServer();
+		this.loadCityFromServer();
 		// setInterval(this.loadPostsFromServer, this.props.pollInterval);
 		setInterval(this.handleGetUserData, 3000);
 	}
@@ -59,14 +64,10 @@ class PostsContainer extends Component {
   }
 
 	handleNewPostSubmit(post){
-		console.log('reached handleNewPostSubmit');
 		let posts=this.state.posts;
-		console.log('posts is: ', posts);
 		let newPost=posts.concat([post]);
-		console.log('newPost is: ', newPost)
 		this.setState({posts: newPost});
 		let currentUser=this.state.currentUser;
-		console.log('currentUser of new post is: ', currentUser)
 
 		$.ajax({
 			method: 'POST',
@@ -94,7 +95,7 @@ handlePostDelete(id){
 	    });
 	}
     handlePostUpdate(id, post) {
-    //sends the posts id and new text to ou1 api
+    //sends the posts id and new text to our api
     $.ajax({
       method: 'PUT',
 			url: `/api/cities/${this.props.routeParams.cityId}/posts/${this.props.routeParams.postId}`,
@@ -107,22 +108,13 @@ handlePostDelete(id){
     })
   }
 
-
 	render() {
-
-		// const targetPost = this.state.posts.map(post => post.cityName)
-		//
-		// const testPost = this.state.posts[0]
-		//
-		// console.log('targetPost is: ', testPost)
-		console.log('this state POSTS', this.state.posts)
-		console.log('userData in PostsContainer is: ', this.state.currentUser)
-		console.log('this user is logged in: ', this.state.loggedIn)
 		let loggedIn = this.state.loggedIn;
 		if(loggedIn){
 			return(
 				<div>
 					<PostList
+						city={this.state.city.cityName}
 						posts={this.state.posts}
 						onPostDelete={this.handlePostDelete}
 						onPostUpdate={this.handlePostUpdate} />

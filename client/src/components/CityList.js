@@ -2,8 +2,6 @@ import React, {Component} from 'react'
 import City from './City'
 
 class CityList extends Component {
-
-
 	render() {
 		let citiesArray = this.props.cities.map( (city) => {
 			return (
@@ -21,7 +19,6 @@ class CityList extends Component {
 					{citiesArray}
 				</div>
 			</div>
-
 		)
 	}
 }

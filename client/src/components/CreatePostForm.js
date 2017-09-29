@@ -51,7 +51,6 @@ class CreatePostForm extends Component {
   }
 
   render() {
-    console.log('this city name is', this.props.cityName)
     return (
       <div className="container">
        <div className="form-group row">

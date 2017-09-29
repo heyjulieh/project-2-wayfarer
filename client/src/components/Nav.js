@@ -3,10 +3,7 @@ import { firebase, auth } from '../utils/firebase'
 import $ from 'jquery-ajax'
 import NavCity from './NavCity'
 
-
-// import { Link } from 'react-router-dom'
 class Nav extends Component {
-
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -15,18 +12,15 @@ class Nav extends Component {
       loggedIn: false,
 			cities: []
 		}
-
 		this.loadCitiesFromServer = this.loadCitiesFromServer.bind(this);
     this.handleGetUserData = this.handleGetUserData.bind(this)
     this.loginButtonClicked = this.loginButtonClicked.bind(this)
     this.logoutButtonClicked = this.logoutButtonClicked.bind(this)
-
 	}
 
 	componentWillMount() {
     auth.onAuthStateChanged(currentUser => {
       if (currentUser) {
-        console.log('Logged in:', currentUser);
         // set currentUser in App component state
         this.setState({ currentUser });
 				this.setState({ loggedIn: true });
@@ -41,7 +35,6 @@ class Nav extends Component {
     e.preventDefault();
     // set up provider
     const provider = new firebase.auth.GoogleAuthProvider();
-    console.log("signing in")
     // tell Firebase auth to log in with a popup and that provider
     auth.signInWithPopup(provider);
 	}
@@ -69,7 +62,6 @@ class Nav extends Component {
 	logoutButtonClicked(e) {
     e.preventDefault();
     // tell Firebase auth to log out
-    console.log("signing out");
     auth.signOut();
 	}
 

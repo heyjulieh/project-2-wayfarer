@@ -2,10 +2,7 @@ import React, {Component} from 'react'
 import NavCity from './NavCity'
 
 class NavList extends Component {
-
-
 	render() {
-		console.log('props',this.props.cities);
 		let citiesArray = this.props.cities.map( (city) => {
 			return (
 					<NavCity
@@ -16,13 +13,11 @@ class NavList extends Component {
 		});
 
 		return(
-
 			<div className="citiesGrid container-fluid">
 				<div className="row">
 					{citiesArray}
 				</div>
 			</div>
-
 		)
 	}
 }

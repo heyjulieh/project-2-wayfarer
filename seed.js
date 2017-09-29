@@ -1,4 +1,3 @@
-console.log("Here's the data");
 var db = require('./models');
 
 var cities_list = [
@@ -111,7 +110,6 @@ var posts_list = [
 ];
 
 db.City.remove({}, function(err, cities) {
-console.log('removed all cities');
 	db.City.create(cities_list, function(err, cities) {
 		if (err) {
 			console.log(err);

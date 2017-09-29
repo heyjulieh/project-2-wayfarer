@@ -39,7 +39,6 @@ function create(req, res) {
 	});
 
   db.City.findOne({cityName: req.body.cityName}, function(err, cityName){
-		console.log('cityName in findOne is: ', req.body.cityName);
   if (err) {
     return console.log(err);
   }
@@ -67,12 +66,8 @@ function update(req, res) {
  		if (err) {
 			res.send(err)
 		};
-		console.log('updatePost is: ', updatePost)
-		// updatePost = req.body;
-
 		updatePost.title = req.body.title;
 		updatePost.text = req.body.text;
-
 		updatePost.save(function(err, updatedPost) {
 			if (err) {
 				console.log('post save error: ', err);

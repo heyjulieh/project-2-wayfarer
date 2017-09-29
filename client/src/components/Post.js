@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 class Post extends Component {
 
     render() {
-        let formattedDate = this.props.post.date.split("T")[0];
+        let formattedDate = new Date(this.props.post.date).toLocaleString();
         let truncatedText = this.props.post.text.substring(0, 350) + '…';
         let postLink = `/cities/${this.props.post.cityName}/posts/${this.props.post._id}`
 

@@ -11,7 +11,6 @@ class PostDetail extends Component {
         text: this.props.post.text,
         editMode: false
     }
-    console.log('cityName from postdetail', this.props.post.cityName)
     this.deletePost = this.deletePost.bind(this)
     this.updatePost = this.updatePost.bind(this);
     this.handleUpdatePost = this.handleUpdatePost.bind(this)
@@ -29,7 +28,6 @@ class PostDetail extends Component {
 
   deletePost(e) {
     let targetPost = this.state;
-    console.log('This is the targetPost to delete: ', this.state)
     e.preventDefault();
     var result = confirm("Are you sure you want to delete this post?");
     if (result) {
@@ -63,8 +61,6 @@ class PostDetail extends Component {
   }
 
   render() {
-    console.log('this.state', this.state)
-    let postLink = `/cities/${this.props.post.cityName}/posts/${this.props.post._id}`
     return(
       <div>
         <div className="postCardDetail col-sm-12 col-md-12 col-lg-12">
@@ -74,8 +70,9 @@ class PostDetail extends Component {
             </div>
             <div className="postSection col-sm-12 col-md-9 col-lg-9">
                 <h1 className="postTitle">{this.props.post.title}</h1>
+                <h3 className="postCity">{this.props.city}</h3>
                 <p className="postText">{this.props.post.text}</p>
-                <h6 className="postDate">Posted on: {this.props.post.date}</h6>
+                <h6 className="postDate">Posted on: {new Date(this.props.post.date).toLocaleString()}</h6>
                 <button className='btn btn-default' onClick={this.updatePost}><span className="glyphicon glyphicon-pencil" aria-hidden="true"></span>EDIT</button>
                 <button className='btn btn-warning' onClick={this.deletePost}><span className="glyphicon glyphicon-trash" aria-hidden="true"></span>DELETE</button>
             </div>
