@@ -21,9 +21,6 @@ class PostsContainer extends Component {
 
 		this.loadPostsFromServer = this.loadPostsFromServer.bind(this);
 		this.handleNewPostSubmit = this.handleNewPostSubmit.bind(this);
-		//this.handlePostSubmit = this.handlePostSubmit.bind(this);
-		// this.handlePostDelete = this.handlePosttDelete.bind(this);
-		// this.handlePostUpdate = this.handlePostUpdate.bind(this);
 		this.handleGetUserData = this.handleGetUserData.bind(this);
 	}
 
@@ -81,6 +78,7 @@ class PostsContainer extends Component {
 		}, err => {
 			console.error(err);
 		});
+		location.reload();
 	}
 
 handlePostDelete(id){

@@ -4,6 +4,9 @@ class PostDetail extends Component {
     super(props)
     this.state={
         cityName: this.props.post.cityName,
+        user: this.props.post.user,
+        userIMG: this.props.post.userIMG,
+        date: this.props.post.date,
         title: this.props.post.title,
         text: this.props.post.text,
         editMode: false
@@ -41,19 +44,21 @@ class PostDetail extends Component {
 
   handleUpdatePost(e) {
     e.preventDefault();
-    let id = this.props.post._id
-    let title = (this.state.title) ? this.state.title : null;
-    let text = (this.state.text) ? this.state.text : null;
-    let post = { title:title, text: text};
+    let title = this.state.title
+    let text = this.state.text
+    let targetPost = this.state;
 
     if (!title || !text) {
       return;
     }
-    this.props.onPostUpdate(id, post);
+    this.props.onPostUpdate(targetPost);
     this.setState({
         editMode: !this.state.editMode,
         title: '',
         text: '',
+        user: this.state.user,
+        userIMG: this.state.userIMG,
+        date: Date.now()
     })
   }
 

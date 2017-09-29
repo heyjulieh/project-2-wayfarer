@@ -54,7 +54,6 @@ function create(req, res) {
  };
 
  function destroy(req, res) {
-	 console.log('made it to destroy function')
    db.Posts.remove({_id: req.params.postId}, function(error, post) {
      if (error) { res.send(error) };
      res.json({ message: 'post has been deleted' })
@@ -64,8 +63,10 @@ function create(req, res) {
 
 // Updates a specific post in a specific cityName
 function update(req, res) {
-	db.Posts.findOne({city: req.params.cityName, _id: req.params.postId}, function (err, updatePost) {
-
+	db.Posts.findById(req.params.postId, function (err, updatePost) {
+ 		if (err) {
+			res.send(err)
+		};
 		console.log('updatePost is: ', updatePost)
 		// updatePost = req.body;
 
