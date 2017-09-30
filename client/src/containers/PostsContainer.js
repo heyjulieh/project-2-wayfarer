@@ -127,11 +127,10 @@ handlePostDelete(id){
 			)
 		}
 		return(
-			<div id="wrapper">
-				<PostList
-					posts={this.state.posts}
-					onPostDelete={this.handlePostDelete}
-					onPostUpdate={this.handlePostUpdate} />
+			<div>
+			<PostList
+				city={this.state.city.cityName}
+				posts={this.state.posts}/>
       </div>
 		)
 	}
